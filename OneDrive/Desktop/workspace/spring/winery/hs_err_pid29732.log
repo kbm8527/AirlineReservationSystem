@@ -1,0 +1,201 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 132120576 bytes for Failed to commit area from 0x0000000082400000 to 0x000000008a200000 of length 132120576.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./open/src/hotspot/os/windows/os_windows.cpp:3315), pid=29732, tid=30516
+#
+# JRE version:  (14.0.2+12) (build )
+# Java VM: OpenJDK 64-Bit Server VM (14.0.2+12-46, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: C:\Users\kbm85\AppData\Local\Temp\surefire7647446332209271111\surefirebooter6664497321277477168.jar C:\Users\kbm85\AppData\Local\Temp\surefire7647446332209271111 2020-10-19T00-27-32_070-jvmRun1 surefire13421814547565126922tmp surefire_04773822633618878770tmp
+
+Host: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz, 8 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.546)
+Time: Mon Oct 19 00:27:32 2020 대한민국 표준시 elapsed time: 0 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000224c1c88800):  JavaThread "Unknown thread" [_thread_in_vm, id=30516, stack(0x000000ba8f300000,0x000000ba8f400000)]
+
+Stack: [0x000000ba8f300000,0x000000ba8f400000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x5f8a9a]
+V  [jvm.dll+0x74247a]
+V  [jvm.dll+0x743c2f]
+V  [jvm.dll+0x744273]
+V  [jvm.dll+0x20d288]
+V  [jvm.dll+0x5f5dea]
+V  [jvm.dll+0x5eac45]
+V  [jvm.dll+0x2c7e9c]
+V  [jvm.dll+0x2c7cd2]
+V  [jvm.dll+0x2cdbbc]
+V  [jvm.dll+0x313fe8]
+V  [jvm.dll+0x313710]
+V  [jvm.dll+0x2a092a]
+V  [jvm.dll+0x2a1a79]
+V  [jvm.dll+0x71fd48]
+V  [jvm.dll+0x321c14]
+V  [jvm.dll+0x70112c]
+V  [jvm.dll+0x392def]
+V  [jvm.dll+0x394e61]
+C  [jli.dll+0x524b]
+C  [ucrtbase.dll+0x214c2]
+C  [KERNEL32.DLL+0x17034]
+C  [ntdll.dll+0x4cec1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007fff123b3038, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x00000224c1cce000 GCTaskThread "GC Thread#0" [stack: 0x000000ba8f400000,0x000000ba8f500000] [id=9756]
+  0x00000224c1cdf000 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000ba8f500000,0x000000ba8f600000] [id=21508]
+  0x00000224c1ce2800 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000ba8f600000,0x000000ba8f700000] [id=3684]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fff11be1257]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000224c1c77790] Heap_lock - owner thread: 0x00000224c1c88800
+
+Heap address: 0x0000000082400000, size: 2012 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (2 events):
+Event: 0.013 Loaded shared library C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932\jre\bin\java.dll
+Event: 0.013 Loaded shared library C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932\jre\bin\zip.dll
+
+
+Dynamic libraries:
+0x00007ff6ba2e0000 - 0x00007ff6ba2ed000 	C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932\jre\bin\java.exe
+0x00007fff7d790000 - 0x00007fff7d986000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007fff7bfc0000 - 0x00007fff7c07d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007fff7b0b0000 - 0x00007fff7b378000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007fff7aee0000 - 0x00007fff7afe0000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007fff73d60000 - 0x00007fff73d78000 	C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932\jre\bin\jli.dll
+0x00007fff73cc0000 - 0x00007fff73cd5000 	C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932\jre\bin\VCRUNTIME140.dll
+0x00007fff7b980000 - 0x00007fff7bb20000 	C:\WINDOWS\System32\USER32.dll
+0x00007fff7afe0000 - 0x00007fff7b002000 	C:\WINDOWS\System32\win32u.dll
+0x00007fff7bf30000 - 0x00007fff7bf5a000 	C:\WINDOWS\System32\GDI32.dll
+0x00007fff7b640000 - 0x00007fff7b749000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007fff7b010000 - 0x00007fff7b0ad000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007fff68890000 - 0x00007fff68b2b000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.488_none_ca04af081b815d21\COMCTL32.dll
+0x00007fff7d5e0000 - 0x00007fff7d67e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007fff7d470000 - 0x00007fff7d4a0000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007fff50370000 - 0x00007fff5040b000 	C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932\jre\bin\msvcp140.dll
+0x00007fff11930000 - 0x00007fff1244e000 	C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932\jre\bin\server\jvm.dll
+0x00007fff7c270000 - 0x00007fff7c31a000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007fff7b8e0000 - 0x00007fff7b97b000 	C:\WINDOWS\System32\sechost.dll
+0x00007fff7c140000 - 0x00007fff7c264000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007fff7bcd0000 - 0x00007fff7bcd8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007fff683b0000 - 0x00007fff683b9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007fff5be70000 - 0x00007fff5be97000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007fff74870000 - 0x00007fff7487a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007fff7bec0000 - 0x00007fff7bf2b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007fff79810000 - 0x00007fff79822000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007fff769a0000 - 0x00007fff769aa000 	C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932\jre\bin\jimage.dll
+0x00007fff793a0000 - 0x00007fff79584000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007fff70900000 - 0x00007fff7092c000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007fff7b400000 - 0x00007fff7b47f000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007fff73d80000 - 0x00007fff73da5000 	C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932\jre\bin\java.dll
+0x00007fff73d40000 - 0x00007fff73d56000 	C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932\jre\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932\jre\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.488_none_ca04af081b815d21;C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932\jre\bin\server
+
+VM Arguments:
+java_command: C:\Users\kbm85\AppData\Local\Temp\surefire7647446332209271111\surefirebooter6664497321277477168.jar C:\Users\kbm85\AppData\Local\Temp\surefire7647446332209271111 2020-10-19T00-27-32_070-jvmRun1 surefire13421814547565126922tmp surefire_04773822633618878770tmp
+java_class_path (initial): C:\Users\kbm85\AppData\Local\Temp\surefire7647446332209271111\surefirebooter6664497321277477168.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 132120576                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2109734912                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 2109734912                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_251
+PATH=C:/Users/kbm85/OneDrive/Desktop/sts-4.8.0.RELEASE//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932/jre/bin/server;C:/Users/kbm85/OneDrive/Desktop/sts-4.8.0.RELEASE//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_14.0.2.v20200815-0932/jre/bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\kbm85\AppData\LocalLow\Oracle\Java\jdk14.0.1_x64\bin;C:\Program Files\Java\jdk1.8.0_251\bin;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Python38\Scripts\;C:\Python38\;C:\Users\kbm85\AppData\Local\Microsoft\WindowsApps;C:\Users\kbm85\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Bandizip\;;C:\Users\kbm85\OneDrive\Desktop\sts-4.8.0.RELEASE;
+USERNAME=kbm85
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 19041 (10.0.19041.546)
+OS uptime: 1 days 15:53 hours
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 12, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma
+
+Memory: 4k page, system-wide physical 8043M (756M free)
+TotalPageFile size 14043M (AvailPageFile size 128M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 60M, peak: 186M
+
+vm_info: OpenJDK 64-Bit Server VM (14.0.2+12-46) for windows-amd64 JRE (14.0.2+12-46), built on Jul  9 2020 00:31:16 by "mach5one" with MS VC++ 15.9 (VS2017)
+
+END.

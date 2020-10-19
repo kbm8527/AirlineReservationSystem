@@ -17,27 +17,34 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <link rel="stylesheet" th:href="@{/css/index.css}">
-    <link rel="stylesheet" th:href="@{/css/cart.css}">
-    <link rel="stylesheet" th:href="@{/css/contact.css}">
-    <link rel="stylesheet" th:href="@{/css/login.css}">
-    <link rel="stylesheet" th:href="@{/css/signup.css}">
- 
+    <link rel="stylesheet" th:href="@{/css/list.css}">
+    <link rel="stylesheet" th:href="@{/css/winelist.css}">
+   
     
+ 
     <!-- 제이쿼리 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
+ 
+  	<!-- 슬릭 js -->
+    	
+	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+	
     <!-- 헤더 js -->
     <script type="text/javascript" th:src="@{/js/index.js}"></script>
-    <script type="text/javascript" th:src="@{/js/modal.js}"></script>
-    <script type="text/javascript" th:src="@{/js/review.js}"></script>
-    <script type="text/javascript" th:src="@{/js/scroll.js}"></script>
-    <script type="text/javascript" th:src="@{/js/signup.js}"></script>
-    <script type="text/javascript" th:src="@{/js/slider.js}"></script>
+	<script type="text/javascript" th:src="@{/js/slider.js}"></script>
+	<script type="text/javascript" th:src="@{/js/scroll.js}"></script>
+	
+	
 
+	
 
     <style>
     </style>
- 
+   
     
 </head>
 <body>
@@ -45,18 +52,20 @@
     
         <div>
             <!-- 헤더 영역 시작-->
-                 <header th:insert="/fragments/_header.html::_header"></header>
+                 <header th:insert="fragments/header.html::header"></header>
           	<!-- 헤더 영역 꿑-->
            
             <!--메인 영역 -->
           <main layout:fragment="content"></main>
 
             <!--푸터 영역 시작 -->
-           		<footer th:insert="/fragments/_footer.html::_footer"></footer>
+           		<footer th:insert="fragments/footer.html::footer"></footer>
             <!--푸터 영역 끝-->
           
         </div>
     </div>
-  
+ 
 </body>
+ 
 </html>
+

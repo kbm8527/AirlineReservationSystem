@@ -37,10 +37,223 @@
             </div>
         </header>
         <main>
+            <div>
+                <div>
+                    <div>
+                        <h1>로그인</h1>
+                    </div>
+                    <!--로그인 폼 시작-->
+                    <form action="#">
+                        <div class="wrap_login">
+                            <div>
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <span>로그인</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span>비회원 예약조회</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="inner">
+                                <div class="check_login">
+                                    <input type="radio" checked>
+                                    <label for="loginTypeID">아이디 로그인</label>
+                                    <input type="radio">
+                                    <label for="loginTypeAC">회원번호 로그인</label>
+                                </div>
+                                <div class="input_wrap">
+                                    <input type="text" placeholder="아이디 입력" title="아이디 입력ㄴ">
+                                    <input type="password" placeholder="비밀번호 입력">
+                                </div>
+                                <div class="saveid">
+                                    <input type="checkbox" id="saveID">
+                                    <label for="saveID" id="labelID">아이디 저장</label>
+                                </div>
+                                <div class="loginbtn_wrap">
+                                    <button type="button" id="loginBtn">로그인</button>
 
+                                </div>
+                                <div class="login_info">
+                                    <div class="left">
+                                        <ul class="login_link">
+                                            <li>
+                                                <a href="#" id="serchID">
+                                                    <span>아이디 찾기</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" id="serchAccNum">
+                                                    <span>회원번호 찾기</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" id="serchPW">
+                                                    <span>비밀번호 찾기</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="right">
+                                        <button type="button" id="Register">회원가입</button>
+                                    </div>
+                                </div>
+                                <div class="snsBtn">
+                                    <ul>
+                                        <li class="kakao_btn">
+                                            <a href="#">
+                                                <strong>카카오톡</strong>
+                                                간편로그인
+                                            </a>
+                                        </li>
+                                        <li class="kakao_btn">
+                                            <a href="#">
+                                                <strong>구글</strong>
+                                                간편로그인
+                                            </a>
+                                        </li>
+                                        <li class="kakao_btn">
+                                            <a href="#">
+                                                <strong>네이버</strong>
+                                                간편로그인
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--비로그인 예약조회 시작-->
+                            <div class="inner">
+                                <h4>비로그인 예약조회</h4>
+                                <div class="input_wrap">
+                                    <input type="text" placeholder="예약번호 입력 ex)">
+                                    <div class="itinerary">
+                                        <div class="itinerary_cal">
+                                            <div class="calender_warp">
+                                                <label for="sCalender" class="spot">탑승일 선택</label>
+                                                <input type="text" id="sCalender" autocomplete="off" data-type="single">
+                                                <a href="#" class="btn_airport">
+                                                    <span class="hidden">탑승일 선택 달력보기</span>
+                                                </a>
+                                                <div class="roundtrip">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </div>
+                                            <div class="calendar_layer">
+                                                <h3 class="hidden">달력 </h3>
+                                                <div class="calendar_top">
+                                                    <select name="#" id="" title="탑승연도 및 월"></select>
+                                                    <option value=""></option>
+                                                </div>
+                                                <div class="compareCalendar"></div>
+                                                <a href="#" class="cal_status">가는날</a>
+                                                <a href="#" class="cal_reset">
+                                                    <span class="hidden">달력 새로고침</span>
+                                                </a>
+                                                <a href="#" class="cal_close">
+                                                    <span class="hidden">닫기</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="itinerary select">
+                                            <input type="hidden" id="departureArea">
+                                            <input type="hidden" id="departureArea">
+                                            <input type="hidden" id="departureArea">
+                                            <label for="departuareAirport" name="departuareAirport">출발지 선택</label>
+                                            <input type="text" id="departureAirport" name="departureAirport" class="spotentry" title="출발지 입력">
+                                            <input type="hidden" name="default">
+                                            <a href="#" class="airporttype" name="btnlayer" onclick="javascript:showAirportLayer(this)">
+                                                <span class="hidden">전체도시보기</span>
+                                            </a>
+                                            <div class="shadow_layer search_flight" name="shadow_layer" style="display: none;">
+                                                <div class="inner">
+                                                    <div class="route_list serch_auto" id="" name="search_auto">
+                                                        <p class="title">자동완성</p>
+                                                        <div class="empty_box" name="empty_box">매칭되는 공항이 없습니다.</div>
+                                                    </div>
+                                                    <input type="hidden" name="default">
+                                                    <button type="button" class="btnpopup" title="전체도시보기 새창으로 열기">전체도시보기</button>
+                                                </div>
+                                                <a href="#" class="layer close">
+                                                    <span class="hidden">닫기</span>
+                                                </a>
+                                        
+                                            </div>
+                                        </div>
+                                        <input type="text" id="passengerName" placeholder="예약 시 입력한 영문/국문 성(Last Name) 입력" title="">
+                                    </div>
+                                    <div class="login_btnwrap">
+                                        <button type="button" id="btnNoLogin" class="btn_L red">예약조회</button>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </main>
+       
+       
+       
         <footer>
-
+            <div class="inner">
+                <div class="menu_wrap">
+                    <dl>
+                        <dt>
+                            <a href="#">회사소개</a>
+                        </dt>
+                        <dd>
+                            <ul>
+                                <li>
+                                    <a href="#">xx항공 소개</a>
+                                </li>
+                                <li>
+                                    <a href="#">홍보채널</a>
+                                </li>
+                                <li>
+                                    <a href="#">제휴 항공사</a>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+                <address>
+                    <ul>
+                        <li>
+                            <ul>
+                                <li>
+                                    <strong class="crop">항공(주)</strong>
+                                    사장 김보미
+                                </li>
+                                <li>
+                                    사업자등록변호
+                                    <a href="#"></a>
+                                </li>
+                                <li>
+                                    통신판매업 신고 제 1111
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li>부산시 수영구</li>
+                                <li>
+                                    예약 1222-1111 / 02-3333-2222
+                                </li>
+                                <li>
+                                    xx클럽 1300-1111
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </address>
+            </div>
         </footer>
     </div>
 </body>

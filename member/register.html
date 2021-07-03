@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+<body>
+    <div id="whole">
+        <header></header>
+        <main>
+            <div class="container">
+                <div class="mem_wrap">
+                    <div>
+                        <h3 class="member_title">회원정보 입력</h3>
+                        <p class="text">회원님의 개인정보를 입력해주시기 바랍니다.</p>    
+                        <div class="title_wrap">
+                            <div class="f">
+                                <h4 class="f">회원정보 입력</h4>
+                            </div>
+                        </div>
+                        <table class="table_form">
+                            <tr>
+                                <th scope="row">
+                                    <span class="critical">필수항목</span>
+                                    아이디
+                                </th>
+                                <td>
+                                    <input type="text" class="input" name="userID" placeholder="아이디 입력" title="아이디 입력">
+                                    <span class="btn">
+                                        <input type="button" value="중복확인"  title="중복확인 팝업 열기">
+                                    </span>
+                                    <span class="txt">영문 대소문자, 숫자, 4~12자리</span>
+                                  
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <span class="critical">필수항목</span>
+                                    비밀번호
+                                </th>
+                                <td>
+                                    <input type="password" class="input" name="passwd" placeholder="비밀번호 입력" title="비밀번호 입력">
+                                    <span class="btn">
+                                        영어, 숫자, 특수문자 중 2가지 이상 필수, 개인정보(ID, 전화번호, 생년월일)는 제외, 최소 10자리 이상
+                                    </span>
+                                    <span class="txt">영문 대소문자, 숫자, 4~12자리</span>
+                                  
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <span class="critical">필수항목</span>
+                                    비밀번호확인
+                                </th>
+                                <td>
+                                    <input id="passwd_check" type="password" class="input" name="passwd_check" placeholder="비밀번호 확인" title="비밀번호 확인">
+                                 
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <span class="critical">필수항목</span>
+                                    한글이름
+                                </th>
+                                <td>
+                                    <input id="passwd_check" type="text" class="input" name="passwd_check" placeholder="한글 이름 입력" title="한글 이름 입력">
+                                 
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <span class="critical">필수항목</span>
+                                    한글 성
+                                </th>
+                                <td>
+                                    <input id="passwd_check" type="text" class="input" name="passwd_check" placeholder="한글 성 입력" title="한글 성 입력">
+                                 
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <span class="critical">필수항목</span>
+                                    영문이름
+                                </th>
+                                <td>
+                                    <p>
+                                        <input type="text" id="lastName" name="lastName" class="input" placeholder="성(Family Name)" title="성(Family Name)">
+                                        <span class="txt">예)KIM</span>
+                                    </p>
+                                    <p>
+                                        <input type="text" id="firstName" name="farstName" class="input" placeholder="이름(Family Name)" title="이름(Family Name)">
+                                        <span class="txt">예)BOMI</span>
+                                    </p>
+                                    <p class="annotation">
+                                        영문이름 입력 시 여권상 기재된 영문ㄴ이름과 일치하게 입력하세요. (공백없이 입력)
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <span class="critical">필수항목</span>
+                                    생년월일
+                                </th>
+                                <td>
+                                    <input type="text" class="input" name="birthDate1" value="1990" maxlength="4" placeholder="생년월일 년" title="생년월일 년">
+                                    년
+                                    <input type="text" class="input" name="birthDate2" value="01" maxlength="2" placeholder="생년월일 월" title="생년월일 년">
+                                    월
+                                    <input type="text" class="input" name="birthDate3" value="22" maxlength="2" placeholder="생년월일 일" title="생년월일 년">
+                                    일
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <span class="critical">필수항목</span>
+                                    연락처
+                                </th>
+                                <td>
+                                   <select name="mobile" id="" title="국가/지역번호">
+                                        <option value="">국가/지역번호</option>
+                                        <option value="82">(82) 대한민국</option>
+                                        <option value="82">(82) 대한민국</option>
+                                        <option value="82">(82) 대한민국</option>
+                                        <option value="82">(82) 대한민국</option>
+                                        <option value="82">(82) 대한민국</option>
+                                    </select>
+                                    <span class="txt">-</span>
+                                    <input type="text" id="mobile1" name="monile1" class="input" title="연락처 앞자리" maxlength="3">
+                                    <span class="txt">-</span>
+                                    <input type="text" id="mobile2" name="monile1" class="input" title="연락처 중간자리" maxlength="4">
+                                    <span class="txt">-</span>
+                                    <input type="text" id="mobile3" name="monile1" class="input" title="연락처 뒷자리" maxlength="4">
+                                    <p class="annotation">
+                                        반드시 정확한 연락처를 입력하세요.
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <span class="critical">필수항목</span>
+                                    E-MAIL 주소
+                                </th>
+                                <td>
+                                    <span class="nativeEmail">
+                                        <input type="hidden" name="email" id="email">
+                                        <input type="text" name="emailID" id="emailID" title="이메일 아이디를 입력하세요">
+                                        <span class="at">@</span>
+                                        <input type="text" name="emailDomain" id="emailDomain" title="이메일 도메인을 입력하세요">
+                                        <span class="selectbox">
+                                            <span class="txt">직접입력</span>
+                                            <span class="arrow">직접입력</span>
+                                        </span>
+                                        <select title="이메일 업체 주소 선택">
+                                            <option value="">직접입력</option>
+                                            <option value="daum.net">daum.net</option>
+                                            <option value="daum.net">daum.net</option>
+                                            <option value="daum.net">daum.net</option>
+                                            <option value="daum.net">daum.net</option>
+                                        </select>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    
+                    </div>
+                    <div class="">
+                        <span class="btn">
+                            <a href="#" onclick="return formSubmit();">가입하기</a>
+                        </span>
+                        <span class="btn">
+                            <a href="#">취소</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

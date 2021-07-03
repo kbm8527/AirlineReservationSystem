@@ -6,26 +6,258 @@
     <title>index</title>
 </head>
 <body>
+    <header></header>
+    <main>
+        <div class="tabview_container">
+            <div class="tabtitle_container">
+                <li tabindex="0" class="tabtitle_container_list">
+                    <div class="tab_title_content">
+                        <span>항공편 예약</span>
+                    </div>
+                </li>
+                <li tabindex="1" class="tabtitle_container_list">
+                    <div>
+                        <div class="tab_title_content">
+                            <span class="uppercase">예약 관리</span>
+                        </div>
+                    </div>
+                </li>
+                <li tabindex="2" class="tabtitle_container_list">
+                    <div>
+                        <div class="tab_title_content">
+                            <span class="uppercase">체크인</span>
+                        </div>
+                    </div>
+                </li>
+                <li tabindex="3" class="tabtitle_container_list">
+                    <div>
+                        <div class="tab_title_content">
+                            <span class="uppercase">항공편 상황</span>
+                        </div>
+                    </div>
+                </li>
+                <li tabindex="4" class="tabtitle_container_list">
+                    <div>
+                        <div class="tab_title_content">
+                            <span class="uppercase">항공편 스케줄</span>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div class="tab_content_container">
+                <div class="tab_content">
+                    <div class="tab_content_1">
+                        <div class="card booking_widget">
+                            <div class="card_heading">
+                                <div>
+                                    <h1 class="page_header">고객님, 어디로 여행하실 계획이세요?</h1>
+                                </div>
+                            </div>
+                            <div class="spearator">
+                            </div>
+                            <div class="card_body">
+                                <div class="book_type"></div>
+                                <div class="booking_form">
+                                    <div class="show_message">
 
-    <h1>welcome to online reservation system</h1>
-    <div>
-        <table>
+                                    </div>
+                                    <div class="form_field_container">
+                                        <div class="form_field_wrapper">
+                                            <div class="form_controls">
+                                                <div class="booking_action">
+                                                    <div class="form_control field">
+                                                        <input type="radio" value="bookFlight" name="book-flight-radio" id="bookFlights" class="input_radio">
+                                                        <label for="bookFlight" class="form_label">
+                                                            항공편 예약
+                                                        </label>
+                                                        <div class="v_popover">
+                                                            <div aria-describedby="popover_dmg" class="trigger" style="display: inline-block;">
+                                                                <a href="#" tabindex="-1" class="icon_tooltip"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form_control field">
+                                                        <input type="radio" value="bookFlight" name="book-flight-radio" id="bookFlights" class="input_radio">
+                                                        <label for="bookFlight" class="form_label">
+                                                            마일리지-항공편 교환
+                                                        </label>
+                                                        <div class="v_popover">
+                                                            <div aria-describedby="popover_dmg" class="trigger" style="display: inline-block;">
+                                                                <a href="#" tabindex="-1" class="icon_tooltip"></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="booking_action">
+                                                    <div class="form_control">
+                                                        <a href="#" class="link_action">프로모션 코드 적용</a>
+                                                    </div>
+                                                    <div class="form_control">
+                                                        <a href="#" for="bookStopover">다구간/스톱오버</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="show_message">
 
-        <td>username</td>
-        <td>
-            <input type="text">
-        </td>
-        <td>password</td>
-        <td>
-            <input type="text">
-        </td>
-        <td>
-            <button>submit</button>
-        </td>
-        
+                                    </div>
+                                    <div class="show_message">
 
-        </table>
-    </div>
+                                    </div>
+                                    <form action="#" method="POST" autocomplete="off" novalidate="novalidate" class="formwidget">
+                                        <div class="form_field_container">
+                                            <div class="form_filed_wrapper">
+                                                <div class="form_controls">
+                                                    <div class="control_group">
+                                                        <div class="form_control">
+                                                            <div class="vue_simple">
+                                                                <div class="input_wrapper">
+                                                                    <input type="text" name="origin" placeholder=" " onfocus="handle()">
+                                                                    <label for="flightOrigin" class="form_label">출발</label>
+                                                                    <div class="flight_ticket">
+                                                                        <span class="flight_origin">서울</span>
+                                                                        <span class="country_ticket">ICN</span>
+                                                                    </div>
+                                                                    <span class="icon_location"></span>
+                                                                    <span class="icon_close"></span>
+                                                                    <span class="icon_plan"></span>
+                                                                    <small class="validation_container">
+                                                                        <span class="error">도시를 선택하세요</span>
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form_control">
+                                                            <div class="vue_simple">
+                                                                <div class="input_wrapper">
+                                                                    <input type="text" name="destination" id="bookFlight" placeholder=" " onfocus="" class="form_field">
+                                                                    <label for="bookFlight" id="bookFlight">도착</label>
+                                                                    <span class="icon_location"></span>
+                                                                    <small class="validation">
+                                                                        <span class="error">도시를 선택하세요</span>
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form_field_wrapper">
+                                                <div class="form_controls">
+                                                    <div class="control_group">
+                                                        <div class="calendar_root">
+                                                            <div class="control_group">
+                                                                <div class="form_control">
+                                                                    <div class="input_wrapper">
+                                                                        <input type="text" name="departureMonth" id="departDate1" readonly="readonly" class="form_field">
+                                                                        <label for="deparDate" class="form_label">출발 날짜</label>
+                                                                        <span class="icon_calendar"></span>
+                                                                        <small class="validation_container">
+                                                                            <span class="error">날짜를 선택하세요</span>
+                                                                        </small>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form_control">
+                                                                    <div class="input_wrapper">
+                                                                        <input type="text" name="returnMonth" id="returnDate1" readonly="readonly" class="form_field">
+                                                                        <label for="returnDate" class="form_label">돌아오는 날짜</label>
+                                                                        <span class="icon_calendar"></span>
+                                                                        <small class="validation_container">
+                                                                            <span class="error">날짜를 선택하세요</span>
+                                                                        </small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form_field_container">
+                                            <div class="form_field_wrapper">
+                                                <div class="form_control">
+                                                    <div class="vue_simple">
+                                                        <div class="input_wrapper">
+                                                            <input type="text" readonly name="cabinClass" id="flightClass1" onfocus="" class="form_field">
+                                                            <label for="flightClass" class="form_label">클래스</label>
+                                                            <span class="icon_icon"></span>
+                                                            <small class="validation_container">
+                                                                <span class="error">클래스 필요</span>
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form_field_wrapper">
+                                                <div class="form_control">
+                                                    <div class="passenger_selection">
+                                                        <div class="input_wrapper">
+                                                            <input type="text" name="flightPassengers" id="flightPassengers1" onfocus="" class="form_field" readonly>
+                                                            <label for="flightPassengers" class="form_label">승객</label>
+                                                            <span class="icon_icon"></span>
+                                                            <small class="validation_container">
+                                                                <span class="error">확인 오류</span>
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form_field_wrapper">
+                                                <div class="form_control">
+                                                    <button type="submit" class="btn_search">검색</button>
+                                                </div>
+                                            </div>
 
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="preloader" style=";">
+                                <div class="loading_full">
+                                    Loading...
+                                </div>
+                                <h3 class="loading_heading">잠시 기다리세요</h3>
+                                <p class="loading_footer">
+                                    <span class="loding_text"></span>
+                                    <span class="loading_logo">
+                                        <img src="#" alt="LOGO">
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab_content">
+                    <div class="tab_content_1">
+                        <div class="cardbooking_widget">
+                            <div class="card_heading">
+                                <h1 class="page_header">예약을 변경하시려면 아래에 해당 정보를 입력하세요</h1>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="custom_checkbox">
+                                <div class="flex">
+                                    <input type="checkbox" name="checkbox_name" id="checkbox_name" autocomplete="off" style="background-color: inherit;">
+                                    <label for="checkbox_name">
+                                        보유하고 계신 항공편 크레딧을 확인하세요
+                                    </label>
+                                    <div class="v_popover">
+                                        <div aria-describedby="popover" class="trigger" style="display: inline-block;">
+                                            <a href="#" tabindex="-1" class="icon_icon"></a>
+                                        </div>
+                                    </div>
+                                    <div class="new_feature"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cardbooking_widget">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
 </body>
 </html>

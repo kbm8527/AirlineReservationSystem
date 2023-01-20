@@ -4,161 +4,306 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/4d13f04a7c.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
     <title>index</title>
     
     <style>
-        /*--헤더--*/
-        .header {
-            width: 980px;
-            height: auto;
-            background-color: pink;
+
+        /*-- 공통--*/
+        * {
+            text-decoration: none;
         }
+        ul, li {
+            list-style: none;
+           
+        }
+       
+        /*--헤더--*/
+        
+        .header {
+        
+          
+        }
+        .header-main {
+        
+
+        }
+        .header-wrap {
+            background-color: rgb(16, 54, 74);
+            display: grid; 
+            grid-template-columns: 250px auto;
+            grid-template-rows: auto;
+            
+            padding-left: 30px;
+            height: 140px;
+        }
+    
+        .headerlogo{
+        
+        }
+        .nav-main {
+            display: grid; 
+            grid-template-columns: auto auto;
+            grid-template-rows: auto;
+            position: relative;
+           
+        }
+
+        .nav-main_wrap {    
+          display:flex;
+          
+          
+        }
+        .nav-main_wrap li{
+          
+
+        }
+        
+        .nav-main_item {
+          
+            width: 280px;
+            height: 300px;
+
+            position: relative;
+           
+        }
+       
+        .nav-main_group {
+            padding-top: 40px;
+            
+          
+        }
+     
+        .nav-main_group_link{
+            font-size: 25px;
+        }
+
+        .nav-main_submenu{
+        
+            
+            
+        }
+        .nav-main_sub-nav{
+        
+        }
+
+        .nav-main_sub-nav_wrap{
+            background-color: rgb(236, 244, 178);
+            margin-top: 51px;
+            position: absolute;
+            display: none;
+            z-index: 9999;
+            width: 180px;   
+       
+        }
+
+
+        
+        .nav-main_sub-nav_item{
+            padding: 10px;
+            
+        }
+
+        .social{
+            padding-top: 50px;
+        }
+        .login_wrap{
+         
+            padding-top: 10px;
+            
+        }
+        .separator{
+            padding: 5px;
+        }
+
+        .nav-main_item a {}
+        .nav-main_item a:hover {color: rgb(221, 187, 122);}
+        .nav-main_item .nav-main_sub-nav_wrap {display:none;}
+
+        .nav-main_sub-nav_item {}
+        .nav-main_sub-nav_wrap1 {
+            background-color: rgb(236, 244, 178);
+            position:relative;
+            display: none;
+            left: 100%; top: 0;
+            width: 180px;
+            
+        }
+
+        /**메인**/
+        .header_wrap{
+            width: 100%;
+        }
+        .mainhead_wrap{
+            position: relative;
+            background-position: center center;
+            height: 500px;
+        }
+
+        .blur_image{
+            position:absolute;
+            background-position: center center;
+            background-repeat:no-repeat ;
+            background-image: url(/img/mainbanner.jpg);
+            background-size: 100% 100%;
+            width: 100%;            
+            height: 500px;
+        
+        }
+
+        .blurcontain {
+        
+        }
+
+        .mainhead_intro_msg {
+            position: relative;
+            font-weight: bold; 
+            top: 50px;
+            left: 100px; 
+            color:rgb(206, 189, 189); 
+            font-size: 30px;
+        }
+
+
+
+        .footer {
+            
+        }
+
+       
+
     </style>
+
+    <!--제이쿼리-->
+   
+    <script>
+       //메뉴 기능
+       // $(document).ready(function(){
+           // $('.nav-main_group').mouseover(function(){
+           // $(this).find('.nav-main_sub-nav_wrap').stop().slideDown(500);
+            //}).mouseout(function(){
+            //$(this).find('.nav-main_sub-nav_wrap').stop().slideUp(500);    
+            //});
+
+            //$('.nav-main_sub-nav').mouseover(function(){
+            //$(this).find('.nav-main_sub-nav_wrap1').stop().slideDown(1000);
+           // }).mouseout(function(){
+           // $(this).find('.nav-main_sub-nav_wrap1').stop().slideUp(1000);    
+           // });
+
+      //  });
+
+       
+        
+          $(function(){
+            $(".nav-main_wrap li").hover(function(){
+                $("ul:first",this).show();
+            }, function(){
+                $("ul:first",this).hide();
+            });
+            $(".nav-main_wrap>li:has(ul)>a").each(function(){
+                $(this).html($(this).html()+' &or;');
+            });
+            $(".nav-main_wrap ul li:has(ul)").find("a:first").append("<p style='float:right;margin:-3px'>&#9656;</p>");
+        })
+
+         
+    
+      
+
+
+
+
+    </script>
+ 
 </head>
 <body>
+    <div>
     <!--헤더 시작--> 
     <header class="header">
-        <div class="container-center header-main" background-color=pink;>
-            <a class="headerlogo" href="#">
+       
+        <div class="header-main header-wrap">
+            <a class="headerlogo" href="index.html">
                 <span>
-                    <img src="img/headerlogo.png" width="200px" height="150px" alt="logo">
+                    <img src="img/headerlogo.png" width="190px" height="130px" alt="logo">
                 </span>
             </a>
             <nav role="menubar" class="nav-main">
                 <ul class="nav-main_wrap">
-                    <li class="nav-main_item">
+                    <li class="nav-main_item">                                              
                         <div class="nav-main_group">
                             <a href="#" class="nav-main_group_link">여행 계획</a>
                             <div class="nav-main_submenu">
                                 <div class="nav-main_submenu-wrap">
                                     <div class="container-center nav-main_submenu">
-                                        <div class="nav-main_sub-nav">
-                                            <a href="#">
-                                                <span>프로모션</span>
-                                            </a>
-                                            <ul role="menu" class="nav-main_sub-nav_wrap">
+                                        <div class="nav-main_sub-nav">                                          
+                                            <ul role="menu" class="nav-main_sub-nav_wrap"  >
                                                 <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
+                                                    <a href="#">항공편 검색</a>
                                                 </li>
                                                 <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
+                                                    <a href="#">특가 항공권</a>
                                                 </li>
                                                 <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
+                                                    <a href="#">운항 목적지</a>
                                                 </li>
                                                 <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="nav-main_sub-nav">
-                                            <a href="#">
-                                                <span>프로모션</span>
-                                            </a>
-                                            <ul role="menu" class="nav-main_sub-nav_wrap">
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
+                                                    <a href="#">호텔</a>
                                                 </li>
                                                 <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
+                                                    <a href="#">렌터카</a>
                                                 </li>
                                             </ul>
-                                        </div>
-                                        <div class="nav-main_sub-nav">
-                                            <a href="#">
-                                                <span>프로모션</span>
-                                            </a>
-                                            <ul role="menu" class="nav-main_sub-nav_wrap">
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-
+                                        </div>                                     
                                     </div>
                                 </div>
-                            </div>
+                            </div>                                
                         </div>
+                        
                     </li>
                     <li class="nav-main_item">
                         <div class="nav-main_group">
-                            <a href="#" class="nav-main_group_link">서비스 안내</a>
+                            <a href="#" class="nav-main_group_link">서비스</a>
                             <div class="nav-main_submenu">
                                 <div class="nav-main_submenu-wrap">
                                     <div class="container-center nav-main_submenu">
                                         <div class="nav-main_sub-nav">
-                                            <a href="#">
-                                                <span>프로모션</span>
-                                            </a>
                                             <ul role="menu" class="nav-main_sub-nav_wrap">
                                                 <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
+                                                    <a href="#">항공 서비스</a>
                                                 </li>
                                                 <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
+                                                    <a href="#">라운지</a>
                                                 </li>
                                                 <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
+                                                    <a href="#">기내 좌석</a>
+                                                    <div class="nav-main_submenu">
+                                                        <div class="nav-main_submenu-wrap">
+                                                            <div class="container-center nav-main_submenu">
+                                                                <div class="nav-main_sub-nav">
+                                                                    <ul role="menu" class="nav-main_sub-nav_wrap1">
+                                                                        <li class="nav-main_sub-nav_item">
+                                                                            <a href="#">스위트</a>
+                                                                        </li>
+                                                                        <li class="nav-main_sub-nav_item">
+                                                                            <a href="#">퍼스트 클래스</a>
+                                                                        </li>
+                                                                        <li class="nav-main_sub-nav_item">
+                                                                            <a href="#">비지니스 클래스</a>
+                                                                        </li>
+                                                                        <li class="nav-main_sub-nav_item">
+                                                                            <a href="#">이코노미 클래스</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
+                                               
                                             </ul>
                                         </div>
-                                        <div class="nav-main_sub-nav">
-                                            <a href="#">
-                                                <span>프로모션</span>
-                                            </a>
-                                            <ul role="menu" class="nav-main_sub-nav_wrap">
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="nav-main_sub-nav">
-                                            <a href="#">
-                                                <span>프로모션</span>
-                                            </a>
-                                            <ul role="menu" class="nav-main_sub-nav_wrap">
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -171,132 +316,59 @@
                                 <div class="nav-main_submenu-wrap">
                                     <div class="container-center nav-main_submenu">
                                         <div class="nav-main_sub-nav">
-                                            <a href="#">
-                                                <span>프로모션</span>
-                                            </a>
-                                            <ul role="menu" class="nav-main_sub-nav_wrap">
+                                            <ul role="menu" class="nav-main_sub-nav_wrap" >
                                                 <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
+                                                    <a href="#">체크인</a>
+                                                    <div class="nav-main_submenu">
+                                                        <div class="nav-main_submenu-wrap">
+                                                            <div class="container-center nav-main_submenu">
+                                                                <div class="nav-main_sub-nav">
+                                                                    <ul role="menu" class="nav-main_sub-nav_wrap1" >
+                                                                        <li class="nav-main_sub-nav_item">
+                                                                            <a href="#">공항 체크인</a>
+                                                                        </li>
+                                                                        <li class="nav-main_sub-nav_item">
+                                                                            <a href="#">온라인/모바일 체크인</a>
+                                                                        </li>
+                                                                        <li class="nav-main_sub-nav_item">
+                                                                            <a href="#">키오스크 체크인</a>
+                                                                        </li>
+                                                                        <li class="nav-main_sub-nav_item">
+                                                                            <a href="#">자동 수하물위탁</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </li>
                                                 <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
+                                                    <a href="#">수하물</a>
+                                                    <div class="nav-main_submenu">
+                                                        <div class="nav-main_submenu-wrap">
+                                                            <div class="container-center nav-main_submenu">
+                                                                <div class="nav-main_sub-nav">
+                                                                    <ul role="menu" class="nav-main_sub-nav_wrap1">
+                                                                        <li class="nav-main_sub-nav_item">
+                                                                            <a href="#">수하물 허용한도</a>
+                                                                        </li>
+                                                                        <li class="nav-main_sub-nav_item">
+                                                                            <a href="#">체크인 수하물</a>
+                                                                        </li>
+                                                                        <li class="nav-main_sub-nav_item">
+                                                                            <a href="#">기내</a>
+                                                                        </li>
+                                                                        <li class="nav-main_sub-nav_item">
+                                                                            <a href="#">대형</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>                                           
                                             </ul>
                                         </div>
-                                        <div class="nav-main_sub-nav">
-                                            <a href="#">
-                                                <span>프로모션</span>
-                                            </a>
-                                            <ul role="menu" class="nav-main_sub-nav_wrap">
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="nav-main_sub-nav">
-                                            <a href="#">
-                                                <span>프로모션</span>
-                                            </a>
-                                            <ul role="menu" class="nav-main_sub-nav_wrap">
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-main_item">
-                        <div class="nav-main_group">
-                            <a href="#" class="nav-main_group_link">여행 계획</a>
-                            <div class="nav-main_submenu">
-                                <div class="nav-main_submenu-wrap">
-                                    <div class="container-center nav-main_submenu">
-                                        <div class="nav-main_sub-nav">
-                                            <a href="#">
-                                                <span>프로모션</span>
-                                            </a>
-                                            <ul role="menu" class="nav-main_sub-nav_wrap">
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="nav-main_sub-nav">
-                                            <a href="#">
-                                                <span>프로모션</span>
-                                            </a>
-                                            <ul role="menu" class="nav-main_sub-nav_wrap">
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="nav-main_sub-nav">
-                                            <a href="#">
-                                                <span>프로모션</span>
-                                            </a>
-                                            <ul role="menu" class="nav-main_sub-nav_wrap">
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                                <li class="nav-main_sub-nav_item">
-                                                    <a href="#">크리스플라이어 프로모션</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -327,6 +399,7 @@
             </nav>
 
         </div>
+            
     </header>
     <!--헤더 끝-->
     
@@ -335,15 +408,15 @@
         <div id="mainhead">
             <div class="header_wrap">
                 <div class="mainhead_wrap">
-                    <div class="blurcontain" style="background-image: url(img/mainbanner.webp);">
+                    <div class="blurcontain">
                     </div>
-                    <div class="blurcontain image" id="mainhead_image" style="cursor: pointer;">
+                    <div class="blurcontain blur_image" id="mainhead_image" style="cursor: pointer;">
                     </div>
                     <div class="component_mainhead" style="cursor: pointer;">
                         <div class="mainhead_copy">
-                            <div class="mainhead_content" style="top: -30px; position: relative; opacity: 1;">
-                                <span class="mainhead_intro_msg" style="font-weight: 100; top:50px; position:relative; color:white; font-size: 30px !important";>
-                                    격리 없이 싱가포르 방문하기
+                            <div class="mainhead_content">
+                                <span class="mainhead_intro_msg" >
+                                    꿈의 도시를 찾아서
                                 </span>
                             </div>
                         </div>
@@ -790,5 +863,6 @@
       
     </footer>
     <!--푸터 끝-->
+    </div>
 </body>
 </html>

@@ -30,7 +30,7 @@
 
         }
         .header-wrap {
-            background-color: rgb(16, 54, 74);
+            background-color: rgb(31, 78, 123);
             display: grid; 
             grid-template-columns: 250px auto;
             grid-template-rows: auto;
@@ -48,6 +48,16 @@
             grid-template-rows: auto;
             position: relative;
            
+        }
+        .menu{
+            left: 100%; top: 35px;
+            
+        }
+        .menu1{
+            left: 100%; top: -51px;
+        }
+        .menu2{
+            left: 100%; top: -11px;
         }
 
         .nav-main_wrap {    
@@ -79,27 +89,32 @@
             font-size: 25px;
         }
 
-        .nav-main_submenu{
-        
-            
-            
-        }
+       
         .nav-main_sub-nav{
         
         }
 
         .nav-main_sub-nav_wrap{
-            background-color: rgb(236, 244, 178);
+            background-color: rgb(225, 235, 147);
             margin-top: 51px;
             position: absolute;
             display: none;
             z-index: 9999;
-            width: 180px;   
+            width: 180px; 
+              
        
         }
 
+        .submenu1 ul{
+            background-color: rgb(234, 235, 173);
+            
+            
+        }
+        .nav-main_sub-nav_wrap:hover{
+            
+        }
 
-        
+
         .nav-main_sub-nav_item{
             padding: 10px;
             
@@ -117,18 +132,22 @@
             padding: 5px;
         }
 
-        .nav-main_item a {}
-        .nav-main_item a:hover {color: rgb(221, 187, 122);}
+        .nav-main_item a {
+            color: rgb(216, 93, 208);
+        }
+        .nav-main_item a:hover {color: rgb(205, 169, 102);}
         .nav-main_item .nav-main_sub-nav_wrap {display:none;}
 
         .nav-main_sub-nav_item {}
         .nav-main_sub-nav_wrap1 {
-            background-color: rgb(236, 244, 178);
-            position:relative;
-            display: none;
-            left: 100%; top: 0;
-            width: 180px;
-            
+        }
+
+        .lang_select span, .login_wrap a{
+            color: rgb(216, 93, 208);
+        }
+
+        .login {
+          margin-right: 8px;
         }
 
         /**메인**/
@@ -166,36 +185,767 @@
         }
 
 
+        /**항공권 예약 탭**/
+        .contents_wrap{
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 100%;
+        }
+        .tabview_container{
+            position: relative;
+            width: 1100px;
+            transform: translateY(-10rem);
+            margin-bottom: calc(-12rem + 30px);
+            
+        }
+        .container_center{
+          margin: 0 auto;
+        }
+        .tabtitle_container {
+            display: grid;
+            grid-template-columns: repeat(5,20%);
+            cursor: pointer;
+        }
+        .tabtitle_container_list{
+        
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color:rgb(198, 237, 224);
+        }
+        .tab_title_content{
+            padding: 15px;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 1px;
+            font-size: 20px;
+        }
+        .tab_title.tab_active {
+            background-color: rgb(34, 34, 131);
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+        }
+        .tab_title {
+            text-align: center;
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            background-color:rgba(0,0,0,0.7);
+            color: rgb(236, 222, 181);
+            padding: 0;
+            margin: 0;
+        }
+        .tab_title:nth-child(2) {
+            position: relative;
+        }
+        .tab_title:nth-child(3) {
+            position: relative;
+        }
+        .tab_title:last-child {
+            border-top-right-radius: 2px;
+        }
+        .tab_content{
+            display: block;
+            width: 100%;
+            padding: 18px 20px;
+            background: white;
+            box-shadow: 0 2px 8px 0 rgb(0 0 0 / 20% );
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+        }
+        .card_heading{
+            display: grid;
+            grid-template-columns: 65% 35%;
+        }
+        .page_header{
+            font-size: 25px;
+            -webkit-margin-before:0em;
+            font-weight: 400;
+            margin: 0 0 15px;
+        }
+        .separator{
+            border: 1px none rgb(236, 227, 227);
+            border-top-style: solid;
+            width: 100%;
+            height: 1px;
+            margin-bottom: 15px;
+            background-color: white;
 
-        .footer {
+        }
+
+        .formwidget{
+         
+        }
+        .form_field_container.flight_iterinary{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(calc(50% - 0.9rem), 1fr));
+            grid-column-gap: 0.9rem;
+            
+        }
+        .form_field_container {
+            margin-bottom: 15px;
+        }
+        .booking_actions {
+            margin-bottom: 10px;
+        }
+
+        .form_field_wrapper{
+            position: relative;
+        }
+        .form_field_container.booking_actions .form_controls{
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+        }
+        .booking_action{
+            display: flex;
+        }
+        .booking_action .form_control{
+            position: relative;
+            margin-right: 40px;
+        }
+        .form_control .field input[type="radio"] {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            z-index: 4;
+            cursor: pointer;
+        }
+
+        
+    
+    
+        .v_popover{
+            display: block;
+            position: absolute;
+            top: 0;
+            padding: 12px 11px 0 12px;
+            right: -20px;
+            box-sizing: unset;
+
+        }
+        .icon_tooltip{
+            position: absolute;
+            right: 1px;
+            background-size: 80%;
+            width: 14px;
+            height: 14px;
+        }
+        .hidden {
+            display: none !important;
+        }
+
+        .icon {
+            position: absolute;
+            right: 15px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+        }
+
+        .booking_action a {
+            color: #0254ec;
+            transition: color 0.40s ease 0s;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .control_group {
+            display: flex;
+            flex-flow: row;
+            margin-top: 0em;
+        }
+
+        .control_group .form_control, .form_control {
+            width: 50%;
+          
+        }
+
+        .float_label{
+            display: block;
+            width: 100%;
+           
+        }
+        .float_label input {
+            margin: 0 0 2px;
+            margin-bottom: 2px;
+            
+        }
+        .float_label label {
+            position: absolute;
+            pointer-events: none;
+            cursor: text;
+        }
+        .vue_simple {
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+
+        }
+        .vue_simple.designed {
+            position: relative;
+        }
+        .vue_simple.designed, .vue_simple.designed * {
+            box-sizing: border-box;
+        }
+        .form_control {
+            position: relative;
+            margin-right: 0;
+            width: auto;
+        }
+        .form_field_container .form_control.float_label {
+            margin-right: 0 ;
+        }
+        .form_control .input_wrapper {
+            display: block;
+            width: 100%;
+            min-width: 100%;
+            height: 50px;
+            border: 1px solid #d3cccc;
+            background-color: white;
+        }
+        .formwidget .flight_od .form_control .input_wrapper  {
+            width: 88%;
+        }
+        .formwidget .flight_od .form_control .input_wrapper .flight_ticket {
+            width: 76%;
+        }
+        .formwidget .flight_od .form_control .input_wrapper .flight_origin {
+           display: inline-block;
+           text-overflow: ellipsis;
+           overflow: hidden;
+           white-space: nowrap ;
+        }
+        .formwidget .flight_od .form_control .flight_ticket .country_ticket {
+            display: inline-block;
+            position: relative;
+            width: auto;
+            margin-left: 7px;
+            top: -6px;
+            line-height: 18px;
+        }
+
+        .control_group .form_control:first-child .input_wrapper{
+            border-radius: 2px 0 0 2px;
+           
+        }
+
+
+        .form_control {
+            position: relative;
+            margin-left: 20px;
+            margin-right: 0;
+        }
+
+        .form_control:last-child:before {
+            position: absolute;
+            display: block;
+            content: '';
+            width: 1px;
+            height: 10px;
+            left: -10px;
+            top: 6px;
+            /**border-left: solid 1px red;**/
+            
+        }
+        .input_wrapper {
+            position: relative;
+            display: flex;
+            font-weight: bold;
+            outline: 0;
+            border: none;
+            box-shadow: none;
+            text-transform: capitalize;
+            margin-top: 0;
+        }
+
+        .form_control .input_wrapper .form_field{
+            display: flex;
+            font-weight: bold;
+            outline: 0;
+            /**border: none;**/
+            box-shadow: none;
+            margin-top: 0;
+            width: 100%;
+            height: 50px;
+            font-size: 14px;
+            padding: 20px 15px 10px;
+            margin-top: 0;
+        }
+
+        .form_control .input_wrapper .form_label{
+            left: 15px;
+            top: 7px;
+            font-weight: 400;
+            opacity: 1;
+            z-index: 1;
+            color: black;
+            font-size: 14px;
+            letter-spacing: 1px;
+            box-sizing: border-box;
+        }
+        .form_control.float_label, .form_control.float_label * {
+            box-sizing: border-box;
+        }
+
+        .form_field_wrapper.flight_date .calendar_root {
+             width: 100%;
+        }
+
+        .form_field_wrapper.flight_date .form_control {
+             width: 100%;
+        }
+
+        /**.form_control .input_wrapper .form_field.datepicker {
+          position: relative;
+          z-index: 1;
+        }**/
+        .calendar_root .form_field {
+            cursor: pointer;
+        }
+        .form_label {
+          
+        }
+       
+        
+        .flight_od .input_wrapper .flight_ticket {
+            display: block;
+            pointer-events: none;
+            position: absolute;
+            top: 18px;
+            left: 16px;
+            background-color: white;
+        }
+        
+        .flight_origin {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .country_ticket{
+            display: inline-block;
+            position: relative;
+            top: -6px;
+            margin-left: 7px;
+            width: auto;
+            line-height: 12px;
+            font-size: 15px;
+            padding: 2px 8px;
+            color: rgb(230, 230, 118);
+            background: rgb(131, 179, 237);;
+            font-weight: 700;
+            text-align: center;
+
+        }
+        .input_wrapper .icon {
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+          
+        }
+        .icon {
+            position: absolute;
+            width: 21px;
+            height: 20px;
+            right: 15px;
+           
+        }
+        .icon_location {
+            background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNy4xMSA0MC4wMiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNkZGQ7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5pY29uLWxvY2F0aW9uLWluYWN0aXZlPC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfNDQiIGRhdGEtbmFtZT0iTGF5ZXIgNDQiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTEzLjU1LDBBMTMuNTUsMTMuNTUsMCwwLDAsMCwxMy41NWMwLC4xNywwLC4zMywwLC40OWExMy4zNiwxMy4zNiwwLDAsMCwuNzgsNC4wN0MzLjY4LDI3LjYyLDEzLjU1LDQwLDEzLjU1LDQwczkuODgtMTIuNCwxMi43Ny0yMS45MUExMy4zMSwxMy4zMSwwLDAsMCwyNy4xLDE0YzAtLjE2LDAtLjMyLDAtLjQ5QTEzLjU2LDEzLjU2LDAsMCwwLDEzLjU1LDBabTAsMjAuMTlhNi42NCw2LjY0LDAsMSwxLDYuNjQtNi42NEE2LjYzLDYuNjMsMCwwLDEsMTMuNTUsMjAuMTlaIi8+PC9nPjwvZz48L3N2Zz4=);
+            background-size: 15px 20px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            
+        }
+        .float_label input:placeholder-shown:not(:focus)+* {
+            font-weight: 400;
+            font-size: 14px;
+            opacity: 1;
+            text-transform: none;
+            color: green;
+            letter-spacing: 0;
+
+        }
+        .calendar_root {
+            position: relative;
+        }
+        .calendar_root .form_control .icon_calendar {
+            cursor: pointer;
+            pointer-events: none;
+            background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzOC45NyA0MCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNkZGQ7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5pY29uLWNhbGVuZGFyLWluYWN0aXZlPC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfNDUiIGRhdGEtbmFtZT0iTGF5ZXIgNDUiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTM2LDQuNEgzMS42VjIuMkEyLjA4LDIuMDgsMCwwLDAsMjkuNywwYTIuMDcsMi4wNywwLDAsMC0xLjksMi4yYzAsMS4yMSwwLDIuMiwwLDIuMkgxM1YyLjJBMi4wNywyLjA3LDAsMCwwLDExLjEsMCwyLjA4LDIuMDgsMCwwLDAsOS4yLDIuMmMwLDEuMjEsMCwyLjIsMCwyLjJsLTQuNDcuMDZhMi42NywyLjY3LDAsMCwwLTIuODUsMi40YzAsMS4zMiwwLDIuMzQsMCwyLjM0SDM4LjkzczAtMS4wOCwwLTIuNFMzNy41Miw0LjQsMzYsNC40WiIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMTAiIHk9IjEyLjQiIHdpZHRoPSI3LjIiIGhlaWdodD0iNi44Ii8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIxOS42IiB5PSIxMi40IiB3aWR0aD0iNy4yIiBoZWlnaHQ9IjYuOCIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMjkuNiIgeT0iMTIuNCIgd2lkdGg9IjcuMiIgaGVpZ2h0PSI2LjgiLz48cmVjdCBjbGFzcz0iY2xzLTEiIHk9IjIyLjQiIHdpZHRoPSI3LjIiIGhlaWdodD0iNy4yIi8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIxMCIgeT0iMjIuNCIgd2lkdGg9IjcuMiIgaGVpZ2h0PSI3LjIiLz48cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjE5LjYiIHk9IjIyLjQiIHdpZHRoPSI3LjIiIGhlaWdodD0iNy4yIi8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIyOS42IiB5PSIyMi40IiB3aWR0aD0iNy4yIiBoZWlnaHQ9IjcuMiIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeT0iMzIuNCIgd2lkdGg9IjcuMiIgaGVpZ2h0PSI3LjYiLz48cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjEwIiB5PSIzMi40IiB3aWR0aD0iNy4yIiBoZWlnaHQ9IjcuNiIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMTkuNiIgeT0iMzIuNCIgd2lkdGg9IjcuMiIgaGVpZ2h0PSI3LjYiLz48L2c+PC9nPjwvc3ZnPg==) ;
+            background-position: center center;
+            background-repeat: no-repeat;
+            
+        }
+        .input_wrapper .icon {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .validation_container {
+            color: green;
+        }
+        .form_field_container.flight_boarding {
+            display: grid;
+            grid-template-columns: 2.5fr 2.5fr 1fr ;
+            grid-column-gap: 15px;
+        }
+        .form_field_container.flight_boarding .form_field  {
+           cursor: pointer;
+        }
+
+        .form_field_container.flight_boarding .btn_search  {
+            float: right;
+            width: 100%;
+            height: 50px;
+            letter-spacing: 1.5px;
+        }
+        
+        .form_field_container .input_wrapper .icon_chevron  {
+            display: block;
+            width: 14px;
+            height: 14px;
+            pointer-events: none;
+            transform: translate(0%, -30%) rotate(0deg);
+            transition: transform 0.3;
+            background: url(https://www.singaporeair.com/assets/images/svg/icons/chevron.svg) no-repeat center center transparent;
+        }
+
+
+
+        .btn_search:hover {
+            background-color: blueviolet ;
+            color: white;
+            border: 1px solid blueviolet ;
+
+        }
+
+        .preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            z-index: 10000;
+            background: rgba(175, 66, 66, 0.95);
+
+        }
+        .preloader .loading {
+            text-indent: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 50%;
+            border-style: solid;
+            border-color: #00266b;
+            border-top-color: rgba(0,38,107,0.1);
+            border-right-color: rgba(0,38,107,0.1);
+            animation: loop 0.8s infinite linear;
+        }
+
+        .preloader .loading_full {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 76px;
+            height: 76px;
+            margin-top: -95px;
+            margin-left: -45px;
+            border-width: 7px;
+        }
+        .preloader .loading_heading {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            left: 20px;
+            margin-top: 25px;
+            text-align: center;
+            color: blue;
+            text-transform: none;
+            font-weight: 300;
+            font-size: 26px;
+        }
+        .preloader .loading__footer {
+            position: absolute;
+            right: 0px;
+            bottom: 20px;
+            left: 0px;
+            margin: 0;
+            text-align: center;
+            font-size: 16px;
+            color: pink;
+        }
+        .preloader .loading_footer .loading_text:empty {
+            display: none;
+        }
+        .preloader .loading_footer .loading_text {
+            margin: 0 10px;
+            vertical-align: baseline;
+        }
+        .preloader .loading_footer .loading_logo {
+            width: 122px;
+            margin: 0 10px;
+            vertical-align: baseline;
+            display: inline-block;
+        }
+        .icon_chevron {
+           
+        }
+         /**예약 관리 탭**/
+        .section {
+            display: block;
+        }
+
+        .card.booking_widget.checkcredit {
+            position: relative;
+        }
+        .booking_widget .card_heading {
+            display: grid;
+            grid-template-columns: 65% 35%;
+        }
+
+        .form_fields_container.booking_actions .form_controls {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .booking_actions_main {
+            display: flex;
+        }
+
+        .booking_actions_main .form_control {
+            position: relative;
+            margin-right: 40px;
+        }
+        
+        .field_radiobox {
+            display: inline-block;
+        }
+        .form_fields_container {
+            margin-bottom: 15px;
+        }
+        .form_fields_container .form_label_mod {
+            margin-right: 30px;
+        }
+        .form_booking {
+            display: grid;
+            grid-template-columns: 38.5% 38.5% 20%;
+            grid-column-gap:0.9rem;
+        }
+        
+        .btn_primary  {
+            float: right;
+            width: 100%;
+            height: 50px;
+            letter-spacing: 1.5px;
+        }
+        
+        .btn_primary:hover {
+            background-color: blueviolet ;
+            color: white;
+            border: 1px solid blueviolet ;
+
+        }
+
+        /**항곤편 스케줄 탭**/
+
+        .flight_origin_text {
+            display: inline-block;
+            max-width: 60%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .form_field_container.flight_boarding_schedule {
+            display: grid;
+            grid-template-columns: 4fr 1.1fr;
+            grid-column-gap:0.9rem;
+        }
+
+        /**프로모션 섹션**/
+        .fd_section {
+            padding: 30px 0;
+        }
+        #fare_deal {
+            height: 600px;
+        }
+        .fare_deal {
+            position: relative;
+            top: 30px;
+        }
+        .fd_container {
+            width: 100%;
+            max-width: 1100px;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .fare_deal .fd_header {
+            width: 75%;
+            display: inline-block;
+        }
+        .fd_header {
+            font-size: 20px;
+            border-left: 3px solid orange;
+            padding-left: 10px;
+            line-height: 20px;
+            color: #00266b;
+        }
+        .fd_header_text {
+            display: inline-block;
+            margin: 0;
+            font-size: 20px;
+            font-weight: 400;
+            word-wrap: break-word;
+            line-height: 25px;
+        
+        }
+        .fd_dropdown {
+            position: relative;
+            display: inline-block;
+            font-size: 20px;
+        }
+
+        .fd_content {
+            margin-top: 30px;
+        }
+        .fd_row {
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+
+        .fd_col {
+            float: left;
+            width: 25%;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .fd_item {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 15px 15px 25px 15px;
+            height: 265px;
+            border-radius: 4px;
+            background-color: grey;
+            background-size: cover;
+            box-shadow: 2px 4px 4px rgb(0 0 0 / 10%);
+            transition: all 0.15x ease-out;
+        }
+
+        .fd_item::before {
+            position: absolute;
+            width: 100%;
+            height: 140px;
+            left: 0;
+            bottom: 0;
+            z-index: 1;
+            content: "";
+            background-size: cover;
+            background-image: linear-gradient(-180deg, rgba(0,0,0,0) 15%, rgba(0,0,0,0.75) 60%) ;
+        }
+        .blurcontain {
+            position: absolute;
+            width: 100%;
+            opacity: 1;
+            overflow: hidden;
+            background-position: center center;
+            background-size: cover;
+        }
+        .fd_image {
+            left: 0;
+            top: 0;
+            height: 265px;
+        }
+        .fd_description_wrapper {
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            bottom:20px;
+            z-index: 2;
+            color: white;
+            border-bottom: 1px solid rgba(216,216,216,0.2);
+        }
+        .fd_description_country {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 26px;
+            margin-bottom: 8px;
+        }
+        .fd_description_cabin {
+            font-size: 15px;
+            margin-bottom: 3px;
+        }
+        .fd_description_price {
+            font-size: 15px;
+            line-height: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .fd_description_currency {
+            display: inline-block;
+            width:auto;
+            padding-left: 5px;
+            margin-bottom: 6px;
+            margin-right: 4px;
+            border-left: 2px solid orange;
+        }
+
+        /**푸터**/
+
+ 
+        .footer_content {
+            position: relative;
+            display: grid;
+            background-color: rgb(66, 150, 196);
+            grid-template-columns: 250px 3fr;
+            grid-template-rows: auto;
+            padding-left: 30px;
+            padding-top: 50px;
+            padding-bottom: 50px;
             
         }
 
-       
+        .footer_inner {
+            display: flex;
+            padding-left: 100px;
+            grid-column-gap: 100px;
+            
+        }
+        
+        .footer_wrap {
+            
+        }
+        .footer_inner_top {
+           border : 1px solid white ;
+           
+        }
+        .footer_inner_top_header {
+            color: bisque;
+            padding-left: 38px;
+        }
+        .footer_inner_top_list {
+            padding-right: 70px;
+            padding-bottom: 10px;
+        }
+        .footer_inner_top_list a {
+            color: azure;
+        }
 
     </style>
 
     <!--제이쿼리-->
    
     <script>
-       //메뉴 기능
-       // $(document).ready(function(){
-           // $('.nav-main_group').mouseover(function(){
-           // $(this).find('.nav-main_sub-nav_wrap').stop().slideDown(500);
-            //}).mouseout(function(){
-            //$(this).find('.nav-main_sub-nav_wrap').stop().slideUp(500);    
-            //});
-
-            //$('.nav-main_sub-nav').mouseover(function(){
-            //$(this).find('.nav-main_sub-nav_wrap1').stop().slideDown(1000);
-           // }).mouseout(function(){
-           // $(this).find('.nav-main_sub-nav_wrap1').stop().slideUp(1000);    
-           // });
-
-      //  });
-
-       
-        
+       //네비게이션 서브 메뉴 기능
+             
           $(function(){
             $(".nav-main_wrap li").hover(function(){
                 $("ul:first",this).show();
@@ -209,10 +959,6 @@
         })
 
          
-    
-      
-
-
 
 
     </script>
@@ -278,11 +1024,11 @@
                                                 </li>
                                                 <li class="nav-main_sub-nav_item">
                                                     <a href="#">기내 좌석</a>
-                                                    <div class="nav-main_submenu">
+                                                    <div class="nav-main_submenu submenu1">
                                                         <div class="nav-main_submenu-wrap">
                                                             <div class="container-center nav-main_submenu">
                                                                 <div class="nav-main_sub-nav">
-                                                                    <ul role="menu" class="nav-main_sub-nav_wrap1">
+                                                                    <ul role="menu" class="nav-main_sub-nav_wrap menu ">
                                                                         <li class="nav-main_sub-nav_item">
                                                                             <a href="#">스위트</a>
                                                                         </li>
@@ -321,9 +1067,9 @@
                                                     <a href="#">체크인</a>
                                                     <div class="nav-main_submenu">
                                                         <div class="nav-main_submenu-wrap">
-                                                            <div class="container-center nav-main_submenu">
+                                                            <div class="container-center nav-main_submenu submenu1">
                                                                 <div class="nav-main_sub-nav">
-                                                                    <ul role="menu" class="nav-main_sub-nav_wrap1" >
+                                                                    <ul role="menu" class="nav-main_sub-nav_wrap menu1" >
                                                                         <li class="nav-main_sub-nav_item">
                                                                             <a href="#">공항 체크인</a>
                                                                         </li>
@@ -346,9 +1092,9 @@
                                                     <a href="#">수하물</a>
                                                     <div class="nav-main_submenu">
                                                         <div class="nav-main_submenu-wrap">
-                                                            <div class="container-center nav-main_submenu">
+                                                            <div class="container-center nav-main_submenu submenu1">
                                                                 <div class="nav-main_sub-nav">
-                                                                    <ul role="menu" class="nav-main_sub-nav_wrap1">
+                                                                    <ul role="menu" class="nav-main_sub-nav_wrap menu2">
                                                                         <li class="nav-main_sub-nav_item">
                                                                             <a href="#">수하물 허용한도</a>
                                                                         </li>
@@ -377,7 +1123,7 @@
                 </ul>
                 <aside class="social">
                     <div class="lang_wrap">
-                        <div class="lang-select">
+                        <div class="lang_select">
                             <a href="#">
                                 <span class="country">한국</span>
                                 <span class="lang">한국어</span>
@@ -386,10 +1132,10 @@
                     </div>
                     <div class="login register">
                         <div class="login_wrap">
-                            <a href="#">
+                            <a href="/member/login.html">
                                 <span class="login">로그인</span>                               
                             </a>
-                            <span class="separator"></span>
+                            
                             <a href="#">
                                 <span class="register">회원가입</span>
                             </a>
@@ -427,35 +1173,35 @@
         </div>
 
         <div class="contents_wrap">
-            <div class="tabview_container">
+            <div class="tabview_container container_center">
                 <div class="tabtitle_container">
-                    <li tabindex="0" class="tabtitle_container_list">
+                    <li tabindex="0" class="tabtitle_container_list tab_title tab_active">
                         <div class="tab_title_content">
                             <span>항공편 예약</span>
                         </div>
                     </li>
-                    <li tabindex="1" class="tabtitle_container_list">
+                    <li tabindex="1" class="tabtitle_container_list tab_title">
                         <div>
                             <div class="tab_title_content">
                                 <span class="uppercase">예약 관리</span>
                             </div>
                         </div>
                     </li>
-                    <li tabindex="2" class="tabtitle_container_list">
+                    <li tabindex="2" class="tabtitle_container_list tab_title">
                         <div>
                             <div class="tab_title_content">
                                 <span class="uppercase">체크인</span>
                             </div>
                         </div>
                     </li>
-                    <li tabindex="3" class="tabtitle_container_list">
+                    <li tabindex="3" class="tabtitle_container_list tab_title">
                         <div>
                             <div class="tab_title_content">
                                 <span class="uppercase">항공편 상황</span>
                             </div>
                         </div>
                     </li>
-                    <li tabindex="4" class="tabtitle_container_list">
+                    <li tabindex="4" class="tabtitle_container_list tab_title">
                         <div>
                             <div class="tab_title_content">
                                 <span class="uppercase">항공편 스케줄</span>
@@ -472,7 +1218,7 @@
                                         <h1 class="page_header">고객님, 어디로 여행하실 계획이세요?</h1>
                                     </div>
                                 </div>
-                                <div class="spearator">
+                                <div class="separator">
                                 </div>
                                 <div class="card_body">
                                     <div class="book_type"></div>
@@ -480,18 +1226,18 @@
                                         <div class="show_message">
     
                                         </div>
-                                        <div class="form_field_container">
+                                        <div class="form_field_container booking_actions">
                                             <div class="form_field_wrapper">
                                                 <div class="form_controls">
                                                     <div class="booking_action">
                                                         <div class="form_control field">
-                                                            <input type="radio" value="bookFlight" name="book-flight-radio" id="bookFlights" class="input_radio">
+                                                            <input value="bookFlight" type="radio" name="book-flight-radio"  id="bookFlights" class="input_radio" checked="checked">
                                                             <label for="bookFlight" class="form_label">
                                                                 항공편 예약
                                                             </label>
                                                             <div class="v_popover">
                                                                 <div aria-describedby="popover_dmg" class="trigger" style="display: inline-block;">
-                                                                    <a href="#" tabindex="-1" class="icon_tooltip"></a>
+                                                                    <a href="#" tabindex="-1" class="icon_tooltip hidden"></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -524,36 +1270,36 @@
                                         <div class="show_message">
     
                                         </div>
-                                        <form action="#" method="POST" autocomplete="off" novalidate="novalidate" class="formwidget">
-                                            <div class="form_field_container">
-                                                <div class="form_filed_wrapper">
+                                        <form action="#" method="POST" autocomplete="off" novalidate="novalidate" class="form formwidget" style="background-color: inherit">
+                                            <div class="form_field_container flight_iterinary">
+                                                <div class="form_field_wrapper flight_od">
                                                     <div class="form_controls">
                                                         <div class="control_group">
-                                                            <div class="form_control">
-                                                                <div class="vue_simple">
+                                                            <div class="form_control float_label">
+                                                                <div class="vue_simple designed">
                                                                     <div class="input_wrapper">
-                                                                        <input type="text" name="origin" placeholder=" " onfocus="handle()">
+                                                                        <input type="text" name="origin" placeholder=" " onfocus="handleScrollTop()" class="form_field">
                                                                         <label for="flightOrigin" class="form_label">출발</label>
                                                                         <div class="flight_ticket">
                                                                             <span class="flight_origin">서울</span>
                                                                             <span class="country_ticket">ICN</span>
                                                                         </div>
-                                                                        <span class="icon_location"></span>
-                                                                        <span class="icon_close"></span>
-                                                                        <span class="icon_plan"></span>
-                                                                        <small class="validation_container">
+                                                                        <span class="icon icon_location"></span>
+                                                                        <span class="icon icon_close"></span>
+                                                                        <span class="icon icon_plan"></span>
+                                                                        <small class="validation_container hidden">
                                                                             <span class="error">도시를 선택하세요</span>
                                                                         </small>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="form_control">
-                                                                <div class="vue_simple">
+                                                            <div class="form_control float_label">
+                                                                <div class="vue_simple designed">
                                                                     <div class="input_wrapper">
                                                                         <input type="text" name="destination" id="bookFlight" placeholder=" " onfocus="" class="form_field">
-                                                                        <label for="bookFlight" id="bookFlight">도착</label>
-                                                                        <span class="icon_location"></span>
-                                                                        <small class="validation">
+                                                                        <label for="bookFlight" id="bookFlight" class="form_label">도착</label>
+                                                                        <span class="icon icon_location"></span>
+                                                                        <small class="validation hidden">
                                                                             <span class="error">도시를 선택하세요</span>
                                                                         </small>
                                                                     </div>
@@ -562,27 +1308,27 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form_field_wrapper">
+                                                <div class="form_field_wrapper flight_date">
                                                     <div class="form_controls">
                                                         <div class="control_group">
                                                             <div class="calendar_root">
                                                                 <div class="control_group">
-                                                                    <div class="form_control">
+                                                                    <div class="form_control float_label">
                                                                         <div class="input_wrapper">
-                                                                            <input type="text" name="departureMonth" id="departDate1" readonly="readonly" class="form_field">
+                                                                            <input type="text" name="departureMonth" id="departDate1" readonly="readonly" class="form_field datepicker">
                                                                             <label for="deparDate" class="form_label">출발 날짜</label>
-                                                                            <span class="icon_calendar"></span>
-                                                                            <small class="validation_container">
+                                                                            <span class="icon icon_calendar"></span>
+                                                                            <small class="validation_container hidden">
                                                                                 <span class="error">날짜를 선택하세요</span>
                                                                             </small>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form_control">
+                                                                    <div class="form_control float_label">
                                                                         <div class="input_wrapper">
                                                                             <input type="text" name="returnMonth" id="returnDate1" readonly="readonly" class="form_field">
                                                                             <label for="returnDate" class="form_label">돌아오는 날짜</label>
-                                                                            <span class="icon_calendar"></span>
-                                                                            <small class="validation_container">
+                                                                            <span class="icon icon_calendar"></span>
+                                                                            <small class="validation_container hidden">
                                                                                 <span class="error">날짜를 선택하세요</span>
                                                                             </small>
                                                                         </div>
@@ -593,15 +1339,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form_field_container">
+                                            <div class="form_field_container flight_boarding">
                                                 <div class="form_field_wrapper">
-                                                    <div class="form_control">
-                                                        <div class="vue_simple">
+                                                    <div class="form_control float_label">
+                                                        <div class="vue_simple designed">
                                                             <div class="input_wrapper">
                                                                 <input type="text" readonly name="cabinClass" id="flightClass1" onfocus="" class="form_field">
                                                                 <label for="flightClass" class="form_label">클래스</label>
-                                                                <span class="icon_icon"></span>
-                                                                <small class="validation_container">
+                                                                <span class="icon icon_chevron"></span>
+                                                                <small class="validation_container hidden">
                                                                     <span class="error">클래스 필요</span>
                                                                 </small>
                                                             </div>
@@ -609,13 +1355,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="form_field_wrapper">
-                                                    <div class="form_control">
+                                                    <div class="form_control float_label">
                                                         <div class="passenger_selection">
                                                             <div class="input_wrapper">
                                                                 <input type="text" name="flightPassengers" id="flightPassengers1" onfocus="" class="form_field" readonly>
                                                                 <label for="flightPassengers" class="form_label">승객</label>
-                                                                <span class="icon_icon"></span>
-                                                                <small class="validation_container">
+                                                                <span class="icon icon_chevron"></span>
+                                                                <small class="validation_container hidden">
                                                                     <span class="error">확인 오류</span>
                                                                 </small>
                                                             </div>
@@ -623,7 +1369,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form_field_wrapper">
-                                                    <div class="form_control">
+                                                    <div class="form_control float_label">
                                                         <button type="submit" class="btn_search">검색</button>
                                                     </div>
                                                 </div>
@@ -632,13 +1378,13 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="preloader" style=";">
-                                    <div class="loading_full">
+                                <div class="preloader" style="display: none;">
+                                    <div class="loading loading_full">
                                         Loading...
                                     </div>
                                     <h3 class="loading_heading">잠시 기다리세요</h3>
                                     <p class="loading_footer">
-                                        <span class="loding_text"></span>
+                                        <span class="loading_text"></span>
                                         <span class="loading_logo">
                                             <img src="#" alt="LOGO">
                                         </span>
@@ -649,71 +1395,210 @@
                     </div>
                     <div class="tab_content">
                         <div class="tab_content_1">
-                            <div class="cardbooking_widget">
+                            <section class="booking_wrapper">
+                                <div class="card booking_widget checkcredit">
                                 <div class="card_heading">
                                     <h1 class="page_header">예약을 변경하시려면 아래에 해당 정보를 입력하세요</h1>
                                 </div>
                                 <div class="separator"></div>
-                                <div class="custom_checkbox">
-                                    <div class="flex">
-                                        <input type="checkbox" name="checkbox_name" id="checkbox_name" autocomplete="off" style="background-color: inherit;">
-                                        <label for="checkbox_name">
-                                            보유하고 계신 항공편 크레딧을 확인하세요
-                                        </label>
-                                        <div class="v_popover">
-                                            <div aria-describedby="popover" class="trigger" style="display: inline-block;">
-                                                <a href="#" tabindex="-1" class="icon_icon"></a>
+                                </div>
+                                <div class="cardbooking_widget">
+                                <div class="show_message_component"></div>
+                                <div class="show_message_component"></div>
+                                <div class="form_fields_container booking_actions">
+                                    <div class="form_field_wrapper">
+                                        <div class="form_controls checkcredit">
+                                            <div class="booking_actions_main">
+                                                <div class="form_control field_radiobox">
+                                                    <input type="radio" value="bookReference" name="manage_book" id="bookReference" class="input_radio">
+                                                    <label for="bookReferenceRadio" class="form_label form_label_mod">
+                                                        예약 번호
+                                                    </label>
+                                                    <div class="v_popover">
+                                                        <span aria-describedby="popover" tabindex="-1" class="trigger" style="display:inline-block"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form_control field_radio">
+                                                    <input type="radio" value="eticketNumber" name="manage_name" id="eticketNumber" class="input_radio">
+                                                    <label for="eticketNumberRadio" class="form_label">
+                                                        e-항공권 번호
+                                                    </label>
+                                                    <div class="v_popover">
+                                                        <span aria-describedby="popover" tabindex="-1" class="trigger" style="display: inline-block;"></span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="new_feature"></div>
-                                    </div>
+                                    </div>                                  
                                 </div>
-                            </div>
-                            <div class="cardbooking_widget">
-    
-                            </div>
+                                <div class="show_message_component"></div>
+                                <form action="#" id="MBActionForm" method="POST" autocomplete="off" novalidate="novalidate" class="form mb_form" readonly="readonly" style="background-color: inherit;">
+                                    <div class="form_fields_container form_booking">
+                                        <div class="form_field_wrapper">
+                                            <div class="form_control float_label">
+                                                <div class="booking_selection">
+                                                    <div class="input_wrapper">
+                                                        <input type="text" name="bookingReferenceBR" id="bookingReferenceField" placeholder=" " minlength="6" maxlength="6" class="form_field form_input_text">
+                                                        <label for="bookingReferenceBR" id="bookingReferenceBRlabel" class="form_label">
+                                                            6자리 예약 번호를 입력하세요
+                                                        </label>
+                                                        <small class="validation_container hidden">
+                                                            <span class="error">예약 번호를 입력하세요</span>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form_field_wrapper">
+                                            <div class="form_control float_label">
+                                                <div class="booking_selection">
+                                                    <div class="input_wrapper">
+                                                        <input type="text" name="last_familyName" id="last_familyNameField" placeholder=" " class="form_field form_input_text">
+                                                        <label for="last_familyName" id="last_familyNameLabel" class="form_label">성(여권과 동일해야 합니다)</label>
+                                                        <small class="validation_container hidden">
+                                                            <span class="error">예약 정보와 동일하게 성을 입력해 주십시오.</span>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form_field_wrapper">
+                                            <div class="form_control">
+                                                <button type="submit" class="btn btn_primary ">예약 관리</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                </div>
+                            </section>
                         </div>
                     </div>
+                    <div class="tab_content">
+                        <div class="tab_content_1">
+                            <section class="booking_wrapper">
+                                <div class="card booking_widget">
+                                    <div class="card_heading">
+                                        <div class="card_head_wrap">
+                                            <div class="page_header">항공편 일정 확인</div>
+                                        </div> 
+                                    </div>
+                                <div class="show_message_component"></div>
+                                <div class="separator"></div>
+                                <div class="show_message_component"></div>                            
+                                <form action="/flight_schedule" method="POST" autocomplete="off" novalidate="novalidate" class="form form_flight_schedule" style="background-color: inherit;">
+                                    <div class="form_field_container flight_iterinary">
+                                        <div class="form_field_wrapper flight_od">
+                                            <div class="form_controls form_flight_schedule">
+                                                <div class="control_group">
+                                                    <div class="form_control float_label">
+                                                        <div class="vue_simple designed">
+                                                            <div class="input_wrapper">
+                                                                <input type="text" name="flightOrigin" id="flightOrigin" placeholder=" " onfocus="handleScrollTop()" class="form_field form_input validate">   
+                                                                <label for="flightOrigin" class="form_label">출발</label>
+                                                                <div class="flight_ticket">
+                                                                    <span class="flight_origin_text">서울</span>
+                                                                    <span class="country_ticket">ICN</span>
+                                                                </div>
+                                                                <span class="icon icon_location noclick"></span>
+                                                                <span class="icon icon_close_circle"></span>
+                                                                <span class="icon icon_plane field_icon"></span>
+                                                                <small class="validation_container hidden">
+                                                                    <span class="error">도시를 선택하세요</span>
+                                                                </small>
+                                                            </div>
+                                                        </div>                                                      
+                                                    </div>
+                                                    <div class="form_control float_label">
+                                                        <div class="vue_simple designed">
+                                                            <div class="input_wrapper">
+                                                                <input type="text" name="flightDestination" id="flightDestination" placeholder=" " onfocus="handleScrollTop()" class="form_field form_input validate">   
+                                                                <label for="flightDestination" class="form_label">도착</label>                              
+                                                                <span class="icon icon_location noclick"></span>                                   
+                                                                <small class="validation_container hidden">
+                                                                    <span class="error">도시를 선택하세요</span>
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>          
+                                                </div>
+                                            </div>
+                                        </div>           
+                                    </div>
+                                    <div class="form_field_container flight_boarding_schedule">
+                                        <div class="form_field_wrapper flight_date flight_schedule">
+                                            <div class="form_controls">
+                                                <div class="control_group">
+                                                    <div class="calendar_root">
+                                                        <div class="control_group">
+                                                            <div class="form_control float_label">
+                                                                <div class="input_wrapper input_depart_date">
+                                                                <input type="text" name="departDate" id="departDate" readonly="readonly" class="form_field datepicker_input">
+                                                                <label for="deparDate" class="form_label">출발 날짜(선택 사항)</label>
+                                                                <span class="icon icon_calendar noclick"></span>
+                                                                <small class="validation_container hidden">
+                                                                    <span class="error">날짜를 선택하세요</span>
+                                                                </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form_control float_label">
+                                                                <div class="input_wrapper input_return_date">
+                                                                <input type="text" name="returnDate" id="returnDate" readonly="readonly" class="form_field datepicker_input">
+                                                                <label for="returnDate" class="form_label">돌아오는 날짜(선택 사항)</label>
+                                                                <span class="icon icon_calendar noclick"></span>
+                                                                <small class="validation_container hidden">
+                                                                    <span class="error">날짜를 선택하세요</span>
+                                                                </small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form_field_wrapper">
+                                            <div class="form_control">
+                                                <button class="btn btn_primary">검색</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
                 </div>
+                    
             </div>
         </div>
        
-        <div id="fare-deal">
-            <section class="fd-section">
-                <div class="fd-container">
-                    <div class="fd-header-cont">
-                        <div class="fd-header">
-                            <h3 class="fd-header-text">
-                                <div place="country" class="fd-dropdown">
-                                    <span class="fd-header-text">서울</span>
+        <div id="fare_deal">
+            <section class="fd_section fare_deal">
+                <div class="fd_container">
+                    <div class="fd_header_cont">
+                        <div class="fd_header">
+                            <h3 class="fd_header_text">
+                                <div place="country" class="fd_dropdown">
+                                    <span class="fd_header_text">서울</span>
                                 </div>
                                 출발 프로모션 운임
                             </h3>
                         </div>
                     </div>
-                    <div class="fd-content hidden">
-                        <div class="fd-row">
+                    <div class="fd_content hidden_XS">
+                        <div class="fd_row">
                             <div class="fd_col">
                                 <a href="#" class="fd_item">
-                                    <div class="blurcontain fd_image" style="background-image: url();">
+                                    <div class="blurcontain fd_image" style="background-image: url(/img/bangkok.jpg);">
 
                                     </div>
-                                    <div class="fd_description-wrap">
-                                        <td class="fd_description-type">
-                                            <span class="fd_type">편도</span>
-                                        </td>
-                                        <div class="fd_desctipyion-country">
-                                            취리히
-                                        </div>
-                                        <div class="fd_desctipyion-cabin">
-                                            이코노미
-                                        </div>
-                                        <div class="fd_desctipyion-price">
+                                    <div class="fd_description_wrapper">
+                                        <div class="fd_description_country">방콕</div>
+                                        <div class="fd_description_cabin">이코노미</div>
+                                        <div class="fd_description_price">
                                             <table>
                                                 <tr>
-                                                    <td class="fd_description-currency">
-                                                        최저
-                                                        <span>KRW 100,000</span>
+                                                    <td class="fd_description_currency">
+                                                        "최저"
+                                                        <span>KRW 400,000</span>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -721,65 +1606,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="fd_col">
-                                <a href="#" class="fd_item">
-                                    <div class="blurcontain fd_image" style="background-image: url();">
-
-                                    </div>
-                                    <div class="fd_description-wrap">
-                                        <td class="fd_description-type">
-                                            <span class="fd_type">편도</span>
-                                        </td>
-                                        <div class="fd_desctipyion-country">
-                                            취리히
-                                        </div>
-                                        <div class="fd_desctipyion-cabin">
-                                            이코노미
-                                        </div>
-                                        <div class="fd_desctipyion-price">
-                                            <table>
-                                                <tr>
-                                                    <td class="fd_description-currency">
-                                                        최저
-                                                        <span>KRW 100,000</span>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="fd_col">
-                                <a href="#" class="fd_item">
-                                    <div class="blurcontain fd_image" style="background-image: url();">
-
-                                    </div>
-                                    <div class="fd_description-wrap">
-                                        <td class="fd_description-type">
-                                            <span class="fd_type">편도</span>
-                                        </td>
-                                        <div class="fd_desctipyion-country">
-                                            취리히
-                                        </div>
-                                        <div class="fd_desctipyion-cabin">
-                                            이코노미
-                                        </div>
-                                        <div class="fd_desctipyion-price">
-                                            <table>
-                                                <tr>
-                                                    <td class="fd_description-currency">
-                                                        최저
-                                                        <span>KRW 100,000</span>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-
-
+                           
                         </div>
                     </div>
                 </div>
@@ -795,61 +1622,61 @@
             <div class="header_inner" background-color=pink;>
                 <a class="headerlogo" href="#">
                     <span>
-                        <img src="img/headerlogo.png" width="200px" height="150px" alt="logo">
+                        <img src="img/headerlogo.png" width="190px" height="130px" alt="logo">
                     </span>
                 </a>
             
             </div>
-            <div class="footer-wrap container">
+            <div class="footer_wrap container">
                 <div>
                     <div class="footer_inner">
-                        <div class="footer_inner-top">
-                           <h3 class="fotter_inner-top-header">기업 정보</h3>
+                        <div class="footer_inner_top">
+                           <h3 class="footer_inner_top_header">기업 정보</h3>
                            <ul>
-                               <li class="footer_inner-top-list">
+                               <li class="footer_inner_top_list">
                                     <a href="#">기업 정책</a>
                                </li>
-                               <li class="footer_inner-top-list">
+                               <li class="footer_inner_top_list">
                                     <a href="#">기업 정책</a>
                                </li>
-                               <li class="footer_inner-top-list">
+                               <li class="footer_inner_top_list">
                                     <a href="#">기업 정책</a>
                                </li>
-                               <li class="footer_inner-top-list">
+                               <li class="footer_inner_top_list">
                                     <a href="#">기업 정책</a>
                                </li>
                            </ul>
                         </div>
-                        <div class="footer_inner-top">
-                           <h3 class="fotter_inner-top-header">기업 정보</h3>
+                        <div class="footer_inner_top">
+                           <h3 class="footer_inner_top_header">기업 정보</h3>
                            <ul>
-                               <li class="footer_inner-top-list">
+                               <li class="footer_inner_top_list">
                                     <a href="#">기업 정책</a>
                                </li>
-                               <li class="footer_inner-top-list">
+                               <li class="footer_inner_top_list">
                                     <a href="#">기업 정책</a>
                                </li>
-                               <li class="footer_inner-top-list">
+                               <li class="footer_inner_top_list">
                                     <a href="#">기업 정책</a>
                                </li>
-                               <li class="footer_inner-top-list">
+                               <li class="footer_inner_top_list">
                                     <a href="#">기업 정책</a>
                                </li>
                            </ul>
                         </div>
-                        <div class="footer_inner-top">
-                           <h3 class="fotter_inner-top-header">기업 정보</h3>
+                        <div class="footer_inner_top">
+                           <h3 class="footer_inner_top_header">기업 정보</h3>
                            <ul>
-                               <li class="footer_inner-top-list">
+                               <li class="footer_inner_top_list">
                                     <a href="#">기업 정책</a>
                                </li>
-                               <li class="footer_inner-top-list">
+                               <li class="footer_inner_top_list">
                                     <a href="#">기업 정책</a>
                                </li>
-                               <li class="footer_inner-top-list">
+                               <li class="footer_inner_top_list">
                                     <a href="#">기업 정책</a>
                                </li>
-                               <li class="footer_inner-top-list">
+                               <li class="footer_inner_top_list">
                                     <a href="#">기업 정책</a>
                                </li>
                            </ul>

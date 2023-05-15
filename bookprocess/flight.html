@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>항공편</title>
+</head>
+<body>
+    <div id="app">
+        <div id="flight_selection" class="wrapper_app">
+            <div class="lightbox popup_wrapper">
+                
+            </div>
+            <aside class="progress_bar">
+                <h1 hidden="hidden" >Progress bar</h1>
+                <div class="progress_bar bg_left"></div>
+                <div class="progress_bar_wrapper container_center">
+                    <ul class="progress_bar_inner">
+                        <li class="progress_bar_item last_active">
+                            <span class="number">
+                                <em>1</em>
+                            </span>
+                            <span class="text">항공편</span>
+                            <span class="arrow"></span>
+                        </li>
+                        <li class="progress_bar_item last_active">
+                            <span class="number">
+                                <em>2</em>
+                            </span>
+                            <span class="text">승객</span>
+                            <span class="arrow"></span>
+                        </li>
+                        <li class="progress_bar_item last_active">
+                            <span class="number">
+                                <em>3</em>
+                            </span>
+                            <span class="text">좌석</span>
+                            <span class="arrow"></span>
+                        </li>
+                        <li class="progress_bar_item last_active">
+                            <span class="number">
+                                <em>4</em>
+                            </span>
+                            <span class="text">애드온</span>
+                            <span class="arrow"></span>
+                        </li>
+                        <li class="progress_bar_item last_active">
+                            <span class="number">
+                                <em>5</em>
+                            </span>
+                            <span class="text">지불</span>
+                            <span class="arrow"></span>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <div class="preloader hidden" style="display:block">
+                <div class="loading loading_full">
+                    Loading...
+                </div>
+                <h3 class="loading_heading">Just a moment...we'll take you there soon.</h3>
+                <p class="loading_footer">
+                    <span class="loading_text"></span>
+                    <span class="loading_logo">
+                        <img id="loader_img" src="" alt="singapore airlines">
+                    </span>
+                </p>
+            </div>
+            <div class="fixedtop">
+                <aside class="bsp_main bsp_oneway">
+                    <div class="bsp_main_heading">
+                        <div class="bsp_main_heading_wrap container_center">
+                            <span class="bsp_heading_flight">ICN - BKK</span>
+                            <span>·</span>
+                            <span class="bsp_heading_passenger">성인 1</span>
+                            명
+                        </div>
+                    </div>
+                    <section class="booking_wrapper edit_search">
+                        <div class="booking">
+                            <div class="card booking_widget container_center">
+                                <div class="card_heading edit_search_haeding">
+                                    <h1 class="page_header">항공편 검색</h1>
+                                    <a href="#" class="card_heading_multicity">다중 도시 / 스탑오버</a>
+                                </div>
+                                <div class="card_body">
+                                    <div class="book_type_selection">
+                                    </div>
+                                    <div class="booking_form_wrapper">
+                                        <div class="show_message_component"></div>
+                                        <form action="#" method="post" class="form widget_form book_trip_form" readonly="readonly" style="background-color: inherit;">
+                                            <div class="form_fields_container flight_iterinary">
+                                                <div class="form_field_wrapper flight_od">
+                                                    <div class="form_controls">
+                                                        <div class="control_group">
+                                                            <div class="form_control has_float_label input_from">
+                                                                <div class="vue_simple rail_coach designed">
+                                                                    <div class="input_wrapper tiny_label">
+                                                                        <input type="text" name="origin" id="flightOrigin" placeholder=" " onfocus="scrolltop()" class="dropdown form_field form_input_text">
+                                                                        <label for="flightOrigin" id="flightOriginLabel" class="form_label">출발</label>
+                                                                        <div class="flight_ticket">
+                                                                            <span class="flight_origin_text">서울</span>
+                                                                            <span class="country_ticket">Inc</span>
+                                                                        </div>
+                                                                        <span class="icon icon_location noclick"></span>
+                                                                        <span class="icon icon_close_circle"></span>
+                                                                        <span class="icon icon_plane od_field"></span>
+                                                                        <small class="validation_container hidden">
+                                                                            <span class="error">please select city</span>
+                                                                        </small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form_control has_float_label input_to">
+                                                                <div class="vue_simple designed">
+                                                                    <div class="input_wrapper tiny_label">
+                                                                        <input type="text" name="destination" id="bookFlightDestination" placeholder=" " onfocus="scrolltop()" class="form_field form_input_text">
+                                                                        <label for="bookFlightDestination" id="bookFlightDestinationLabel" class="form_label">도착</label>
+                                                                        <div class="flight_ticket">
+                                                                            <span class="flight_origin_text">방콕</span>
+                                                                            <span class="country_ticket">?</span>
+                                                                        </div>
+                                                                        <span class="icon icon_location noclick"></span>
+                                                                        <span class="icon icon_close_circle"></span>
+                                                                        <small class="validation_container hidden">
+                                                                            <span class="error">please select city</span>
+                                                                        </small>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form_field_wrapper flight_date">
+                                                    <div class="form_controls">
+                                                        <div class="control_group">
+                                                            <div class="calendar_root">
+                                                                <div class="control_group">
+                                                                    <div class="form_control has_float_label">
+                                                                        <div class="input_wrapper indput_depart_date tiny_label">
+                                                                            <input type="text" name="departureMonth" id="departDate1" placeholder=" " readonly="readonly" class="form_field form_input_text validate">
+                                                                            <label for="deparDate" class="form_label">출발일</label>
+                                                                            <span class="icon icon_calendar noclick"></span>
+                                                                            <small class="validation_container hidden">
+                                                                                <span class="error">please select date</span>
+                                                                            </small>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form_control has_float_label">
+                                                                        <div class="form_control">
+                                                                            <div class="input_wrapper input_returndate tiny_label">
+                                                                                <span class="form_label">날짜 추가</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form_fields_container flight_boarding_details">
+                                                <div class="form_field_wrapper custom_dropdown">
+                                                    <div class="form_control has_float_label">
+                                                        <div class="vue_simple designed">
+                                                            <div class="input_wrapper tiny_label">
+                                                                <input type="text" name="cabinClass" id="flightClass1" onfocus="scrollup()" class="form_field form_input_text">
+                                                                <label for="flightClass" class="form_label">Class</label>
+                                                                <span class="icon icon_chevron"></span>
+                                                                <small class="validation_container hidden">
+                                                                    <span class="error">vs.home.class-needed</span>
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form_field_wrapper">
+                                                    <div class="form_control has_float_label">
+                                                        <div class="passenger_selection">
+                                                            <div class="input_wrapper tiny_label">
+                                                                <input type="text" name="flightPassengers" id="flightPassengers1" placeholder=" " onfocus="scrolltop()" class="form_field form_input_text">
+                                                                <label for="flightPassengers" class="form_label">승객</label>
+                                                                <span class="icon icon_chevron"></span>
+                                                                <small class="validation_container hidden">
+                                                                    <span class="error">
+                                                                        vs.home.error.validation
+                                                                    </span>
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form_field_wrapper">
+                                                    <div class="form_control">
+                                                        <button type="submit" class="btn btn_primary">검색</button>
+                                                    </div>    
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit_search_toggle open">
+                            <span class="edit_search_imgwrap">
+                                <img src="" alt="">
+                            </span>
+                            <div class="edit_search_toggle1">
+                                <button class="edit_search_button">닫다</button>
+                            </div>
+                            <span class="edit_search_imgwrap">
+                                <img src="" alt="">
+                            </span>
+                        </div>
+                    </section>
+                    <div class="bsp_main_details">
+                        <div class="bsp_main_details_wrap collapse">
+                            <div class="bsp_main_details_content container_center default">
+                                <div class="bsp_main_details_content_group collapse_panel">
+                                    <div class="bsp_main_details_content_flight">
+                                        <div class="bsp_main_details_content_flight_inner no_border">
+                                            <span class="bsp_title">편도</span>
+                                            <div class="bsp_flight_content_wrap">
+                                                <div class="bsp_flight_content">
+                                                    <div class="bsp_flight_content_description">
+                                                        <strong class="bsp_flight_content_description_date">5월15일(수)</strong>
+                                                        <strong class="bsp_flight_content_description_hour">
+                                                            <span>서울 (icn)</span>
+                                                        </strong>
+                                                    </div>
+                                                    <div class="bsp_flight_content_etawrap">
+                                                        <div class="bsp_flight_content_eta">
+                                                            <em class="bsp_flight_icoplane ico_flight"></em>
+                                                        </div>
+                                                    </div>
+                                                    <div class="bsp_flight_content_description">
+                                                        <strong class="bsp_flight_content_description_date">5월 15엘 (수)</strong>
+                                                        <strong class="bsp_flight_content_description_hour">
+                                                            <span>방콕 </span>
+                                                        </strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit_search_bsptoggle">
+                        <span class="edit_search_imgwrap">
+                            <img src="" alt="">
+                        </span>
+                        <div class="edit_search_toggle1">
+                            <button class="edit_search_button">검색 편집</button>
+                        </div>
+                        <span class="edit_search_imgwrap">
+                            <img src="" alt="">
+                        </span>
+                    </div>
+                    
+                </aside>
+            </div>
+            <main id="main" class="main windows_google">
+                <form action="#" method="post">
+                    <section class="select_flight container_center">
+                        <div class="show_message_component"></div>
+                        <div class="flight_segment" style="transition: opacity 0.4s ease-in-out 0s; opacity: 1;">
+                            <div class="page_header_wrap">
+                                <h3 class="sub_heading">1.서울에서 방콕으로</h3>
+                            </div>
+                            <aside class="select_flight_airline">
+                                <div class="select_flight_details">
+                                    <a href="#" class="monthly_view">
+                                        <em class="ico_calendar">
+                                            <span class="ui_helper_hidden"></span>
+                                        </em>
+                                        <span>7일 요금 보기</span>
+                                    </a>
+                                </div>
+                            </aside>
+                            <div class="sort_filter">
+                                <span class="sort_by">정렬 기준:</span>
+                                <a href="#" class="trabel_duration sort_active">
+                                    <span>여행 기간,</span>
+                                </a>
+                                <a href="#" class="sort_price">
+                                    <span>가격</span>
+                                </a>
+                                ,
+                                <a href="#" class="arrival_time">
+                                    <span>도착</span>
+                                </a>
+                                시간
+                                <a href="#" class="departure_time">
+                                    <span>, 출발시간</span>
+                                </a>
+                            </div>
+                            <div class="select_flight_block">
+                                <div>
+                                    <div class="select_flight_head">
+                                        Recmmended flight for you
+                                    </div>
+                                    <article class="flight_option">
+                                        <h1 hidden="hidden">flight option</h1>
+                                        <div class="recommended_table table_height">
+                                            <div class="col_info flight_item multistop">
+                                                <div class="flight_option_wrap">
+                                                    <div class="flight_option_info flight_info">
+                                                        <div class="flight_station">
+                                                            <span class="stop_time">원스톱 . 10시간 25분</span>
+                                                            <div class="control_flight_station all_linear">
+                                                                <div class="flight_station_item all_linear">
+                                                                    <div class="flight_station_inner">
+                                                                        <div class="flight_station_info">
+                                                                            <div class="flight_station_info_detail">
+                                                                                <span class="hour">9:00</span>
+                                                                                <span class="country_name">서울</span>
+                                                                                <span class="date">5월 15일 (월)</span>
+                                                                            </div>
+                                                                            <div class="station_stop stop_multiple">
+                                                                                <span class="station_stop_detail stop_circle_wrap">
+                                                                                    <em class="station_stop_circle"></em>
+                                                                                    <strong class="airport_code">d</strong>
+                                                                                    <span class="time">1시간 40분</span>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="flight_station_info_detail return_flight">
+                                                                                <span class="hour">17:25</span>
+                                                                                <span class="country_name">방콕</span>
+                                                                                <span class="date">5월 15일 (월)</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="airline_info multistop_airlineinfo">
+                                                                            <div class="inner_info multistop_airlineinfo1">
+                                                                                <span class="airline_detail">
+                                                                                    <div class="airline_icon">
+                                                                                        <img src="" alt="">
+                                                                                    </div>
+                                                                                    <div class="airline_name wifi_addition">
+                                                                                        <strong class="airline_name_text">올카 항공</strong>
+                                                                                        <div class="bullet">.</div>
+                                                                                        <div class="airline_flight_number">스퀘어 607</div>
+                                                                                        <div class="ico_wifi"></div>
+                                                                                    </div>
+                                                                                </span>
+                                                                                <span class="airline_detail">
+                                                                                    <div class="airline_icon">
+                                                                                        <img src="" alt="">
+                                                                                    </div>
+                                                                                    <div class="airline_name wifi_addition">
+                                                                                        <strong class="airline_name_text">올카 항공</strong>
+                                                                                        <div class="bullet">.</div>
+                                                                                        <div class="airline_flight_number">스퀘어 712</div>
+                                                                                        <div class="ico_wifi"></div>
+                                                                                    </div>
+                                                                                </span>
+                                                                                <a href="#" class="more_detail">
+                                                                                    <em class="ico_point">
+
+                                                                                    </em>
+                                                                                    <font>자세한 내용은</font>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="wrap_flight_station all_linear">
+                                                                <div class="flight_station_item result_leg all_linear">
+                                                                    <div class="flight_station_inner">
+                                                                        <div class="flight_station_info">
+                                                                            <div class="flights_station_info">
+                                                                                <span class="hour">ICN 9:00</span>
+                                                                                <span class="country_name">서울</span>
+                                                                                <span class="date">5월 15일 (월)</span>
+                                                                                <span class="terminal">인천국제공항(Incheon)</span>
+                                                                                <span class="terminal">터미널 1</span>
+                                                                            </div>
+                                                                            <div class="station_stop">
+                                                                                <span class="station_stop_detail">
+                                                                                    <em class="ico_airplane"></em>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="flights_station_info_detail return_flight">
+                                                                                <span class="hour"> 14: 20</span>
+                                                                                <span class="country_name">싱가포르</span>
+                                                                                <span class="date">5월 15일 (수)</span>
+                                                                                <span class="terminal">창이</span>
+                                                                                <span class="terminal"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="airline_info multistop_airlineinfo">
+                                                                            <div class="inner_info multistops_airlineinfo">
+                                                                                <span class="airline_detail">
+                                                                                    <div class="airline_icon">
+                                                                                        <img src="" alt="">
+                                                                                    </div>
+                                                                                    <div class="airline_name wifi_addition">
+                                                                                        <strong class="airline_name_text">올카 항공</strong>
+                                                                                        <div class="bullet">.</div>
+                                                                                        <div class="airline_flight_number">스퀘어 607</div>
+                                                                                        <div class="ico_wifi"></div>
+                                                                                    </div>
+                                                                                </span>
+                                                                                <span class="name_plane">보잉 787-10</span>
+                                                                                <span class="cabin_color"></span>
+                                                                                <span class="cabin_color"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="flight_station_layover">
+                                                                        <em class="ico_clock"></em>
+                                                                        <span class="flight_station_layover_time">환승 시간: 1시간 40분</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="flight_station_item result_leg all_linear">
+                                                                    <div class="flight_station_inner">
+                                                                        <div class="flight_station_info">
+                                                                            <div class="flights_station_info">
+                                                                                <span class="hour">16:00</span>
+                                                                                <span class="country_name">싱가포르</span>
+                                                                                <span class="date">5월 15일(수)</span>
+                                                                                <span class="terminal">창이</span>
+                                                                                <span class="terminal">터미널 2</span>
+                                                                            </div>
+                                                                            <div class="station_stop">
+                                                                                <span class="station_stop_detail">
+                                                                                    <em class="ico_airplane"></em>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="flights_station_info_detail return_flight">
+                                                                                <span class="hour">BKK 17:25</span>
+                                                                                <span class="country_name">방콕</span>
+                                                                                <span class="date">5월 15일 (수)</span>
+                                                                                <span class="terminal">수완나품 공항</span>
+                                                                                <span class="terminal"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="airline_info multistop_airlineinfo">
+                                                                            <div class="inner_info multistops_airlineinfo">
+                                                                                <span class="airline_detail">
+                                                                                    <div class="airline_icon">
+                                                                                        <img src="" alt="">
+                                                                                    </div>
+                                                                                    <div class="airline_name wifi_addition">
+                                                                                        <strong class="airline_name_text">싱가포르 항공</strong>
+                                                                                        <div class="bullet"> . </div>
+                                                                                        <div class="airline_flight_number">스퀘어 712</div>
+                                                                                        <div class="ico_wifi"></div>
+                                                                                    </div>
+                                                                                </span>
+                                                                                <span class="name_plane">에어버스 A350-900</span>
+                                                                                <span class="cabin_color"></span>
+                                                                                <span class="cabin_color"></span>
+                                                                                <a href="#" class="link less_detail">
+                                                                                    <em class="ico_point"></em>
+                                                                                    <font>더 적은 세부 사항</font>
+                                                                                </a>                                                                             
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button tabindex="0" class="col_info col_nfo_left cabin_class_economy">
+                                                <span class="head_col">
+                                                    <span class="text_head">이코노미</span>
+                                                    <span class="label_status"></span>
+                                                </span>
+                                                <div class="flight_result primary">
+                                                    <div class="flight_price">
+                                                        <span class="from">KRW에서</span>
+                                                        <span class="price">
+                                                            <font>429,000</font>
+                                                            <span class="price_cent"></span>
+                                                        </span>
+                                                        <span class="adult">성인 1인당</span>
+                                                        <em class="ico_point">
+
+                                                        </em>
+                                                    </div>
+                                                </div>
+                                                <div class="flight_result optional">
+                                                    <div class="flight_price">
+                                                        <span class="from">KRW에서</span>
+                                                        <span class="price">
+                                                            <font>429,000</font>
+                                                            <span class="price_cent"></span>
+                                                        </span>
+                                                        <span>성인 1인당</span>
+                                                        <em class="ico_point">
+
+                                                        </em>
+                                                    </div>
+                                                    <div hidden="hidden" class="flight_result optional">
+                                                        <span class="not_available">사용할 수 없음</span>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                        <div class="select_fare_block canbin_class_economy active">
+                                            <div class="block_content_flight">
+                                                <div class="select_flight_block economy">
+                                                    <div class="select_flight_fare">
+                                                        <div class="additional_privileges">
+                                                            <div class="new_item">
+                                                                <h4 class="title_blue">
+                                                                    보잉 787010 이코노미 클래스 경험
+                                                                    <span class="sector_details">ICN - SIN</span>
+                                                                </h4>
+                                                                <div class="cabin_class_info">
+                                                                    <div class="col_item">
+                                                                        <div class="col_inner">
+                                                                            <img src="" alt="">
+                                                                            <div class="text_content">
+                                                                                <h5 class="title_blue">편안함을 위해 설계된 시트</h5>
+                                                                                <p class="desc">6방향 머리 받침대와 인체공학적으로 설계된 드압ㄷ이가 있는 좌석으로 여행 내내 최적의 지지력을 누리십시오.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col_item">
+                                                                        <div class="col_inner">
+                                                                            <img src="" alt="">
+                                                                            <div class="text_content">
+                                                                                <h5 class="title_blue">안심하고 식사하세요</h5>
+                                                                                <p class="desc">식사 중 접촉을 최소화하기 위해 메뉴를 디지털화하고 모든 식기류를 개별적으로 밀봉하여 항상 보호 장비를 착용하여 서비스를 제공합니다.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col_item">
+                                                                        <div class="col_inner">
+                                                                            <img src="" alt="">
+                                                                            <div class="text_content">
+                                                                                <h5 class="title_blue">더 깨끗한 객실로 안전하게 여행하세요</h5>
+                                                                                <p class="desc">객실의 청결은 소독제의 정전기 분사, 정기적인 청소, 접촉이 많은 부위의 향균 코팅과 같은 조치를 통해 유지됩니다.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="select_flight_fare_table">
+                                                            <div class="select_flight_fare_table_wrap">
+                                                                <div class="select_flight_fare_table">
+                                                                    <div class="select_flight_fare_head">
+                                                                        <div class="select_flight_fare_title flight_fare_condition">
+                                                                            <strong>운임 조선</strong>
+                                                                        </div>
+                                                                        <div class="select_flight_fare_title economy0">
+                                                                            <strong>이코노미 밸류</strong>
+                                                                        </div>
+                                                                        <div class="select_flight_fare_title economy1">
+                                                                            <strong>이코노미 스탠다드</strong>
+                                                                        </div>
+                                                                        <div class="select_flight_fare_title economy2">
+                                                                            <strong>이코노미 플렉시</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="select_flight_fare_row summary">
+                                                                        <div class="select_flight_fare_row_inner">
+                                                                            <div class="select_flight_fare_icon">
+                                                                                <span class="ico_business">
+
+                                                                                </span>
+                                                                                <span class="select_flight_fare_icon">수하물</span>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text">25 킬로그램</strong>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text">30 킬로그램</strong>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text">30 킬로그램</strong>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="select_flight_fare_row_inner">
+                                                                            <div class="select_flight_fare_icon">
+                                                                                <span class="ico_proferred ico">
+
+                                                                                </span>
+                                                                                <span class="select_flight_fare_icon">좌석 선택</span>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text block">
+                                                                                    <span>13,000원부터 (ICN - SIN)</span>
+                                                                                </strong>
+                                                                                <strong class="fare_select_text block">
+                                                                                    <span>6,700 원부터 (SIN - BKK)</span>
+                                                                                </strong>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text complimentary">
+                                                                                    <span>무료(일반석)</span>
+                                                                                </strong>>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text complimentary">
+                                                                                    <span>무료(스탠다드 & 전방 구역 좌석)</span>
+                                                                                </strong>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="select_flight_fare_row_summary">
+                                                                        <div class="select_flight_fare_row_inner">
+                                                                            <div class="select_flight_fare_icon">
+                                                                                <span class="ico_icons">
+
+                                                                                </span>
+                                                                                <span class="select_flight_fare_icon">크리스플라이어 마일 적립</span>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <span>
+                                                                                    <strong>
+                                                                                        <span>1,877 크리스플라이어 마일</span>
+                                                                                    </strong>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <span>
+                                                                                    <strong>
+                                                                                        <span>2,816 크리스플라이어 마일</span>
+                                                                                    </strong>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <span>
+                                                                                    <strong>
+                                                                                        <span>3,754 크리스플라이어 마일</span>
+                                                                                    </strong>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="select_flight_fare_row_inner">
+                                                                            <div class="select_flight_fare_icon">
+                                                                                <span class="ico_upgrade ico">
+
+                                                                                </span>
+                                                                                <span class="select_flight_fare_icon">마일리지로 업그레이트</span>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <span>
+                                                                                    <strong class="fare_select_text not_allowed">허용되지 않음</strong>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <span>
+                                                                                    <strong class="fare_select_text">허용</strong>
+                                                                                    <span class="icon_tooltip_darkgrey icon_info"></span>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <span>
+                                                                                    <strong class="fare_select_text">허용</strong>
+                                                                                    <span class="icon_tooltip_darkgrey icon_info"></span>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="select_flight_fare_row summary">
+                                                                        <div class="select_flight_fare_row_inner">
+                                                                            <div class="select_flight_fare_icon">
+                                                                                <span class="ico_cancel ico">
+
+                                                                                </span>
+                                                                                <span class="select_flight_fare_icon">예약 취소 수수료</span>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text">199,000원</strong>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text">132,000원</strong>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text">66,000원</strong>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="select_flight_fare_row_inner">
+                                                                            <div class="select_flight_fare_icon">
+                                                                                <span class="ico_refresh ico">
+
+                                                                                </span>
+                                                                                <span class="select_flight_fare_icon">
+                                                                                    <font>예약 변경 수수료</font>
+                                                                                    <span>(운임 차액이 발생할 수 있음)</span>
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text">66,000원</strong>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text">26,000원</strong>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text">무료</strong>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="select_flight_fare_row_inner">
+                                                                            <div class="select_flight_fare_icon">
+                                                                                <span class="ico_close_round ico">
+
+                                                                                </span>
+                                                                                <span class="select_flight_fare_icon">쇼 수수료 없음</span>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text">130,000원</strong>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text">130,000원</strong>
+                                                                            </div>
+                                                                            <div class="select_flight_fare_select">
+                                                                                <strong class="fare_select_text">130,000원</strong>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="select_flight_fare_row select_flight_fare_footer_wrap">
+                                                                        <div class="select_flight_fare_footer select_flight_fare_link">
+                                                                            <a href="#" tabindex="0" class="link flight_fare_link">
+                                                                                <em class="ico_bow"></em>
+                                                                                <span class="view_pps">pps club / krisFlyer 특전보기</span>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="select_flight_fare_footer">
+                                                                            <h4 class="select_flihgt_fare_footer_price">
+                                                                                <font>400,000원</font>
+                                                                                <span class="price_cent"></span>
+                                                                            </h4>
+                                                                            <a href="#" tabindex="0" class="btn_price column_left active">
+                                                                                <span class="ie_copy">선택</span>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="select_flight_fare_footer">
+                                                                            <h4 class="select_flihgt_fare_footer_price">
+                                                                                <font>640,000원</font>
+                                                                                <span class="price_cent"></span>
+                                                                            </h4>
+                                                                            <a href="#" tabindex="0" class="btn_price column_left active">
+                                                                                <span class="ie_copy">선택</span>
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="select_flight_fare_footer">
+                                                                            <h4 class="select_flihgt_fare_footer_price">
+                                                                                <font>740,000원</font>
+                                                                                <span class="price_cent"></span>
+                                                                            </h4>
+                                                                            <a href="#" tabindex="0" class="btn_price column_left active">
+                                                                                <span class="ie_copy">선택</span>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

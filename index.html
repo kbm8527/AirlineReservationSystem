@@ -62,7 +62,7 @@
 
         .nav-main_wrap {    
           display:flex;
-          
+          margin-left: 100px;
           
         }
         .nav-main_wrap li{
@@ -750,8 +750,175 @@
             border: 1px solid blueviolet ;
 
         }
+        /**체크인 탭**/
 
-        /**항곤편 스케줄 탭**/
+        .booking_widget .card_heading .view_link {
+            text-align: center;
+            -webkit-margin-before:0em;
+            font-size: 14px;
+        }
+
+        .show_message_component .msgcommon.warning {
+            background-color: #c9e1ec;
+            color: #af7121;
+            margin-left: 18px;
+        }
+
+        .show_message_component .msgcommon {
+            position: relative;
+            min-height: 40px;
+            font-size: 14px;
+            margin: 20px 0 20px;
+            padding: 15px 40px;
+            border-radius: 4px;
+            background-size: 20px;
+            background-repeat: no-repeat;
+
+        }
+
+        .show_message_component .msgcommon.warning:before {
+            background-image: url(https://www.singaporeair.com/assets/images/svg/icons/info-orange.svg);
+        }
+
+        .show_message_component .msgcommon:before {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 12px;
+            border-radius: 50%;
+            content: "";
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .form_field_container.booking_actions {
+            margin-bottom: 10px;
+        }
+
+
+        /**항공편 상황 탭**/
+
+        .flight_update_selection {
+            display: grid;
+            grid-column-gap: 2.5rem;
+        }
+
+        .flight_update_selection.route {
+            grid-template-columns: 1.3fr 1fr;
+        }
+
+        .flight_update_selection>* {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flight_status_route .booking_actions {
+            margin-top: 10px;
+            margin-bottom: 14px;
+        }
+
+        .booking_actions_main {
+            display: flex;
+        }
+
+        .form_control .v_popover {
+            right: -25px;
+        }
+
+        .icon_tooltip {
+            background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiM5OTk7fS5jbHMtMntmaWxsOiNmZmY7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5pY28tZGFyay0yPC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfNDQiIGRhdGEtbmFtZT0iTGF5ZXIgNDQiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIwLDQwQTIwLDIwLDAsMSwwLDAsMjAsMjAsMjAsMCwwLDAsMjAsNDAiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOS44Nyw5YTIuMjYsMi4yNiwwLDEsMS0yLjI2LDIuMjVBMi4yNSwyLjI1LDAsMCwxLDE5Ljg3LDkiLz48bGluZSB4MT0iMTkuOTgiIHkxPSIxNy43NSIgeDI9IjE5Ljk4IiB5Mj0iMjkiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0yMCwxNS43NWEyLDIsMCwwLDEsMiwyVjI5YTIsMiwwLDAsMS00LDBWMTcuNzVBMiwyLDAsMCwxLDIwLDE1Ljc1WiIvPjwvZz48L2c+PC9zdmc+) no-repeat transparent center center ;
+        }
+
+        .form_control .v_popover .icon_info {
+            position: absolute;
+            right: 1px;
+            top: 1px;
+            background-size: 80%;
+        }
+        .icon_info {
+            width: 15px;
+            height: 15px;
+        }
+
+        .flight_update_schedule .toggle_switch {
+            margin-top: 3px;
+            margin-left: 20px;
+            height: 25px;
+        }
+
+        .toggle_switch {
+            display: inline-flex;
+            padding: 5px;
+            background-color: #e5e9f0;
+            border-radius: 1.25rem;
+        }
+
+        .form_controls .toggle_switch .toggle_switch_state {
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
+
+        .toggle_switch .toggle_switch_state.selected {
+            background-color: #00266b;
+            color: white;
+        }
+
+        .toggle_switch .toggle_switch_state {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 90px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 1.25rem;
+            box-sizing: border-box;
+            background-color: transparent;
+        }
+
+        .flight_update_schedule .flight_date .form_controls {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            grid-column-gap:0.9rem;
+        }
+        .flight_update_schedule {
+            margin-right: 30px;
+        }
+
+        .banner_notification.banner_image {
+            margin: 25px 20px 0;
+        }
+
+        .banner_notification {
+            display: flex;
+        }
+
+        .banner_notification>* {
+           display: flex;
+        }
+
+        .banner_notification.banner_image .banner_image_flight {
+            width: 42px;
+            height: 40px;
+        }
+
+        .banner_notification.banner_image .banner_notification_copy {
+            margin-left: 15px;
+            flex: 1 95%;
+            flex-direction: column;
+        }
+
+        .banner_notification.banner_image .banner_notification_heading {
+            margin: 0 0 15px 0;
+            color: #00266b;
+        }
+
+        .banner_notification.banner_image .banner_notification_text {
+            padding: 0;
+            margin: 0 0 15px 0;
+        }
+
+
+
+        /**항공편 스케줄 탭**/
 
         .flight_origin_text {
             display: inline-block;
@@ -765,6 +932,14 @@
             grid-template-columns: 4fr 1.1fr;
             grid-column-gap:0.9rem;
         }
+
+
+
+
+
+
+
+
 
         /**프로모션 섹션**/
         .fd_section {
@@ -897,6 +1072,11 @@
             margin-right: 4px;
             border-left: 2px solid orange;
         }
+
+
+
+
+
 
         /**푸터**/
 
@@ -1210,6 +1390,9 @@
                     </li>
                 </div>
                 <div class="tab_content_container">
+                    
+                    
+                    <!--항공편 예약 탭--> 
                     <div class="tab_content">
                         <div class="tab_content_1">
                             <div class="card booking_widget">
@@ -1393,6 +1576,7 @@
                             </div>
                         </div>
                     </div>
+                    <!--예약 관리 탭-->
                     <div class="tab_content">
                         <div class="tab_content_1">
                             <section class="booking_wrapper">
@@ -1473,6 +1657,234 @@
                             </section>
                         </div>
                     </div>
+                    <!--체크인 탭-->
+                    <div class="tab_content">
+                        <div class="tab_content_1">
+                            <div class="card booking_widget">
+                                <div class="card_heading">
+                                    <span class="view_link">
+                                        <a href=""></a>
+                                    </span>
+                                </div>
+                                <div class="show_message_component">
+                                    <div class="msgcommon warning">
+                                        <a href="#" target="blank">가이드</a>
+                                        를 확인하여 체크인 절차를 단축하세요.
+                                        <br>
+                                        <br>
+                                        동남아시아 목적지, 방글라데시 다카, 스리랑카 콜롬보로 여행하는 싱가포르항공 고객은 제2터미널에서 체크인 하셔야 합니다. 
+                                        그 외 목적지로 향하는 싱가포르항공 항공편 체크인은 제3터미널에서 진행됩니다.
+                                    </div>
+                                </div>
+                                <div class="form_fields_container booking_actions">
+                                    <div class="form_control field_radiobox">
+                                        <input type="radio" value="bookingReference" name="sqmi_book" class="input_radio">
+                                        <label for="sqmibookingRadio">
+                                            예약 번호
+                                        </label>
+                                        <div class="v_popover">
+                                            <span aria-describedby="popover" tabindex="-1" class="trigger" style="display: inline-block;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form_control field_radiobox">
+                                        <input type="radio" value="eticketNumber" name="sqmi_bookref" class="input_radio">
+                                        <label for="eticketNumberRadioCheckIn" class="form_label form_label_mod">
+                                            e-항공권 번호
+                                        </label>
+                                        <div class="v_popover">
+                                            <span aria-describedby="popover" tabindex="-1" class="trigger" style="display: inline-block;">
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="show_message_component">
+
+                                </div>
+                                <div>
+                                    <div class="form_fields_container form_booking">
+                                        <div class="form_field_wrapper">
+                                            <div class="form_control float_label">
+                                                <div class="booking_selection">
+                                                    <div class="input_wrapper">
+                                                        <input type="text" name="bookingReferenceSQMI" id="bookingReferenceFieldSQMI" placeholder=" " minlength="6" maxlength="6" class="form_field form_input_text">
+                                                        <label for="bookingReferenceSQMI" id="bookingReferenceSQMIlabel" class="form_label">
+                                                            6자리 예약 번호를 입력하세요
+                                                        </label>
+                                                        <small class="validation_container hidden">
+                                                            <span class="error">예약 번호를 입력하세요</span>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form_field_wrapper">
+                                            <div class="form_control float_label">
+                                                <div class="booking_selection">
+                                                    <div class="input_wrapper">
+                                                        <input type="text" name="last_familyNameSQMI" id="last_familyNameFieldSQMI" placeholder=" " class="form_field form_input_text">
+                                                        <label for="last_familyNameSQMI" id="last_familyNameSQMILabel" class="form_label">성(여권과 동일해야 합니다)</label>
+                                                        <small class="validation_container hidden">
+                                                            <span class="error">예약 정보와 동일하게 성을 입력해 주십시오.</span>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form_field_wrapper">
+                                            <div class="form_control">
+                                                <button type="submit" class="btn btn_primary ">체크인</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--항공편 상황 탭-->
+                    <div class="tab_content">
+                        <div class="tab_content_1">
+                            <form action="#" method="post" autocomplete="off" novalidate="novalidate" class="form form_flight_status widget_form" readonly="readonly" style="background-color: inherit;">
+                                <section class="booking_wrapper">
+                                    <div class="card booking_widget">
+                                        <div class="card_heading">
+                                            <div class="page_header">항공편 최신 정보를 받으세요</div>
+                                        </div>
+                                        <div class="separator"></div>
+                                        <div class="show_message_component">
+
+                                        </div>
+                                        <div class="card_body">
+                                            <div class="flight_update_selection route">
+                                                <div class="flight_status_route">
+                                                    <div class="form_field_container booking_actions">
+                                                        <div class="form_field_wrapper">
+                                                            <div class="form_controls">
+                                                                <div class="booking_actions_main route">
+                                                                    <div class="form_control field_radiobox">
+                                                                    <input type="radio" value="route" name="flight_status_radio" class="input_radio">
+                                                                    <label for="flihgtStatusRoute" class="form_label">
+                                                                        노선 기준
+                                                                    </label>
+                                                                    <div class="v_popover popover_container">
+                                                                        <div class="trigger" style="display: inline-block;">
+                                                                            <a href="#" tabindex="-1" class="icon icon_tooltip icon_info"></a>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                               
+                                                                    <div class="form_control field_radiobox">
+                                                                    <input type="radio" class="flightNumber" name="flight_status_radio" class="input_radio">
+                                                                    <label for="flightStatusNumber" class="form_label">
+                                                                        항공평면 기준
+                                                                    </label>
+                                                                    <div class="v_popover popover_container">
+                                                                        <div class="trigger" style="display: inline-block;">
+                                                                            <a href="#" tabindex="-1" class="icon icon_tooltip icon_info"></a>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                </div>                                                                                                                                  
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="flight_update_schedule">
+                                                    <div class="form_field_container">
+                                                        <div class="form_controls">
+                                                            <div class="toggle_switch">
+                                                                <button class="toggle_switch1 travel_type toggle_switch_state selected">출발</button>
+                                                                <button class="toggle_switch1 trevel_type toggle_switch_state">도착</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="show_message_component">
+
+                                            </div>
+                                            <div class="flight_update_selection route">
+                                                <div class="flight_status_route">
+                                                    <div class="form_field_wrapper flight_route flight_od">
+                                                        <div class="form_controls float_label">
+                                                            <div class="control_group has_float_label flight_od">
+                                                                <div class="form_control input_from route_from">
+                                                                    <div class="vue_simple designed">
+                                                                        <div class="input_wrapper tiny_label">
+                                                                            <input type="text" name="flightStatusOriginField" id="flightStatusOriginField" placeholder=" " onfocus="scrolltop()" class="form_field form_input_text" tabindex="1">
+                                                                            <label for="flightStatusOriginField" class="form_label">출발</label>
+                                                                            <div class="flight_ticket">
+                                                                                <span class="flight_origin text_wrap">서울</span>
+                                                                                <span class="country_ticket">ICN</span>
+                                                                            </div>
+                                                                            <span class="icon icon_location noclick"></span>
+                                                                            <span class="icon icon_close_circle"></span>
+                                                                            <span class="icon icon_plane od_field"></span>
+                                                                            <small class="validation_container hidden">
+                                                                                <span class="error">도시를 선택하세요</span>
+                                                                            </small>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form_control input_to route_to">
+                                                                    <div class="vue_simple designed">
+                                                                        <div class="input_wrapper tiny_label">
+                                                                            <input type="text" name="flightDestination" id="flightDestinationField" placeholder=" " onfocus="scrolltop()" class="form_field form_input_text" tabindex="2">
+                                                                            <label for="flightDestination" id="flightDestinationLabel" class="form_label">도착</label>
+                                                                            <span class="icon icon_location noclick"></span>
+                                                                            <small class="validation_container hidden">
+                                                                                <span class="error">목적지를 선택하세요</span>
+                                                                            </small>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="flight_update_schedule">
+                                                    <div class="form_field_wrapper flight_date flight_od">
+                                                        <div class="form_controls">
+                                                            <div class="calendar_root flight_arrival_date">
+                                                                <div class="form_control flight_od float_label">
+                                                                    <div class="vue_simple designed">
+                                                                        <div class="input_wrapper tiny_label">
+                                                                            <input type="text" name="flightStatusDepartDate" id="flightStatusDepartDate" placeholder=" " onfocus="scrolltop()" readonly="readonly" class="form_field form_input validate tab_index" tabindex="3">
+                                                                            <label for="flightDestination" id="flightDestinationLabel" class="form_label">출발 날짜</label>
+                                                                            <span class="icon icon_calendar noclick"></span>
+                                                                            <small class="validation_container hidden">
+                                                                                <span class="error">도착 날짜를 선택하세요</span>
+                                                                            </small>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form_control">
+                                                                <button type="submit" class="btn btn_primary tab_index" tabindex="4">검색</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="banner_notification banner_image">
+                                                <div class="banner_image_container">
+                                                    <img src="/img/flight-notification.svg" alt="" class="banner_image_flight">
+                                                </div>
+                                                <div class="banner_notification_copy">
+                                                    <h4 class="banner_notification_heading">전화로 항공편 알림을 받으세요</h4>
+                                                    <p class="banner_notification_text">
+                                                        즐겨 쓰시는 직접 메시징 앱을 통해 항공편 최신 정보 알림을 받으세요.
+                                                        <a href="#">알림을 받으세요</a>
+                                                    </p>
+                                                </div>   
+                                            </div>
+                                        </div>                                                                                                   
+                                    </div>
+                                </section>
+                            </form>
+                        </div>
+                    </div>
+                    <!--항공편 스케줄 탭-->
                     <div class="tab_content">
                         <div class="tab_content_1">
                             <section class="booking_wrapper">
@@ -1565,8 +1977,9 @@
                             </div>
                         </section>
                     </div>
-                </div>
                     
+                
+                </div>                 
             </div>
         </div>
        

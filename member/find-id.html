@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4d13f04a7c.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>아이디 찾기</title>  
+
+    <style>
+
+        * {
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul, li {
+            list-style: none;
+           
+        }
+       
+        .l_container {
+            width: 1180px;
+            margin: 0 auto 100px;
+        }
+        .l_container h3 {
+            font-size: 40px;
+            font-weight: 400;
+            text-align: center;
+            line-height: 1;
+            margin: 60px 0 50px 0;
+        }
+
+        fieldset {
+            border: 0;
+            padding:0;
+            margin: 0;
+        }
+
+        legend , .hidden, caption {
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            width: 0 !important;
+            height: 0 !important;
+            font-size: 0 !important;
+            line-height: 0 !important;
+        }
+
+        /*본인 인증*/
+
+        .container {
+            padding: 0 20px;
+        }
+
+        .contents {
+            max-width: 1300px;
+            padding: 80px 300px 150px;
+        }
+
+        .find_id {
+            font-weight: 400;
+            font-size: 35px;
+            margin-bottom: 13px;
+            color: black;
+        }
+
+        .p {
+            display: block;
+            margin: 13px 0;
+            color: #555;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .tab {
+            margin: 20px 0 45px;
+        }
+
+        .tab.x.combine .tab_list {
+            width: auto;
+            min-width: 500px;
+            float: left;
+        }
+
+        .tab.x .tab_list {
+            display: flex;
+            flex-direction: row;
+            background-color: white;
+        }
+
+
+        .tab .tab_item {
+            width: auto;
+            flex-basis: 100%;
+            padding: 0;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        
+        .tab .tab_item button {
+            position:relative;
+            border-color: #93b9e4;
+            background-color: white;
+           
+        }
+
+        .tab li.on2 button {
+            border-color: #93b9e4;
+            background-color: #93b9e4;
+            color: white;
+        }
+
+
+
+        .tab .tab_item:first-child .tab_button {
+          border-top-right-radius: 0;
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 8px;
+        }
+
+        .tab .tab_button {
+            display: block;
+            min-height: 100%;
+            border: 1px solid #d9dbe1;
+            background: none;
+            cursor: pointer;
+            width: auto;
+            appearance: none;
+            min-width: 250px;
+            white-space: nowrap;
+            padding: 10px 20px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .tab .tab_item+.tab_item {
+            margin-top: 0;
+            margin-left: -1px;
+        }
+
+        .tab .tab_item:first-child .tab_button {
+          border-top-right-radius: 0;
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 8px;
+        }
+
+        .tab .tab_item:last-child .tab_button {
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius:8px;
+        }
+
+        .tab.x .tab_panel {
+            padding: 60px 0;
+        }
+
+        .tab_panel.active {
+            display: block;
+        }
+
+        .tab_panel {
+            clear: both;
+        }
+
+        .identify {
+            margin-top: 10px;
+        }
+
+        .identify_list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+        }
+
+        .identify_item, .identify_item.col2 {
+            width: calc(50%);
+        }
+
+        .identify_item {
+            height: auto;
+        }
+
+        .identify_item.phone .identify_link.full {
+            background-position: 20px center;
+            text-align: left;
+        }
+
+        .identify_link.full {
+            padding: 20px 20px 20px 75px;
+        }
+        .identify_item.phone .identify_link {
+            background-size: 42px 42px;
+            background: url(https://www.koreanair.com/cm-join-certify--tel.svg) 2rem center/48px 48px no-repeat;
+        }
+
+        .identify_link {
+            display: block;
+            border: 2px solid #d9dbe1;
+            border-radius: 2px;
+        }
+
+        .identify_title {
+            display: block;
+            color: #00256c;
+            font-size:15px;
+            line-height: 1.5;
+        }
+
+        .identify_link.naver {
+            background: url(https://www.koreanair.com/ico-naver.svg) 1.7rem center/36px 36px no-repeat;
+        }
+
+        .identify_link.kakao {
+            background: url(https://www.koreanair.com/ico-kakao.svg) 1.7rem center/36px 36px no-repeat;
+        }
+
+        /*회원정보 확인*/
+
+        .requires {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 16px 0;
+            color: #555;
+            font-weight: 400;
+        }
+
+        .requires:before {
+            display: inline-block;
+            width: 15px;
+            height: 20px;
+            vertical-align: top;
+            margin: 0;
+            content: '';
+            background: url(https://www.koreanair.com/requires--before.svg) center/8px 22px no-repeat;
+            background-size: 10px 24px;
+        }
+        
+        .requires:after {
+            display: inline-block;
+            width: 15px;
+            height: 20px;
+            vertical-align: top;
+            margin: 0;
+            content: '';
+            background: url(https://www.koreanair.com/requires--after.svg) center/8px 22px no-repeat;
+            background-size: 10px 24px;
+        }
+        .requires .required {
+            top: 20px;
+        }
+
+        .required {
+            display: inline-block;
+            position: relative;
+            width: 5px;
+            font-size: inherit;
+            overflow: hidden;
+            white-space: nowrap;
+            text-indent: 100%;
+            vertical-align: bottom;
+        }
+
+        .required.r1 {
+            top: 10px;
+        }
+
+        .required:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: #de001b;
+            content: '';
+        }
+
+        .selections {
+            display: block;
+            margin: 30px 0;
+
+        }
+
+        .selection {
+            margin-left: 0;
+        }
+
+        .selection label {
+            padding-left: 3px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .fieldset {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+
+        .fieldset.col .field:nth-of-type(){
+            padding-right: 10px;
+        } 
+
+        .fieldset.col .field {
+            width: 50%;
+        }
+
+        .label {
+            display: block;
+            color: #767676;
+            font-size: 15px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .forms {
+            position: relative;
+        }
+
+        .forms [type=text]:hover,.forms [type=email]:hover,.forms [type=tel]:hover {
+            padding: 0 10px;
+            border-bottom-color: transparent;
+            border-radius: 2px;
+            outline: 0;
+            box-shadow: 0 0 0 1px #0064de;
+            color: black;
+        }
+
+        .forms [type=text], .forms [type=email], .forms [type=tel] {
+            display: block;
+            width: 500px;
+            height: 40px;
+            margin: 0;
+            border: 0;
+            border-bottom: 1px solid #00256c;
+            opacity: 1;
+            box-sizing: border-box;
+            appearance: none;
+        }
+
+        .placeholder {
+            position: absolute;
+            width: 100%;
+            color: #767676;
+            user-select: none;
+            top: 7px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .field_birth {
+            margin-top: 40px;
+        }
+
+        .confirms {
+            display: flex;
+            justify-items: flex-start;
+        }
+        .confirms.center {
+            justify-content: center;
+        }
+
+        .confits:last-child {
+            margin-bottom: 0;
+        }
+
+        .confirm {
+            display: inline-block;
+            width: auto;
+            min-width: 200px;
+            padding: 15px 20px;
+            font-size: 20px;
+            line-height: 1.5;
+            margin: 10px;
+            color: white;
+            border: 1px solid #4e95e6;
+            border-radius: 5px;
+            background-color: #4e95e6;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        
+
+        .error_message1 {
+            display: none;
+            margin-top: 10px;
+            color: rgb(236, 62, 62);
+        }
+        .error_message2 {
+            display: none;
+            margin-top: 10px;
+            color: rgb(236, 62, 62);
+        }
+        .error_message3 {
+            display: none;
+            margin-top: 10px;
+            color: rgb(236, 62, 62);
+        }
+
+    </style>
+
+    <script>
+
+        //본인 인증 회원 이메일 확인 탭 기능
+        $(function($) {
+          
+            $(".tab_list li").click(function(){
+                var idx3 = $(this).index();
+                $(".tab_list li").removeClass("on2");
+                $(".tab_list li").eq(idx3).addClass("on2");
+                $(".tab > div").hide();
+                $(".tab > div").eq(idx3).show();
+          
+            })
+
+
+            $(".confirm").click(function(){
+                
+                var name_val = document.getElementById("familyname").value;
+                var email_val = document.getElementById("memberinfo_email").value;
+                var birth_val = document.getElementById("memberinfo_birth").value;
+
+                //입력이 안 됐을 때
+                if(name_val === '' ) {                 
+                    $(".error_message1").css("display","block");
+                    $(".error.forms [type=text]").css("border-bottom-color","#de001b");
+                
+
+                //입력이 됐을 때
+                } else if(name_val !== '') {
+                   
+                    $(".error_message1").css("display","none");
+                    $(".error.forms [type=text]").css("border-bottom-color", "");
+                }
+
+                if(email_val === '' ) {                 
+                    $(".error_message2").css("display","block");
+                    $(".error.forms [type=email]").css("border-bottom-color","#de001b");
+                
+
+                //입력이 됐을 때
+                } else if(email_val !== '') {
+                   
+                    $(".error_message2").css("display","none");
+                    $(".error.forms [type=email]").css("border-bottom-color", "");
+                }
+
+                
+                if(birth_val === '' ) {                 
+                    $(".error_message3").css("display","block");
+                    $(".error.forms [type=tel]").css("border-bottom-color","#de001b");
+                
+
+                //입력이 됐을 때
+                } else if(birth_val !== '') {
+                   
+                    $(".error_message3").css("display","none");
+                    $(".error.forms [type=tel]").css("border-bottom-color", "");
+                }
+
+            })
+
+
+        })
+
+        function email_exam() {
+            document.getElementById("placeholder_email").style.display = "none";
+        }
+
+
+    </script>
+
+
+            
+</head>
+<body>
+    <div>
+        <div class="container">
+            <div class="contents" role="main">
+                <h1 class="find_id h1">아이디 찾기</h1>
+                <p class="p">
+                    회원님의 개인정보 보호를 위해 본인인증 또는 이메일 회원 정보 확인이 필요합니다.
+                </p>
+                <div class="tab x combine" id="tab">
+                    <ul class="tab_list">
+                        <li class="tab_item active on2">
+                            <button type="button" class="tab_button">본인 인증</button>
+                        </li>
+                        <li class="tab_item ">
+                            <button type="button" class="tab_button">회원 이메일 확인</button>
+                        </li>
+                    </ul>
+                    <div class="tab_panel active">
+                        <div class="identify">
+                            <h2 class="hidden">인증 수단 선택</h2>
+                            <ul class="identify_list col2">
+                                <li class="identify_item phone">
+                                    <a href="javascript" class="identify_link full">
+                                        <strong class="identify_title">휴대전화 인증</strong>
+                                        <span class="hidden">&nbsp;새 창 열림</span>
+                                    </a>
+                                </li>
+                                <li class="identify_item">
+                                    <a href="javascript" class="identify_link naver full">
+                                        <strong class="identify_title">네이버 인증</strong>
+                                        <span class="hidden">&nbsp;새 창 열림</span>
+                                    </a>
+                                </li>
+                                <li class="identify_item">
+                                    <a href="javascript" class="identify_link kakao full">
+                                        <strong class="identify_title">카카오 인증</strong>
+                                        <span class="hidden">&nbsp;새 창 열림</span>
+                                    </a>
+                                </li>                               
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab_panel" style="display: none;">
+                        <p class="label hidden">
+                            개인정보 확인 방법
+                        </p>
+                        <div class="requires">
+                            <span class="required r1">
+                                빨간 동그라미
+                            </span>
+                            는 필수 입력 사항입니다.
+                        </div>
+                        <ul class="selections">
+                            <li class="selection">
+                                
+                                <label for="method_email">
+                                    이메일
+                                </label>
+                            </li>
+                        </ul>
+                        <div class="fieldset col">
+                            <div class="field">
+                                <label for="familyName" class="label">
+                                    영문 성
+                                    <span class="required">
+                                        &nbsp; 필수입력
+                                    </span>
+                                </label>
+                                <div class="forms error">
+                                    <input type="text" class="upper" id="familyname" maxlength="50" name="name">
+                                    <p class="error_message1">필수 입력 정보입니다.</p>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="member_email" class="label">
+                                    이메일 주소
+                                    <span class="required">
+                                        &nbsp; 필수입력
+                                    </span>
+                                </label>
+                                <div class="forms error">
+                                    <span class="placeholder" id="placeholder_email" style="display: block;">
+                                        예)orka@orkaair.com   
+                                    </span>
+                                    <input type="email" id="memberinfo_email" name="email" onclick="email_exam();">
+                                    <p class="error_message2">필수 입력 정보입니다.</p>
+                                </div>
+                            </div>
+                            <div class="field field_birth">
+                                <label for="memberinfo_birth" class="label">
+                                    생년월일
+                                    <span>&nbsp;(YYYY.MM.DD.)</span>
+                                    <span class="required">
+                                        &nbsp; 필수입력
+                                    </span>
+                                </label>
+                                <div class="forms error">
+                                    <span class="placeholder">
+                                        <span class="" id="placeholder_memberinfo">
+                                            
+                                        </span>
+                                    </span>
+                                    <input type="tel" class="memberinfo_birth" id="memberinfo_birth" maxlength="11" name="birth">
+                                    <p class="error_message3">필수 입력 정보입니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="confirms center">
+                            <button type="button" class="confirm" >확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

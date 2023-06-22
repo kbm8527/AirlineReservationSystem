@@ -1,0 +1,274 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="/layout/layout_booking.html">
+
+
+    <div layout:fragment="content">
+        <div class="container" role="main">
+            <div class="contents new_booking_gate">
+                <h1 class="h1">항공권 예매</h1>
+                <div class="tab x col2 combine new_tab_type">
+                    <div class="tab_wrap mo_diff">
+                        <div class="tab_modiff_wrap">
+                            <ul class="tab_list" role="tablist">
+                                <li class="tab_item active">
+                                    <button type="button" class="tab_button">예매</button>
+                                </li>
+                                <li class="tab_item">
+                                    <button type="button" class="tab_button">마일리지 예매</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab_panel active" role="tabpanel" tabindex="0">
+                        <div class="booking_new">
+                            <div class="star_inserted">
+                                <div>
+                                    <div class="booking_new_aligner book_type pristine valid touched">
+                                        <div class="booking_type inner_type" role="group">
+                                            <div class="booking_type_items">
+                                                <div class="booking_type_item">
+                                                    <div class="selection">
+                                                        <input type="radio" value="RT" class="pristine valid touched">
+                                                        <label for="bookingType">
+                                                            왕복
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="booking_type_item star_inserted">
+                                                    <div class="selection">
+                                                        <input type="radio" value="OW" class="pristine valid touched">
+                                                        <label for="bookingType">
+                                                            편도
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="booking_type_item">
+                                                    <div class="selection">
+                                                        <input type="radio" value="MT" class="pristine valid touched">
+                                                        <label for="bookingType">
+                                                            다구간
+                                                        </label>
+                                                    </div>
+                                                    <button type="button" class="opener popover_trigger">
+                                                        다구간 상세 안내
+                                                    </button>
+                                                    <div class="toggleWrap" style="display: none;">
+                                                        <div class="toggleclass popover down left star_insert active" style="top:36px; left:275px;">
+                                                            <span class="toggleclass_edge popover_edge"></span>
+                                                            <h2 class="popover_h2 star_inserted">일반 항공권 다구간 여정</h2>
+                                                            <ul class="list disc star_inserted">
+                                                                <li class="list_item">
+                                                                    대한민국, 동북아시아, 동/서남아시아, 미주, 유럽, 대양주, 러시아, 중동 중 3개 지역이 포함된 2개~6개 구간까지 예약할 수 있습니다.
+                                                                </li>
+                                                                <li class="list_item">
+                                                                    첫번째 여정의 출발지와 마지막 여정의 도착지가 동일해 지는 경우, 이후 여정 추가는 불가합니다.(단, 한국, 미주, 유럽, 대양주 지역에 한해 1회 추가 가능)
+                                                                </li>
+                                                            </ul>
+                                                            <button type="button" class="toggleclass_close popover_close">닫기</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="star_inserted">
+                                <div class="booking_new_wrap">
+                                    <div class="booking_new_seperate itinerary">
+                                        <div class="booking_new_items">
+                                            <div class="booking_new_item">
+                                                <div class="booking_new_aligner">
+                                                    <div>
+                                                        <div class="booking_new_aligner_inner star_inserted">
+                                                            <button type="button" class="booking_new_button from star_inserted">
+                                                                <span class="hidden star_inserted">출발지&nbsp;</span>
+                                                                <span class="booking_new_code">SEL</span>
+                                                                <span class="booking_new_airport star_inserted">
+                                                                    &nbsp;서울
+                                                                </span>
+                                                            </button>
+                                                            <button type="button" class="booking_new_button to off star_inserted">
+                                                                <span class="booking_new_code">To</span>
+                                                                <span class="booking_new_airport star_inserted">
+                                                                    &nbsp;도착지
+                                                                </span>
+                                                            </button>
+                                                            <button type="" class="booking_new_swap star_inserted" disabled>
+                                                                출발지와 도착지 바꾸기
+                                                            </button>
+                                                            <div class="hidden star_inserted"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="booking_new_error">
+                                                        <div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="booking_new_aligner1 star_inserted">
+                                                    <div class="booking_new_aligner1_inner">
+                                                        <button type="button" class="booking_new_datepicker">
+                                                            <span class="booking_new_label ">탑승일</span>
+                                                            <span class="booking_new_date off star_inserted">
+                                                                <span class="from">가는날</span>
+                                                                <span class="wave">~</span>
+                                                                <span class="to">오는날</span>
+                                                            </span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="booking_new_error date_error">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div class="booking_new_options">
+                                        <div class="booking_new_seperate">
+                                            <div class="booking_new_option">
+                                                <button type="button" class="booking_new_passengers">
+                                                    <span class="booking_new_label star_inserted">승객 수&nbsp;</span>
+                                                    <span>성인 1명</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="booking_new_seperate">
+                                            <div class="booking_new_option">
+                                                <button type="button" class="booking_new_seatclass">
+                                                    <span class="booking_new_label">좌석 등급&nbsp;</span>
+                                                    <span class="default star_inserted">선택하세요.</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>                                  
+                                </div>
+                            </div>
+                            <div class="star_inserted">
+                                <div class="booking_new_wrap">
+                                    <div class="booking_new_seperate itinerary">
+                                        <div class="booking_new_items">
+                                            <div class="star_inserted">
+                                                <div class="booking_new_items_wrap">
+                                                    <h2 class="booking_new_title">여정1</h2>
+                                                    <div class="booking_new_item multi">
+                                                        <div class="booking_new_aligner">
+                                                            <div>
+                                                                <div class="booking_new_aligner_inner star_inserted">
+                                                                     <button type="button" class="booking_new_button from star_inserted">
+                                                                        <span class="hidden star_inserted">출발지&nbsp;</span>
+                                                                        <span class="booking_new_code">SEL</span>
+                                                                        <span class="booking_new_airport star_inserted">
+                                                                            &nbsp;
+                                                                            &nbsp;서울
+                                                                        </span>
+                                                                    </button>
+                                                                    <button type="button" class="booking_new_button to off oneway star_inserted">
+                                                                        <span class="booking_new_code">To</span>
+                                                                        <span class="booking_new_airport star_inserted">
+                                                                            &nbsp;
+                                                                            &nbsp;도착지
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="booking_new_error date_error">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="booking_new_aligner1">
+                                                            <div class="booking_new_aligner1_inner">
+                                                                <button type="button" class="booking_new_datepicker">
+                                                                    <span class="booking_new_label ">탑승일</span>
+                                                                    <span class="booking_new_date off star_inserted">
+                                                                        <span>탑승일 선택</span>
+                                                                    </span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="booking_new_error date_error">
+        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="star_inserted">
+                                                <div class="booking_new_items_wrap">
+                                                    <h2 class="booking_new_title">여정2</h2>
+                                                    <div class="booking_new_item multi">
+                                                        <div class="booking_new_aligner">
+                                                            <div>
+                                                                <div class="booking_new_aligner_inner star_inserted">
+                                                                     <button type="button" class="booking_new_button from star_inserted">
+                                                                        <span class="hidden star_inserted">출발지&nbsp;</span>
+                                                                        <span class="booking_new_code">SEL</span>
+                                                                        <span class="booking_new_airport star_inserted">
+                                                                            &nbsp;
+                                                                            &nbsp;서울
+                                                                        </span>
+                                                                    </button>
+                                                                    <button type="button" class="booking_new_button to off oneway star_inserted">
+                                                                        <span class="booking_new_code">To</span>
+                                                                        <span class="booking_new_airport star_inserted">
+                                                                            &nbsp;
+                                                                            &nbsp;도착지
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="booking_new_error date_error">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="booking_new_aligner1">
+                                                            <div class="booking_new_aligner1_inner">
+                                                                <button type="button" class="booking_new_datepicker">
+                                                                    <span class="booking_new_label ">탑승일</span>
+                                                                    <span class="booking_new_date off star_inserted">
+                                                                        <span>탑승일 선택</span>
+                                                                    </span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="booking_new_error date_error">
+        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="booking_new_controls star_inserted">
+                                                <button type="button" class="booking_new_add">여정 추가</button>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div class="booking_new_options">
+                                        <div class="booking_new_seperate">
+                                            <div class="booking_new_option">
+                                                <button type="button" class="booking_new_passengers">
+                                                    <span class="booking_new_label star_inserted">승객 수&nbsp;</span>
+                                                    <span>성인 1명</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="booking_new_seperate">
+                                            <div class="booking_new_option">
+                                                <button type="button" class="booking_new_seatclass">
+                                                    <span class="booking_new_label">좌석 등급&nbsp;</span>
+                                                    <span class="default star_inserted">선택하세요.</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>                                  
+                                </div>
+                                <button type="button" th:onclick="|location.href='@{/booking/flight-to}'|" class="booking_new_search">검색</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</html>

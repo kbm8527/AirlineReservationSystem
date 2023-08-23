@@ -35,4 +35,7 @@ public class BookingProcessController {
 		
 		return "/booking/seat";
 	}
+	
+	
+	
 }

@@ -1,6 +1,4 @@
-/*-- 공통--*/
-
-
+ /*-- 공통--*/
         * {
             text-decoration: none;
             margin: 0;
@@ -295,12 +293,17 @@
         }
 
         .booking_widget_panel {
+            display: none;
             clear: both;
             min-height: 230px;
             padding: 30px 40px 10px;
             border-radius: 2rem;
             background-color: white;
             box-shadow: 0 0 1rem 0 rgba(0,0,0,.2);
+        }
+
+        .show {
+            display: block;
         }
 
         .quickbookings {
@@ -713,14 +716,20 @@
         }
 
         /**출발지 검색**/
+        .departure {
+            padding-left: 270px;
+        }
+
+
         .dialog.main {
             position: absolute;
             left: 35.5%;
             justify-content: flex-start;
             max-width: 1300px;
-            height: auto;
+            
             background-color: transparent;
             transform: translateX(-50%);
+            z-index: 9999;
         }
         .dialog.main.departure .dialog_contents {
             width: 700px!important;
@@ -969,6 +978,19 @@
             outline: 0;
             border-radius: .3rem;
             box-shadow: inset 0 0 0 1px #0064de;
+        }
+
+
+        .departure_city {
+            display: none;
+        }
+
+        .departure_city1 {
+            display: none;
+        }
+
+        .show1 {
+            display: block;
         }
 
         /**도착지 검색**/
@@ -2172,7 +2194,6 @@
             left: 0;
             top: 0;
             height: 265px;
-            background-image: url(../img/bangkok.jpg);
         }
         .fd_description_wrapper {
             position: absolute;

@@ -5,7 +5,8 @@
 
   <div layout:fragment="content">
     
-	  <!--메인 시작-->  
+	 
+    <!--메인 시작-->  
     <main>
         <div id="mainhead">
             <div class="header_wrap">
@@ -54,7 +55,7 @@
                     </li>
                 </ul>
                 <!--항공권 예매 탭-->
-                <div aria-labelledby="tab_0" class="booking_widget_panel active" id="panel_0">
+                <div aria-labelledby="tab_0" class="booking_widget_panel show" id="panel_0">
                     <div class="quickbookings">
                         <div class="booking_widget_side_wrap">
                             <div class="booking_widget_tabs">
@@ -95,14 +96,14 @@
                             <div class="quickbookings_ali">
                                 <div class="quickbookings_separate itinerary">
                                     <div class="quickbookings_ali_inner star_inserted">
-                                        <button type="button" class="star_inserted quickbookings_location dialog from">
+                                        <button type="button" class="star_inserted quickbookings_location dialog dialog1 from active1">
                                             <span class="hidden star_inserted">출발지&nbsp;</span>
                                             <span class="quickbookings_code">SEL</span>
                                             <span class="quickbookings_airport star_inserted">
                                                 &nbsp;서울
                                             </span>
                                         </button>
-                                        <button type="button" class="star_inserted quickbookings_location dialog to">
+                                        <button type="button" class="star_inserted quickbookings_location dialog dialog1 to">
             
                                             <span class="quickbookings_code">To</span>
                                             <span class="quickbookings_airport star_inserted">
@@ -122,7 +123,7 @@
                                 <div class="quickbookings_separate date">
                                     <p class="quickbookings_label label mo_hidden">탑승일&nbsp;</p>
                                     <div class="forms">
-                                        <button type="button" class="quickbookings_datepicker">
+                                        <button type="button" class="quickbookings_datepicker dialog dialog1">
                                             <span class="hidden">탑승일&nbsp;</span>
                                             <span class="quickbookings_date off star_inserted">
                                                 <span class="from">가는 날</span>
@@ -131,646 +132,14 @@
                                             </span>
                                         </button>
                                     </div>
-                                    <div id="quickmytrips_datepicker" style="display: none;">
-                                        <div>
-                                            <div>
-                                                <div class="tns star_inserted">
-                                                    <div class="dialog active tns main full star_inserted" id="dialog_datepicker" style="transform:translateX(-50%); left:50%; top:468px;">
-                                                        <div class="dialog_contents datepicker">
-                                                            <div class="datepicker fixed_mode main">
-                                                                <div class="datepicker_seperate">
-                                                                    <div class="hidden">
-
-                                                                    </div>
-                                                                    <div class="datepicker_aligner">
-                                                                        <div class="datepicker_controls mo_hidden" role="navigation">
-                                                                            <button type="button" class="datepicker_prev">지난 2달</button>
-                                                                            <button type="button" class="datepicker_next">다음 2달</button>
-                                                                        </div>
-                                                                        <div class="datepicker_list case2">
-                                                                            <div class="tns datepicker_item active star_inserted">
-                                                                                <div class="datepicker_year">
-                                                                                    <span class="tns">
-                                                                                        2023
-                                                                                        <span class="datepicker_month">5월</span>
-                                                                                    </span>
-                                                                                    <span class="hidden">2023년 5월</span>
-                                                                                </div>
-                                                                                <div class="tns" role="application">
-                                                                                    <table class="datepicker_table" role="presentation">
-                                                                                        <colgroup class="tns star_inserted">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                        </colgroup>
-                                                                                        <thead class="datepicker_thead">
-                                                                                            <tr class="tns">
-                                                                                                <td class="datepicker_th">일</td>
-                                                                                                <td class="datepicker_th">월</td>
-                                                                                                <td class="datepicker_th">화</td>
-                                                                                                <td class="datepicker_th">수</td>
-                                                                                                <td class="datepicker_th">목</td>
-                                                                                                <td class="datepicker_th">금</td>
-                                                                                                <td class="datepicker_th">토</td>
-                                                                                            </tr>
-                                                                                        </thead>
-                                                                                        <tbody>
-                                                                                            <tr class="tns">
-                                                                                                <td class="datepicker_td tns"></td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr class="tns">
-                                                                                                <td class="datepicker_td tns"></td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr class="tns">
-                                                                                                <td class="datepicker_td tns"></td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr class="tns">
-                                                                                                <td class="datepicker_td tns"></td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr class="tns">
-                                                                                                <td class="datepicker_td tns"></td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </div>
-                                                                                <div class="datepicker_error">
-
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="tns datepicker_item active star_inserted">
-                                                                                <div class="datepicker_year">
-                                                                                    <span class="tns">
-                                                                                        2023
-                                                                                        <span class="datepicker_month">5월</span>
-                                                                                    </span>
-                                                                                    <span class="hidden">2023년 5월</span>
-                                                                                </div>
-                                                                                <div class="tns" role="application">
-                                                                                    <table class="datepicker_table" role="presentation">
-                                                                                        <colgroup class="tns star_inserted">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                            <col class="tns" style="width:14.28%">
-                                                                                        </colgroup>
-                                                                                        <thead class="datepicker_thead">
-                                                                                            <tr class="tns">
-                                                                                                <td class="datepicker_th">일</td>
-                                                                                                <td class="datepicker_th">월</td>
-                                                                                                <td class="datepicker_th">화</td>
-                                                                                                <td class="datepicker_th">수</td>
-                                                                                                <td class="datepicker_th">목</td>
-                                                                                                <td class="datepicker_th">금</td>
-                                                                                                <td class="datepicker_th">토</td>
-                                                                                            </tr>
-                                                                                        </thead>
-                                                                                        <tbody>
-                                                                                            <tr class="tns">
-                                                                                                <td class="datepicker_td tns"></td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr class="tns">
-                                                                                                <td class="datepicker_td tns"></td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr class="tns">
-                                                                                                <td class="datepicker_td tns"></td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr class="tns">
-                                                                                                <td class="datepicker_td tns"></td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr class="tns">
-                                                                                                <td class="datepicker_td tns"></td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                                <td class="tns datepicker_td available" tabindex="-1">
-                                                                                                    <span class="tns">
-                                                                                                        1
-                                                                                                    </span>
-                                                                                                    <span class="hidden">
-                                                                                                        1일, 월요일
-                                                                                                    </span>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </div>
-                                                                                <div class="datepicker_error">
-
-                                                                                </div>
-                                                                            </div>
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="dialog_buttons datepicker fix">
-                                                                    <div class="dialog_new_datepicker_aligner">
-                                                                        <div class="datepicker_util">
-                                                                            <div class="datepicker_directs multi">
-                                                                                <div class="datepicker_guide">
-                                                                                    <p class="caption center">
-                                                                                        키보드 운용방법 : 화살표 키로 날짜를 탐색하고 Enter키로 날짜를 선택할 수 있습니다.
-                                                                                    </p>
-                                                                                </div>
-                                                                                <div class="dialog_buttons_area">
-                                                                                    <button type="button" class="dialog_confirm">확인</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <button type="button" class="dialog_close">닫기</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
+                                    
 
                                     <div aria-hidden="true"></div>
                                 </div>
                                 <div class="quickbookings_separate passenger">
                                     <p class="quickbookings_label label">탑승객&nbsp;</p>
                                     <div class="forms">
-                                        <button type="button" class="quickbookings_passenger">
+                                        <button type="button" class="quickbookings_passenger dialog dialog1">
                                             <span class="hidden">탑승객&nbsp;</span>
                                             <span class="quickbookings_select_data">성인 1명</span>
                                         </button>
@@ -780,7 +149,7 @@
                                 <div class="quickbookings_separate seats">
                                     <p class="quickbookings_label label">좌석 등급&nbsp;</p>
                                     <div class="forms">
-                                        <button type="button" class="quickbookings_seatclass">
+                                        <button type="button" class="quickbookings_seatclass dialog dialog1">
                                             <span class="hidden">좌석등급&nbsp;</span>
                                             <span class="quickbookings_select_data off">선택하세요.</span>
                                         </button>
@@ -795,7 +164,7 @@
                     </div>
                 </div>
                 <!--예약 조회 탭-->
-                <div aria-labelledby="tab_1" class="booking_widget_panel" id="panel_1" style="display: none;">
+                <div aria-labelledby="tab_1" class="booking_widget_panel" id="panel_1" >
                     <div class="star_inserted">
                         <div class="star_inserted">
                             <div class="quickmytrips">
@@ -870,7 +239,7 @@
                     </div>
                 </div>
                   <!--체크인 탭-->
-                <div aria-labelledby="tab_2" class="booking_widget_panel" id="panel_2" style="display: none;">
+                <div aria-labelledby="tab_2" class="booking_widget_panel" id="panel_2" >
                     <div class="star_inserted">
                         <div></div>
                         <div></div>
@@ -951,7 +320,7 @@
                     </div>
                 </div>
                  <!--항공편 현황 탭-->
-                 <div aria-labelledby="tab_3" class="booking_widget_panel" id="panel_3" style="display: none;">
+                 <div aria-labelledby="tab_3" class="booking_widget_panel" id="panel_3">
                     <div class="star_inserted">
                         <div class="quickstatus">
                             <div class="booking_widget_sidewrap">
@@ -1038,7 +407,7 @@
 
 
             </div>    
-            <div style="display: none;">
+            <div class="departure_city show1" >
                 <div>
                     <div class="star_inserted">
                         <div class="dialog full main departure active" style="top:468px">
@@ -1088,7 +457,8 @@
                     </div>
                 </div>
             </div>
-            <div style="display: none;">
+
+            <div class="departure_city1"  >
                 <div>
                     <div class="star_inserted">
                         <div class="dialog main departure active" style="top:468px">
@@ -1573,7 +943,11 @@
                     </div>
                 </div>
             </div>
-            <div style="display: none;">
+
+
+         
+
+            <div class="departure_city" >
                 <div>
                     <div class="star_inserted">
                         <div class="dialog full main arrival active" style="top:468px; " >
@@ -1623,7 +997,7 @@
                     </div>
                 </div>
             </div>
-            <div style="display: none;">
+            <div class="departure_city1" >
                 <div>
                     <div class="star_inserted">
                         <div class="dialog main arrival active" style="top:468px">
@@ -2108,7 +1482,646 @@
                     </div>
                 </div>
             </div>   
-            <div style="display: none;">
+
+            <div id="quickmytrips_datepicker" class="departure_city">
+                <div>
+                    <div>
+                        <div class="tns star_inserted">
+                            <div class="dialog active tns main full star_inserted" id="dialog_datepicker" style="transform:translateX(-50%); left:50%; top:468px;">
+                                <div class="dialog_contents datepicker">
+                                    <div class="datepicker fixed_mode main">
+                                        <div class="datepicker_seperate">
+                                            <div class="hidden">
+
+                                            </div>
+                                            <div class="datepicker_aligner">
+                                                <div class="datepicker_controls mo_hidden" role="navigation">
+                                                    <button type="button" class="datepicker_prev">지난 2달</button>
+                                                    <button type="button" class="datepicker_next">다음 2달</button>
+                                                </div>
+                                                <div class="datepicker_list case2">
+                                                    <div class="tns datepicker_item active star_inserted">
+                                                        <div class="datepicker_year">
+                                                            <span class="tns">
+                                                                2023
+                                                                <span class="datepicker_month">5월</span>
+                                                            </span>
+                                                            <span class="hidden">2023년 5월</span>
+                                                        </div>
+                                                        <div class="tns" role="application">
+                                                            <table class="datepicker_table" role="presentation">
+                                                                <colgroup class="tns star_inserted">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                </colgroup>
+                                                                <thead class="datepicker_thead">
+                                                                    <tr class="tns">
+                                                                        <td class="datepicker_th">일</td>
+                                                                        <td class="datepicker_th">월</td>
+                                                                        <td class="datepicker_th">화</td>
+                                                                        <td class="datepicker_th">수</td>
+                                                                        <td class="datepicker_th">목</td>
+                                                                        <td class="datepicker_th">금</td>
+                                                                        <td class="datepicker_th">토</td>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr class="tns">
+                                                                        <td class="datepicker_td tns"></td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="tns">
+                                                                        <td class="datepicker_td tns"></td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="tns">
+                                                                        <td class="datepicker_td tns"></td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="tns">
+                                                                        <td class="datepicker_td tns"></td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="tns">
+                                                                        <td class="datepicker_td tns"></td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="datepicker_error">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="tns datepicker_item active star_inserted">
+                                                        <div class="datepicker_year">
+                                                            <span class="tns">
+                                                                2023
+                                                                <span class="datepicker_month">5월</span>
+                                                            </span>
+                                                            <span class="hidden">2023년 5월</span>
+                                                        </div>
+                                                        <div class="tns" role="application">
+                                                            <table class="datepicker_table" role="presentation">
+                                                                <colgroup class="tns star_inserted">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                    <col class="tns" style="width:14.28%">
+                                                                </colgroup>
+                                                                <thead class="datepicker_thead">
+                                                                    <tr class="tns">
+                                                                        <td class="datepicker_th">일</td>
+                                                                        <td class="datepicker_th">월</td>
+                                                                        <td class="datepicker_th">화</td>
+                                                                        <td class="datepicker_th">수</td>
+                                                                        <td class="datepicker_th">목</td>
+                                                                        <td class="datepicker_th">금</td>
+                                                                        <td class="datepicker_th">토</td>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr class="tns">
+                                                                        <td class="datepicker_td tns"></td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="tns">
+                                                                        <td class="datepicker_td tns"></td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="tns">
+                                                                        <td class="datepicker_td tns"></td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="tns">
+                                                                        <td class="datepicker_td tns"></td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="tns">
+                                                                        <td class="datepicker_td tns"></td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                        <td class="tns datepicker_td available" tabindex="-1">
+                                                                            <span class="tns">
+                                                                                1
+                                                                            </span>
+                                                                            <span class="hidden">
+                                                                                1일, 월요일
+                                                                            </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <div class="datepicker_error">
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="dialog_buttons datepicker fix">
+                                            <div class="dialog_new_datepicker_aligner">
+                                                <div class="datepicker_util">
+                                                    <div class="datepicker_directs multi">
+                                                        <div class="datepicker_guide">
+                                                            <p class="caption center">
+                                                                키보드 운용방법 : 화살표 키로 날짜를 탐색하고 Enter키로 날짜를 선택할 수 있습니다.
+                                                            </p>
+                                                        </div>
+                                                        <div class="dialog_buttons_area">
+                                                            <button type="button" class="dialog_confirm">확인</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="dialog_close">닫기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="departure_city" >
                 <div>
                     <div class="star_inserted">
                         <div class="dialog active passenger_num main" style="top:468px; transform:translateX(-50%); left: 50%;" >
@@ -2251,7 +2264,7 @@
                 </div>
             
             </div>   
-            <div style="display: none;">
+            <div class="departure_city" >
                 <div>
                     <div class="star_inserted">
                         <div class="dialog active full main seat_class" style="top:468px; transform:translateX(-50%); left: 50%;" >
@@ -2339,7 +2352,7 @@
                         <div class="fd_row">
                             <div class="fd_col">
                                 <a href="#" class="fd_item">
-                                    <div class="blurcontain fd_image">
+                                    <div class="blurcontain fd_image" style="background-image: url(/img/bangkok.jpg);">
 
                                     </div>
                                     <div class="fd_description_wrapper">

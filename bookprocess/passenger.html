@@ -1,0 +1,3544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>승객정보</title>
+</head>
+
+    <style>
+    /*-- 공통--*/
+        * {
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul, li {
+            list-style: none;
+           
+        }
+        legend , .hidden, caption {
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            width: 0 !important;
+            height: 0 !important;
+            font-size: 0 !important;
+            line-height: 0 !important;
+        }
+
+        [class] {
+            box-sizing: border-box;
+        }
+        
+        .flight.step2 {
+            top: 200px;
+        }
+
+        .flight {
+            position:absolute;
+            display: block;
+            left: 0;
+            right: 0;
+            padding: 0 20px;
+        }
+
+        .flight_heading {
+            display: flex;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .flight_title {
+            font-size: 20px;
+            color: #00256c;
+        }
+
+        .flight_route {
+            font-size: 20px;
+            color: #00256c;
+        }
+
+        .flight_from {
+            display: inline-block;
+            vertical-align: top;
+            white-space: nowrap;
+            margin-left: 16px;
+        }
+
+        .flight_airport {
+            display: inline;
+            font-weight: 400;
+        }
+
+        .flight_to {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            white-space: nowrap;
+            margin-left: 28px;
+        }
+
+        .flight_to:before {
+            position: absolute;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            top: 7px;
+            left: -22px;
+            background: url(https://www.koreanair.com/ib-h1__to.svg) 50% 50%/16px 16px no-repeat;
+            content: "";
+        }
+
+        .flight_widget {
+            position: relative;
+            height: 56px;
+        }
+
+        .flight_widget_fix {
+            position: absolute;
+            left: -20px;
+            right: -20px;
+            height: 86px;
+            top: 0;
+            padding: 0 20px;
+            background-color: #c7f3ff;
+            z-index: 200;
+        }
+
+        .flight_widget_aligner {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            max-width: 1300px;
+            min-height: 78px;
+            padding: 0 0 0 6px;
+            margin: 20px auto 0;
+            border-radius: 10px;
+            box-shadow: 4px 10px 20px 0 rgba(0,25,72,.18);
+            background-color: white;
+            z-index: 1;
+        }
+
+        .flight_widget_locals {
+            position: relative;
+            display: inline-block;
+            width: 240px;
+            height: 44px;
+            margin-top: 17px;
+        }
+
+        .flight_widget_local {
+            position: absolute;
+            display: block;
+            top: 0;
+            height: 44px;
+            padding: 0 10px;
+            border: 0;
+            background: 0 0;
+            cursor: pointer;
+        }
+
+        .flight_widget_local.from {
+            right: 50%;
+            margin-right: 28px;
+        }
+
+        .flight_widget_code {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 1.8;
+            color: black;
+        }
+
+        .flight_widget_local.to {
+            left: 50%;
+            margin-left: 28px;
+        }
+
+        .flight_widget_swap {
+            position: absolute;
+            display: block;
+            width: 44px;
+            height: 44px;
+            top: 0;
+            left: 50%;
+            margin-left: -22px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-indent: 100%;
+            border: 0;
+            background: url(https://www.koreanair.com/flight-widget__swap.svg) 50% 50%/32px 32px no-repeat;
+            cursor: pointer;
+        }
+
+        .flight_widget_expand {
+            display: none;
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 44px;
+            height: 44px;
+            border: 0;
+            white-space: nowrap;
+            text-indent: 100%;
+            cursor: pointer;
+            background: url(https://www.koreanair.com/flight-widget__down.svg) 50% 50%/16px 16px no-repeat;
+        }
+
+        .flight_widget_items {
+            display: block!important;
+            margin-top: 17px;
+        }
+
+        .flight_widget_item {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .flight_widget_item:before {
+            position: absolute;
+            display: block;
+            top: 13px;
+            left: 0;
+            width: 1px;
+            height: 18px;
+            background-color: black;
+            opacity: .4;
+            content: "";
+        }
+
+        .flight_widget_datepicker {
+            display: inline-block;
+            width: auto;
+            min-height: 40px;
+            margin: 2px 27px 2px 33px;
+            padding: 5px 0 5px 34px;
+            padding-right: 5px;
+            border-bottom: 0;
+            border: 0;
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.8;
+            background: url(https://www.koreanair.com/flight-widget__datepicker.svg) 0 50%/24px 24px no-repeat;
+            cursor: pointer;
+        }
+
+        .flight_widget_passengers {
+            display: inline-block;
+            width: auto;
+            padding: 5px 0 5px 34px;
+            margin: 2px 35px 2px 34px;
+            padding-right: 5px;
+            border-bottom: 0;
+            font-size: 16px;
+            line-height: 1.8;
+            min-height: 40px;
+            text-align: left;
+            border: 0;
+            background: url(https://www.koreanair.com/flight-widget__passenger.svg) 0 50%/24px 24px no-repeat;
+        }
+        
+        .flight_widget_change {
+            position: absolute;
+            display: block;
+            top: 13px;
+            right: 20px;
+            margin: 0;
+            min-width: 80px;
+            padding: 12px 10px;
+            font-size: 16px;
+            line-height: 1.5;
+            border: 0;
+            border-radius: 10px;
+            background-color: #0064de;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            appearance: none;
+            color: white;
+        }
+
+        .flight_blank {
+            height: 30px;
+            margin: 28px 0 20px;
+        }
+
+        .contents {
+            margin: 0 auto;
+            max-width: 1300px;
+        }
+
+        .contents.step2_contents {
+            position: static;
+            padding: 70px 0 100px!important;
+        }
+        .small_steps {
+            display: flex;
+            align-items: center;
+        }
+
+        .small_steps.lined_type {
+            justify-content: flex-end;
+            padding: 0;
+            margin-bottom: 38px;
+        }
+
+        .small_steps:first-child {
+            margin-top: 0;
+        }
+
+        .lined_type .small_steps_item {
+            position: relative;
+            width: 90px;
+        }
+
+        .small_steps_step {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .lined_type .small_steps_step {
+            padding: 0;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .small_steps_number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 14px;
+            color: #00256c;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+
+        .lined_type .small_steps_number {
+            position: static;
+            border: none;
+            flex: initial;
+            font-size: 16px;
+        }
+
+        .lined_type .small_steps_number:after {
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 3px;
+            bottom: -6px;
+            border-radius: 3px;
+            left: 0;
+            right: 0;
+            transform: none;
+            background-color: #00256c;
+            border: 0;
+            color: #00256c;
+            content: "";
+        }
+
+        .lined_type .small_steps_title {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            clip: rect(1px,1px,1px,1px);
+            clip-path: inset(50%);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .small_steps_title {
+            display: block;
+            margin-left: 8px;
+            font-size: 16px;
+        }
+
+        .lined_type .small_steps_item.active {
+            flex-grow: initial;
+            min-width: 280px;
+        }
+
+        .small_steps_item+.small_steps_item {
+            margin-left: 8px;
+        }
+
+        .lined_type .small_steps_item.active .small_steps_step {
+            justify-content: flex-start;
+        }
+
+        a.small_steps_step {
+            cursor: not-allowed;
+        }
+
+        .lined_type .small_steps_item.active .small_steps_title {
+            position: static;
+            display: block;
+            width: auto;
+            height: auto;
+            margin-left: 8px;
+            clip-path: none;
+            clip: inherit;
+            white-space: normal;
+            overflow: visible;
+        }
+
+        .small_steps_item.active .small_steps_title {
+            font-weight: 700;
+        }
+
+        .lined_type .small_steps_item.active~.small_steps_item .small_steps_number {
+            background-color: transparent;
+            font-weight: 400;
+        }
+
+        .small_steps_item.active~.small_steps_item .small_steps_number {
+            border: 0;
+            color: #555;
+        }
+
+        .flight_title_aside_button {
+            display: block;
+            height: 44px;
+            padding: 0 5px 0 28px;
+            border: 0;
+            color: #00256c;
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        .flight_title_aside_button:hover {
+            outline: 0;
+            border-radius: 3px;
+            box-shadow: inset 0 0 0 1px #0064de;
+        }
+
+        .flight_title_aside_button.share {
+            background: url(https://www.koreanair.com/ib-title-aside__button--share.svg) 0 50%/24px 24px no-repeat;
+        }
+
+        .payment {
+            position: relative;
+            margin: 20px 0 0;
+            padding: 0 280px 0 0;
+        }
+
+        .payment_contents {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hgroup.h2:first-child {
+            margin-top: 0;
+        }
+
+        .hgroup.h2 {
+            margin: 40px 0 8px;
+        }
+
+        .hgroup.fixed {
+            display: flex;
+            align-items: center;
+        }
+
+
+        .hgroup>* {
+            margin-bottom: 0;
+        }
+
+        .fixed.hgroup>*+* {
+            margin-top: 0;
+        }
+
+        .hgroup>*+.push {
+            margin-left: auto;
+        }
+
+        .h2 {
+            margin: 40px 0 8px;
+            font-size: 24px;
+            color: #00256c;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .h2:first-child {
+            margin-top: 0;
+        }
+
+        .option {
+            display: inline-block;
+            min-width: 84px;
+            padding: 7px 8px;
+            margin: 0;
+            border: 1px solid #0064de;
+            border-radius: 10px;
+            background-color: white;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            appearance: none;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .option.ghost {
+            border-color: #767676;
+            color: #555;
+        }
+
+        .itinerary {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .itinerary_list {
+            margin-top: 20px;
+            margin: 12px 0 0;
+        }
+
+        .itinerary_item {
+            position: relative;
+            display: flex;
+            padding: 30px 40px;
+            padding-right: 140px;
+            border: 1px solid #d9dbe1;
+            border-radius: 10px;
+        }
+
+        .itinerary_title {
+            display: block;
+            float: none;
+            width: 105px;
+            margin: 0;
+            font-size: 20px;
+            word-wrap: break-word;
+            line-height: 1.8;
+        }
+
+        .itinerary_details {
+            float: none;
+            padding-bottom: 0;
+        }
+
+        .itinerary_more {
+            position: absolute;
+            padding: 3px 9px;
+            top: 30px;
+            right: 30px;
+            border: 1px solid #969696;
+            border-radius: 14px!important;
+            background-color: white;
+            color: #555;
+            font-size: 18px;
+        }
+
+        .itinerary_bound {
+            width: calc(100% - 105px);
+            clear: both;
+        }
+
+        .itinerary_route {
+            margin: 1px 0 7px;
+        }
+
+        .itinerary_from {
+            display: inline;
+            color: black;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .itinerary_code {
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .itinerary_to {
+            position: relative;
+            display: inline;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        
+        .itinerary_to:before {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin: 0 16px;
+            background: url(https://www.koreanair.com/itinerary__to.svg) 50% 50%/16px 16px no-repeat;
+            content: "";
+        }
+
+        .itinerary_code {
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .itinerary_date {
+            display: inline-block;
+            vertical-align: top;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .itinerary_info {
+            display: inline-block;
+            margin: 0 30px 0 12px;
+            vertical-align: top;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .itinerary_item + .itinerary_item {
+            margin-top: 16px;
+        }
+
+        .itinerary_details {
+            float: none;
+            padding-bottom: 0;
+        }
+
+        .hgroup_wrap {
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .hgroup.wrap .h2 {
+            margin-bottom: 8px;
+        }
+
+        .hgroup.fwrap {
+            flex-wrap: wrap;
+        }
+
+        .hgroup_button+.requires {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        .requires {
+            margin: 8px 0;
+            color: #555;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .required {
+            position: relative;
+            display: inline-block;
+            width: 5px;
+            overflow: hidden;
+            text-indent: 100%;
+            white-space: nowrap;
+            font-size: inherit;
+            vertical-align: bottom;
+        }
+
+        .requires:last-child {
+            margin-bottom: 0;
+        }
+
+        .requires:before {
+            display: inline-block;
+            width: 8px;
+            height: 22px;
+            margin: 0;
+            vertical-align: top;
+            background: url(https://www.koreanair.com/requires--before.svg) center/8px 22px no-repeat;
+            content: "";
+        }
+
+        .required:after {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            background-color: #de001b;
+            content: "";
+        }
+
+        .requires:after {
+            display: inline-block;
+            width: 8px;
+            height: 22px;
+            margin: 0;
+            vertical-align: top;
+            background: url(https://www.koreanair.com/requires--after.svg) center/8px 22px no-repeat;
+            content: "";
+        }
+
+
+        .required {
+            position: relative;
+            display: inline-block;
+            width: 5px;
+            white-space: nowrap;
+            text-indent: 100%;
+            font-size: inherit;
+            vertical-align: bottom;
+        }
+
+        .requires .required {
+            top:9px
+        }
+
+        .info {
+            margin: 12px 4px;
+            background-position: 32px 16px;
+            background-color: #f8f9fc;
+        }
+
+        .info.wide {
+            padding: 16px 32px;
+            border-radius: 10px;
+        }
+
+        .p {
+            display: block;
+            margin: 8px 0;
+            color: #555;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.5s;
+        }
+       
+        .p:first-child {
+            margin-top: 0;
+        }
+
+        .p:last-child {
+            margin-bottom: 0;
+        }
+
+        .remark {
+            font-style: normal;
+        }
+
+        .remark.positive {
+            color: #0064de;
+        }
+
+        .folders {
+            display: block;
+            margin: 20px 0;
+        }
+
+        .folders:last-child {
+            margin-bottom: 0;
+        }
+
+        .folders.ib {
+            margin: 0;
+        }
+
+        .folders.ib.active {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .folders_expander {
+            display: flex;
+            width: 100%;
+            padding: 24px 64px 24px 40px;
+            align-items: center;
+            text-align: left;
+            cursor: pointer;
+            background: url(https://www.koreanair.com/ico-expander.svg) right 20px center no-repeat;
+        }
+
+        .folders.ib.active .folders_expander {
+            background-color: #00256c;
+            border: 1px solid #00256c;
+            background-image: url(https://www.koreanair.com/ico-expander-active-white.svg);
+        }
+
+        .folders.ib.active .folders_expander {
+            border-top: 1px solid #00256c!important;
+        }
+
+        .folders_subject {
+            flex: 1;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .folders.ib.active .folders_subject {
+            color: white;
+        }
+        .folders_expander {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .folders_contents {
+            border: 1px solid #d9dbe1;
+            border-top-width: 0;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            overflow: hidden;
+        }
+
+        .bundle {
+            position: relative;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .bundle:first-child {
+            margin-top: 0;
+        }
+
+        .bundle:last-child {
+            margin-bottom: 0;
+        }
+
+        .bundle.medium {
+            padding: 32px 40px;
+        }
+
+        .columns {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -20px;
+        }
+
+        .column {
+            width: 50%;
+            padding: 20px;
+        }
+
+        .label {
+            display: block;
+            color: #767676;
+            margin-bottom: 9px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .forms {
+            position:relative;
+        }
+
+        .placeholder {
+            position: absolute;
+            width: 100%;
+            top: 10px;
+            font-size: 20px;
+            line-height: 1.5;
+            color: #767676;
+            user-select: none;
+        }
+
+        .forms [type=text], .forms [type=tel], .forms select, .forms [type=email], .forms [type=password] {
+            display: block;
+            width: 100%;
+            height: 50px;
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            border-bottom: 1px solid #00256c;
+            border-radius: 0;
+            color: black;
+            transition: border .2s .3s,color .2s .3s,box-shodow .2s .3s;
+            opacity: 1;
+        }
+
+        .forms_option {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .gender {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+        .gender_item {
+            position: relative;
+            width: 100%;
+        }
+
+        .gender_item:first-child {
+            padding-right: 5px;
+        }
+
+        .gender_item [type=radio]{
+            position: absolute;
+            width: calc(100% - 5px);
+            height: 40px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            clip: rect(1px,1px,1px,1px);
+            clip-path: inset(50%);
+            white-space: nowrap;
+            overflow: hidden;
+            appearance: none;
+        }
+
+        .gender_item [type=radio]:checked ~ label:before {
+            position: absolute;
+            display: block;
+            width: 24px;
+            height: 24px;
+            top: 12px;
+            right: 24px;
+            background: url(https://www.koreanair.com/gender__radio--checked.svg) 50% 50%/24px 24px no-repeat;
+        }
+
+        
+        .gender_item [type=radio]:checked ~ label:before {
+            border-color: #0064de;
+            color: #0064de;
+        }
+
+
+        .gender_item label {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 11px 32px 11px 20px;
+            border: 1px solid #767676;
+            border-radius: 2px;
+            box-sizing: border-box;
+            color: #555;
+            text-indent: 0;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .payment_divider {
+            display: flex;
+        }
+
+        .opener {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            text-indent: 100%;
+            flex-shrink: 0;
+            white-space: nowrap;
+            border: 0;
+            border-radius: 50%;
+            background: url(https://www.koreanair.com/ico-opener.svg) 50% 50%/24px 24px no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .payment_divider .opener {
+            margin-top: -5px
+        }
+
+        .buttons {
+            display: flex;
+            justify-items: flex-start;
+            margin: 20px 0 40px;
+        }
+
+        .buttons:last-child {
+            margin-bottom: 0;
+        }
+
+        .buttons.right {
+            justify-content: flex-end;
+        }
+
+        .folders_contents .buttons {
+            padding: 0 3px;
+        }
+        .folders_contents .buttons:last-child {
+            padding-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            min-width: 150px;
+            padding: 12px 10px;
+            margin: 0;
+            border: 0;
+            border-radius: 10px;
+            background-color: #0064de;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            appearance: none;
+        }
+
+
+        /** 정보 입력 완료**/
+     
+        .folders.ib.radius_bottom .folders_expander {
+            border-bottom-left-radius: 10px!important;
+            border-bottom-right-radius: 10px!important;
+        }
+
+        .folders.ib.complete .folders_expander{
+            position: relative;
+            padding-left: 74px;
+        }
+
+
+        .folders.ib.complete .folders_expander:before {
+            position: absolute;
+            display: block;
+            width: 22px;
+            height: 22px;
+            left: 40px;
+            top: 50%;
+            margin-top: -11px;
+            border-radius: 50%;
+            background: url(https://www.koreanair.com/ico-expander-complete.svg) 50% 50%/18px 18px no-repeat #00256c;
+            content: "";
+        }
+        /** 연락처 정보 **/
+
+        .columns.col3 .column {
+            width: 33.3333%;
+        }
+
+        .forms_option .option {
+            margin-top: 8px;
+        }
+
+        .forms_option .option:first-child {
+            margin-right: 20px;
+        }
+        
+        .forms_option .forms {
+            flex: 1;
+        }
+
+        .column.half, .columns.col3 .column.half {
+            width: 50%;
+        }
+
+        .column.expand, .columns.col3 .column.expand {
+            width: 100%;
+        }
+
+        .columns_title.block {
+            display: block;
+        }
+
+        .columns_title {
+            width: 100%;
+            padding: 20px 20px 0;
+            padding-bottom: 10px;
+          
+            line-height: 1.5;
+        }
+
+        .columns_title * {
+            margin: 0;
+        }
+
+        .columns_heading {
+            display: inline-block;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .caption {
+            padding-left: 20px;
+            text-indent: -20px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .caption:last-child {
+            margin-bottom: 0;
+        }
+
+        .columns_title.block .columns_heading+* {
+            margin-left: 0;
+            margin-top: 6px;
+        }
+
+        .caption:before {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+            background: url(https://www.koreanair.com/ico-caption.svg) center center/16px 16px no-repeat;
+            vertical-align:  -3px;
+            content: "";
+        }
+
+        .remark.negative {
+            color: red;
+        }
+
+        .buttons {
+            display: flex;
+            justify-items: flex-start;
+            margin: 20px 0 40px;
+        }
+
+        .buttons.right {
+            justify-content: flex-end;
+        }
+
+        /** 요금 정보 **/
+
+        .payment_aside {
+            display: block;
+        }
+
+        .payment_aside.active {
+            position: fixed;
+            width: auto;
+            top: 250px;
+            left: 0;
+            right: 0;
+            padding: 0 20px; 
+        }
+
+        .payment_aside.active .payment_summary {
+            position: relative;
+            max-width: 1300px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        .summary {
+            position: absolute;
+            display: block;
+            width: 260px;
+            top: 0;
+            right: 0;
+            border-top: 1px solid #d9dbe1;   
+            border-bottom: 1px solid #d9dbe1;     
+        }
+
+        .summary_title {
+            display: block;
+            margin-top: 30px;
+            color: black;
+            font-size: 22px;
+        }
+
+        .summary_list {
+            padding: 16px 0 20px;
+            border-bottom: 1px solid #d9dbe1;
+        }
+
+        .summary_item {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .summary_key {
+            display: block;
+            margin-top: 1px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .summary_value {
+            display: block;
+            margin-left: auto;
+            font-size: 16px;
+            text-align: right;
+        }
+
+        .summary_info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 32px 0;
+        }
+
+        .summary_total {
+            width: 35%;
+            padding-top: 3px;
+            font-weight: 700;
+            font-size: 28px;
+        }
+
+        .summary_fare {
+            display: inline-block;
+            width: 65%;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background: 0 0;
+            text-decoration: underline;
+            text-align: right;
+            font-size: 25px;
+            cursor: pointer;
+            appearance: none;
+            color: #0054de;
+        }
+
+        .payment_widget {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            box-shadow:4px 0 16px 0 rgba(105, 138, 161, .33);
+            z-index: 200;
+        }
+
+        .payment_widget_aligner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .payment_widget_key {
+            display: block;
+            color: black;
+            padding-left: 0;
+            padding-right: 40px;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .payment_widget_fares {
+            display: flex;
+            margin-left: auto;
+            align-items: center;
+        }
+
+        .payment_widget_fare {
+            display: block;
+            border: 0;
+            padding: 11px 0;
+            padding-right: 40px;
+            background: 0 0;
+            color: #00256c;
+            white-space: nowrap;
+            line-height: 2;       
+        }
+
+        .payment_widget_fare_num {
+            margin-right: 4px;
+            font-size: 28px;
+            font-weight: 700;
+            font-style: normal;
+            vertical-align: -1px;
+        }
+
+        .payment_widget_confirm {
+            display: inline-block;
+            width: auto;
+            min-width: 240px;
+            height: 60px;
+            margin: 0;
+            padding: 16px 20px;
+            border: 1px solid #00256c;
+            border-radius: 0;
+            background-color: #00256c;
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            appearance: none;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        /** 여정 정보 **/
+        
+        .dialog {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,.5);
+            z-index: 9999;
+        }
+
+        .dialog.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dialog_contents {
+            position: relative;
+            padding: 46px 40px 0;
+            display: inline-block;
+            outline: 0;
+            overflow-y: auto;
+            background-color: white;
+        }
+
+        .dialog.full .dialog_contents {
+            width: 900px;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%!important;
+            border-radius: 12px;
+        }
+
+        .flight_info {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            padding: 25px 40px;
+            margin-top: 26px;
+            margin-bottom: -14px;
+            background-color: #e6f9ff;
+            border-radius: 12px;
+        }
+
+        .flight_info_list {
+            display: block;
+        }
+
+        .flight_info_item {
+            display: inline-block;
+            width: auto;
+            text-align: center;
+            padding-right: 28px;
+        }
+
+        .flight_info_code {
+            display: inline-block;
+            margin-right: -4px;
+            font-size: 24px;
+            color: #00256c;
+            font-weight: 700;
+            line-height: 1.25;
+            vertical-align: top;
+        }
+
+        .flight_info_airport {
+            display: inline-block;
+            margin-left: 4px;
+            color: #00256c;
+            font-size: 18px;
+            line-height: 1.6;
+            vertical-align: top;
+        }
+
+        .flight_info_item:first-child {
+            padding-right: 28px;
+        }
+
+        .flight_info_item:last-child {
+            position: relative;
+            display: inline-block;
+            width: auto;
+            padding-left: 28px;
+        }
+
+        .flight_info_item:last-child:before {
+            position: absolute;
+            display: block;
+            width: 24px;
+            height: 24px;
+            top: 3px;
+            left: -12px;
+            background: url(https://www.koreanair.com/flight-info__direction.svg) 50% 50%/16px 16px no-repeat;
+            content: "";
+        }
+        
+        .flight_info_duration {
+            display: block;
+            margin: 0;
+            color: #00256c;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .flight_plan {
+            margin-bottom: 34px;
+        }
+
+        .flight_plan_item {
+            position: relative;
+            margin: 34px 0;
+            padding: 30px;
+            border-radius: 12px;
+            border: .1rem solid #d9dbe1;
+        }
+
+        .flight_plan_flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .flight_plan_number {
+            display: inline-block;
+            margin-right: 6px;
+            color: #00256c;
+            font-weight: 700;
+            font-size: 18px;
+            vertical-align: top;
+        }
+
+        .flight_plan_aircraft {
+            display: inline-block;
+            color: black;
+            font-size: 18px;
+            vertical-align: top;
+        }
+
+        .flight_plan_facility {
+            margin: -10px 0;
+        }
+
+        .flight_plan_amenities {
+            display: flex;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+            vertical-align: top;
+        }
+
+        .tooltip:focus, .tooltip:hover {
+            outline: 0;
+            border-radius: 3px;
+            box-shadow: inset 0 0 0 1px #0064de;
+        }
+
+        .tooltip, .tooltip_text, .tooltip:focus .tooltip_text, .tooltip:hover .tooltip_text {
+            display: inline-block;
+            margin: 9px 0 0;
+            padding: 10px 12px;
+            border: 1px solid #c7f3ff;
+            border-radius: 2px;
+            background-color: #e6f9ff;
+            box-shadow: 0 4px 6px 0 rgba(0,0,0,.1);
+        }
+
+        .flight_plan_amenity {
+            display: block;
+            width: 44px;
+            height: 44px;
+        }
+
+        .flight_plan_amenity.seat {
+            background: url(https://www.koreanair.com/flight-plan__amenity--seat.svg) 50% 50%/44px 44px no-repeat;
+        }
+
+        .tooltip_desc {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            clip: rect(1px,1px,1px,1px);
+            clip-path: inset(50%);
+            white-space: nowrap;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .flight_plan_amenity.seat + .tooltip_desc .tooltip_text {
+            text-align: left;
+        }
+
+        .tooltip_text:after {
+            position: absolute;
+            width: 10px;
+            height: 8px;
+            left: 50%;
+            top: 2px;
+            margin-left: -5px;
+            background: url(https://www.koreanair.com/ico-tooltip-edge.svg) 0 0/10px 8px no-repeat;
+            z-index: 1;
+            content: "";
+        }
+
+        .flight_plan_amenity.isps {
+            background: url(https://www.koreanair.com/flight-plan__amenity--isps.svg) 50% 50%/44px 44px no-repeat;
+        }
+
+        .tooltip_text {
+            text-align: center;
+        }
+
+        .tooltip.right .tooltip_text:after {
+            left: auto;
+            right: 11px;
+            margin-left: 0;
+            margin-right: -5px;
+        }
+
+        .flight_plan_amenity.avod {
+            background: url(https://www.koreanair.com/flight-plan__amenity--avod.svg) 50% 50%/44px 44px no-repeat;
+        }
+
+        .flight_plan_info {
+            position: relative;
+            width: 100%;
+            padding-left: 30px;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #d9dbe1;
+        }
+
+        .flight_plan_from_info {
+            position: relative;
+        }
+
+        .flight_plan_from_info:before {
+            position: absolute;
+            display: block;
+            left: -27px;
+            top: 12px;
+            bottom: -12px;
+            border-left: 1px solid #00256c;
+            content: "";
+        }
+
+        .flight_plan_airport:before {
+            position: absolute;
+            display: block;
+            width: 8px;
+            height: 8px;
+            left: -30px;
+            top: 9px;
+            border-radius: 50%;
+            background-color: #00256c;
+            content: "";
+        }
+
+        .flight_plan_terminal {
+            position: relative;
+            display: inline-block;
+            padding-left: 21px;
+            color: #555;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .flight_plan_terminal:before {
+            position: absolute;
+            display: block;
+            width: 1px;
+            height: 13px;
+            left: 9px;
+            top: 6px;
+            background-color: #d9dbe1;
+        }
+
+        .flight_plan_airport {
+            position: relative;
+            display: block;
+            margin-bottom: 4px;
+            color: black;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .flight_plan_airport:before {
+            position: absolute;
+            display: block;
+            width: 8px;
+            height: 8px;
+            left: -30px;
+            top: 9px;
+            border-radius: 50%;
+            background-color: #00256c;
+            content: "";
+        }
+
+        .dialog_close {
+            position: absolute;
+            display: block;
+            width: 44px;
+            height: 44px;
+            border: 0;
+            top: 42px;
+            right: 30px;
+            border-radius: 2px;
+            background: url(https://www.koreanair.com/dialog__close.svg) 50% 50%/24px 24px no-repeat;
+            text-indent: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .flight_plan_duration {
+            display: inline-block;
+            margin: 20px 0;
+            color: #0064de;
+            font-size: 16px;
+            line-height: 1.5;
+            vertical-align: top;
+        }
+
+        /** 좌석 배정 **/
+
+        .additional_services {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0 40px;
+            margin-bottom: 60px;            
+        }
+        
+        .additional_services_aligner {
+            display: block;
+            width: 100%;
+            margin-bottom: auto;
+            border: 1px solid #d9dbe1;
+            border-radius: 10px;
+        }
+
+        .additional_services_link {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 112px 0 40px;
+            color: #00256c;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .additional_services_link:before {
+            position: absolute;
+            display: block;
+            width: 72px;
+            height: 74px;
+            margin-left: -36px;
+            left: 50%;
+            top: 40px;
+            content: "";
+
+        }
+
+        .additional_services_service.seat .additional_services_link:before {
+            background-size: 72px 74px;
+            background: url(https://www.koreanair.com/additional-services__link-seat.svg) 0 0/54px 54px no-repeat;
+        }
+
+        .additional_services_aligner + .additional_services_aligner {
+            margin-top: 0;
+            margin-left: 20px;
+        }
+
+        .additional_services_service.baggage .additional_services_link:before {
+            background-size: 72px 74px;
+            background: url(https://www.koreanair.com/additional-services__link-baggage.svg) 0 0/54px 54px no-repeat;
+        }
+
+        .agree._payment {
+            margin: 20px 0 40px;
+        }
+
+        .h2+.agree.payment {
+            margin-bottom: 20px;
+        }
+
+        .agree_list {
+            border: 1px solid #d9dbe1;
+            border-radius: 10px;
+        }
+
+        .agree_item {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .agree_item+.agree_item {
+            border-top: 1px solid #d9dbe1;
+        }
+
+        .agree_key {
+            order: 1;
+            flex: 10;
+            padding-right: 10px;
+        }
+
+        .agree_selection {
+            display: flex;
+            width: 90%;
+        }
+
+        .option.agree {
+            position: relative;
+            min-width: fit-content;
+            padding: 3px 6px 3px 28px;
+            margin-right: 8px;
+            height: max-content;
+            color: #555;
+            border: 1px solid #767676;
+            text-align: left;
+        }
+
+        .option.agree:before {
+            position: absolute;
+            width: 19px;
+            height: 19px;
+            top: 0;
+            bottom: 0;
+            left: 7px;
+            margin: auto;
+            background: url(https://www.koreanair.com/icon-agree-check.svg) 100% no-repeat;
+            vertical-align: -2px;
+            content: "";
+        }
+
+        .agree_title {
+            display: inline-block;
+            font-size: 18px;
+            margin-top: 0;
+            align-self: center;
+        }
+
+        .link {
+            display: inline-block;
+            border: 0;
+            text-decoration: underline;
+            color: #0064de;
+            text-decoration-skip-ink:auto;
+            text-indent: 0;
+        }
+
+        .agree_summary {
+            order: 3;
+            width: 100%;
+            margin-top: 12px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .agree_summary.full {
+            padding-left: 0;   
+        }
+
+        .agree_value {
+            order: 2;
+            flex: 1;
+            margin-left: auto;
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        .agree_value.position {
+            position: absolute;
+            right: 20px;
+        }
+
+        .detail {
+            min-width: 50px;
+            background: 0 0;
+            color: #555;
+            padding: 2px 16px;
+            border: 1px solid #d9dbe1;
+            border-radius: 16px;
+            font-size: 16px;
+            line-height: 1.5;
+            text-decoration: none;
+        }
+
+        .agree .detail {
+            white-space: nowrap;
+        }
+
+        /** 수하물 정보 **/
+
+        ._folders {
+            display: block;
+            margin: 20px 0;
+        }
+
+        .folders:first-child {
+            margin-top: 0;
+        }
+
+        .folders:last-child {
+            margin-bottom: 0;
+        }
+
+        .folders_subject.type1 {
+            font-size: 20px;
+        }
+
+     
+        .folders_expander {
+            border-radius: 10px;
+        }
+
+        ._folders+._folders {
+            margin-top: 20px;
+        }
+
+        .bundles {
+            margin: 20px 0;
+        }
+
+        .bundles.bordered {
+            border: 1px solid #d9dbe1;
+            border-radius: 10px;
+        }
+
+        .bundles.bordered {
+            border: 1px solid #d9dbe1;
+            border-radius: 10px
+        }
+
+        .bundles:first-child {
+            margin-top: 0;
+        }
+
+        .bundles:last-child {
+            margin-bottom: 0;
+        }
+
+        .bundle {
+            position: relative;
+            width: 100%;
+        }
+
+        .bundle.small {
+            padding: 24px 40px;
+        }
+
+        .bundles>.bundle {
+            margin: 0;
+        }
+
+        .h3:first-child {
+            margin-top: 0;
+        }
+
+        .h3:last-child {
+            margin-bottom: 0;
+        }
+
+        .h3{
+            margin: 40px 0 8px;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .bundle.lined+.lined {
+            border-top: 1px solid #d9dbe1;
+        }
+
+        .list {
+            margin: 20px 0;
+            padding: 0;
+        }
+
+        .list:first-child {
+            margin-top: 0;
+        }
+
+        .expander {
+            display: inline-block;
+            border: 0;
+        }
+
+        .expander.small {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            overflow: visible;
+            white-space: normal;
+            padding-right: 20px;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #0064de;
+            background: url(https://www.koreanair.com/ico-expander-small.svg) 100% 50%/16px 16px no-repeat;
+            text-align: left;
+            text-indent: 0
+        }
+
+        .expand {
+            display: none ;
+            padding-top: 10px;
+        }
+
+        /** 쿠폰 할인 **/
+
+        .ib_title_heading {
+            display: block;
+            color: black;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+         /** 결제 수단 **/
+
+         .payment_method {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px 36px 0;
+            margin-bottom: -8px;
+            flex-direction: inherit;
+        }
+
+        .payment_method_item {
+            position: relative;
+            width: calc(33.33333% - 8px);
+            margin: 0 4px 8px;
+        }
+
+        .payment_method_item [type=radio] {
+            position: absolute;
+            width: calc(100% - 7px);
+            height: calc(100% - 8px);
+            left: 35px;
+            top: 4px;
+            outline: 0;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            opacity: 0;
+            -webkit-appearance: none;
+            background: white;
+        }
+
+        .payment_method_item label {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            min-height: 52px;
+            padding: 13px 24px;
+            border: 1px solid #d9dbe1;
+            border-radius: 2px;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            vertical-align: top;
+            line-height: 1.5;
+            vertical-align: top;
+            text-indent: 0;
+            text-align: center;
+            background-color: white;
+            box-sizing: border-box;
+        }
+
+        .payment_method_item.active label {
+            border-color: #0063de;
+        }
+
+        .payment_method_item.active label:before {
+            position: absolute;
+            display: block;
+            width: 24px;
+            height: 24px;
+            right: 4px;
+            top: 50%;
+            margin-top: -12px;
+            background: url(https://www.koreanair.com/payment-method__item--checked.svg) 50% 50%/24px 24px no-repeat;
+            content: "";
+        }
+
+        .payment_method_icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            vertical-align: top;
+        }
+
+        .payment_method_icon.direct {
+            background: url(https://www.koreanair.com/payment-method__item--direct.svg) 50% 50%/24px 24px no-repeat;
+        }
+
+        .payment_method_icon.naverpay {
+            width: 86px;
+            background: url(https://www.koreanair.com/payment-method__item--naverpay.png) 50% 50% no-repeat;
+        }
+
+        .payment_method_icon.samsungpay{
+            width: 108px;
+            background: url(https://www.koreanair.com/payment-method__item--samsungpay.svg) 50% 50%/108px 16px no-repeat;
+        }
+
+        
+        .payment_method_icon.kakaopay{
+            width: 55px;
+            background: url(https://www.koreanair.com/payment-method__item--kakaopay.png) 50% 50%/55px 22px no-repeat;
+        }
+
+        .payment_method_icon.payco{
+            width: 58px;
+            background: url(https://www.koreanair.com/payment-method__item--payco.svg) 50% 50%/58px 22px no-repeat;
+        }
+
+        .payment_method_icon.toss{
+            width: 97px;
+            background: url(https://www.koreanair.com/payment-method__item--toss.svg) 50% 50%/97px 22px no-repeat;
+        }
+
+        .payment_method_icon.trans{
+            background: url(https://www.koreanair.com/payment-method__item--trans.svg) 50% 50%/24px 24px no-repeat;
+        }
+
+        
+        .payment_method_icon.debit{
+            background: url(https://www.koreanair.com/payment-method__item--debit.svg) 50% 50%/24px 24px no-repeat;
+        }
+
+        /** 유의 사항 **/
+        .notice {
+            margin: 60px 0 40px;
+            background-color: #f8f9fc;
+            border-radius: 10px;
+        }
+
+        .notice.extned {
+            padding: 0;
+        }
+
+        .notice:first-child {
+            margin-top: 0;
+        }
+
+        .notice:last-child {
+            margin-bottom: 0;
+        }
+
+        .bundle .notice {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .notice_expander {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 24px 64px 24px 40px;
+            background: 0 0;
+            border: 0;
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .notice_expander:before {
+            position: absolute;
+            display: block;
+            width: 24px;
+            height: 24px;
+            top: 50%;
+            right: 20px;
+            margin-top: -12px;
+            background: url(https://www.koreanair.com/ico-expander.svg) 50% 50%/24px 24px no-repeat;
+            content: "";
+        }
+
+        .notice_expand {
+            display: none;
+            padding: 0 40px 32px;
+        }
+
+        .notice .list>.list_item {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .list li {
+            position: relative;
+            color: #555;
+            text-indent: 0;
+        }
+
+        .list.disc>.list_item {
+            padding-left: 12px;
+        }
+
+        .notice .list_item+.list_item {
+            margin-top: 4px;
+        }
+
+        .link.inner {
+            position: relative;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /** 실시간 계좌 이체 **/
+
+        .selections {
+            margin: 22px 0;
+        }
+
+        .selections:last-child {
+            margin-bottom: 0;
+        }
+
+        .selections.col3 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .selection {
+            position: relative;
+        }
+
+        .selections.col3 .selection {
+            width: 33.33333%;
+            padding-right: 10px;
+        }
+
+    
+        .selection label {
+            position: relative;
+            display: inline-block;
+            padding-left: 10px;
+            font-size: 18px;
+            line-height: 1.5;
+            text-indent: 0;
+        }
+
+       
+
+
+    </style>
+
+
+<body>
+    <div>
+        <div class="container" role="main">
+            <div class="star_inserted">
+
+            </div>
+         
+            <div class="star_inserted">
+                <div class="star_inserted">
+                    <div class="star_inserted flight_widget step2">
+                        <h2 class="hidden">여정 요약 및 수정</h2>
+                        <div class="accordion flight_widget_fix">
+                            <div class="flight_widget_aligner">
+                                <div class="flight_widget_locals">
+                                    <div>
+                                        <button type="button" class="flight_widget_local from star_inserted">
+                                            <span class="hidden">출발지&nbsp;</span>
+                                            <span class="flight_widget_code">SEL</span>
+                                        </button>
+                                        <button type="button" class="flight_widget_local to star_inserted">
+                                            <span class="hidden">도착지&nbsp;</span>
+                                            <span class="flight_widget_code">DAD</span>
+                                        </button>
+                                        <button class="flight_widget_swap">출발지와 도착지 바꾸기</button>
+                                        <div class="hidden"></div>
+                                    </div>
+                                </div>
+                                <button type="button" class="flight_widget_expand">상세 여정</button>
+                                <div class="flight_widget_items">
+                                    <div class="flight_widget_item">
+                                        <button type="button" class="flight_widget_datepicker">
+                                            <span class="hidden">탑승일</span>
+                                            <span class="flight_widget_date star_inserted">
+                                                <span class="hidden">가는 날&nbsp;</span>
+                                                <span class="star_insert">2023년 05월 26일 (금)</span>
+                                                <span>~</span>
+                                                <span class="hidden">오는 날&nbsp;</span>
+                                                <span class="star_insert">2023년 06월 26일 (금)</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="flight_widget_item">
+                                        <button type="button" class="flight_widget_passengers">
+                                            <span class="hidden">승객</span>
+                                            <span>성인 1명</span>
+                                        </button>
+                                    </div>
+                                    <button type="button" class="flight_widget_change">검색</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="contents step2_contents">
+                <div>
+                    <ol class="small_steps lined_type">
+                        <li class="small_steps_item">
+                            <a href="#" class="small_steps_step">
+                                <span class="small_steps_number">
+                                    01
+                                </span>
+                                <span class="hidden">첫번째 단계&nbsp;</span>
+                                <span class="small_steps_title">검색</span>
+                            </a>
+                        </li>
+                        <li class="small_steps_item">
+                            <a href="#" class="small_steps_step">
+                                <span class="small_steps_number">
+                                    02
+                                </span>
+                                <span class="hidden">두번째 단계&nbsp;</span>
+                                <span class="small_steps_title">항공편</span>
+                            </a>
+                        </li>
+                        <li class="small_steps_item active">
+                            <a href="#" class="small_steps_step">
+                                <span class="small_steps_number">
+                                    03
+                                </span>
+                                <span class="hidden">세번째 단계&nbsp;</span>
+                                <span class="small_steps_title">결제</span>
+                            </a>
+                        </li>
+                    </ol>
+                    <div class="flight_title_aside">
+                        <button type="button" class="flight_title_aside_button share">
+                            <span class="hidden">여정&nbsp;</span>
+                            공유
+                        </button>
+                    </div>
+                </div>
+                <div class="payment">
+                    <div class="payment_contents">
+                        <div>
+                            <div>
+                                <div class="hgroup h2 fixed">
+                                    <h2 class="h2">여정 정보</h2>
+                                    <button type="button" class="option ghost push">
+                                        운임 규정
+                                    </button>
+                                </div>
+                                <div class="itinerary">
+                                    <ul class="itinerary_list">
+                                        <li class="itinerary_item">
+                                            <h3 class="itinerary_title">가는 편</h3>
+                                            <div class="itinerary_details">
+                                                <button type="button" class="itinerary_more">
+                                                    <span>상세 보기</span>
+                                                </button>
+                                            </div>
+                                            <ul class="itinerary_bound">
+                                                <li class="itinerary_seg">
+                                                    <div class="itinerary_route">
+                                                        <div class="itinerary_from">
+                                                            <span class="hidden">출발지&nbsp;</span>
+                                                            <em class="itinerary_code">ICN&nbsp;</em>
+                                                            <span class="itinerary_airport">서울/인천</span>
+                                                        </div>
+                                                        <div class="itinerary_to">
+                                                            <span class="hidden">&nbsp;도착지&nbsp;</span>
+                                                            <em class="itinerary_code">DAD&nbsp;</em>
+                                                            <span class="itinerary_airport">다낭</span>
+                                                        </div>
+                                                    </div>
+                                                    <p class="itinerary_date">
+                                                        2023년 06월 13일 (화)
+                                                        <span class="hidden">출발시각&nbsp;</span>
+                                                        11:05
+                                                        <span>-</span>
+                                                        <span class="hidden">도착시각&nbsp;</span>
+                                                        13:50
+                                                    </p>
+                                                    <div class="itinerary_info">
+                                                        <span class="itinerary_number">KE457&nbsp;</span>
+                                                        <span class="itinerary_seat">
+                                                            &nbsp;일반석(L)
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="itinerary_item">
+                                            <h3 class="itinerary_title">오는 편</h3>
+                                            <div class="itinerary_details">
+                                                <button type="button" class="itinerary_more">
+                                                    <span>상세 보기</span>
+                                                </button>
+                                            </div>
+                                            <ul class="itinerary_bound">
+                                                <li class="itinerary_seg">
+                                                    <div class="itinerary_route">
+                                                        <div class="itinerary_from">
+                                                            <span class="hidden">출발지&nbsp;</span>
+                                                            <em class="itinerary_code">DAD&nbsp;</em>
+                                                            <span class="itinerary_airport">다낭</span>
+                                                        </div>
+                                                        <div class="itinerary_to">
+                                                            <span class="hidden">&nbsp;도착지&nbsp;</span>
+                                                            <em class="itinerary_code">ICN&nbsp;</em>
+                                                            <span class="itinerary_airport">서울/인천</span>
+                                                        </div>
+                                                    </div>
+                                                    <p class="itinerary_date">
+                                                        2023년 06월 21일 (수)
+                                                        <span class="hidden">출발시각&nbsp;</span>
+                                                        22:50
+                                                        <span class="star_inserted">-</span>
+                                                        <span class="hidden">도착시각&nbsp;</span>
+                                                        05:30
+                                                        <span class="itinerary_overtime">(+1일)</span>
+                                                    </p>
+                                                    <div class="itinerary_info">
+                                                        <span class="itinerary_number">KE462&nbsp;</span>
+                                                        <span class="itinerary_seat">
+                                                            &nbsp;일반석(Q)
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+        
+                        </div>
+                        <div class="star_inserted">
+                            <div></div>
+                        </div>
+                        <div class="hgroup_wrap">
+                            <div class="hgroup h2 fixed fwrap">
+                                <h2 class="h2">승객 정보</h2>
+                                <div class="hgroup_button push">
+                                    <button type="button" class="option ghost">
+                                        성명 입력 안내
+                                    </button>
+                                </div>
+                                <div class="requires">
+                                    <span class="required">
+                                        빨간 동그라미
+                                    </span>
+                                    는 필수 입력 사항입니다.
+                                </div>
+                            </div>
+                            <div class="info wide">
+                                <p class="p">
+                                    예약 후 성명 변경은
+                                    <em class="remark positive">불가</em>
+                                    하오니
+                                    <em class="remark positive">여권에 기재된 성명</em>
+                                    을 정확히 확인하시기 바랍니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="folders">
+                            <div class="folders ib">
+                                <div class="folders ib complete radius_top radius_bottom">
+                                    <div class="folders_heading" role="heading">
+                                        <button type="button" class="folders_expander">
+                                            <span class="folders_subject">
+                                                KIM BOMI
+                                            </span>
+                                            <span class="hidden">입력 성공</span>
+                                            <span class="folders_info">
+        
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="folders">
+                            <div class="folders ib">
+                                <div class="folders ib complete radius_top radius_bottom">
+                                    <div class="folders_heading" role="heading">
+                                        <button type="button" class="folders_expander">
+                                            <span class="folders_subject">
+                                                연락처 정보
+                                            </span>
+                                            <span class="hidden">입력 성공</span>
+                                            <span class="folders_info">
+        
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="folders">
+                            <div class="folders ib">
+                                <div class="folders active ib">
+                                    <div class="folders_heading" role="heading">
+                                        <button type="button" class="folders_expander">
+                                            <span class="folders_subject">
+                                                성인 1
+                                            </span>
+                                            <span class="folders_info">
+        
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="folders_expand">
+                                        <div class="folders_contents">
+                                            <div>
+                                                <div>
+                                                    <form class="untouched pristine valid">
+                                                        <div class="bundle medium">
+                                                            <div class="columns">
+                                                                <div class="column">
+                                                                    <label for="txt_lastname" class="label">
+                                                                        <span class="hidden">성인1&nbsp;</span>
+                                                                        승객 성
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">
+                                                                            <span>예) KIM</span>
+                                                                        </span>
+                                                                        <input type="text" class="upper">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="txt_firstname" class="label">
+                                                                        <span class="hidden">성인1&nbsp;</span>
+                                                                        승객 이름
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms_option break flexible">
+                                                                        <div class="forms">
+                                                                            <span class="placeholder">
+                                                                                <span>예) DAEHAN</span>
+                                                                            </span>
+                                                                            <input type="text" class="upper">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <p class="label">
+                                                                        <span class="hidden">성인1&nbsp;</span>
+                                                                        성별
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </p>
+                                                                    <div class="gender">
+                                                                        <div class="gender_item">
+                                                                            <input type="radio" class="untouched pristine valid">
+                                                                            <label for="rad_gender_M">남자</label>
+                                                                        </div>
+                                                                        <div class="gender_item">
+                                                                            <input type="radio" class="untouched pristine valid">
+                                                                            <label for="rad_gender_F">여자</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="txt_birth" class="label">
+                                                                        <span class="hidden">성인1&nbsp;</span>
+                                                                        생년월일
+                                                                        <span>(YYYY.MM.DD)</span>
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">
+                                                                            <span class="hidden">년도 4자리, 월 2자리. 일 2자리</span>
+                                                                        </span>
+                                                                        <input type="tel" maxlength="11" class="untouched pristine valid">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="sel_airline" class="label">
+                                                                        <span class="hidden">
+                                                                            성인1&nbsp;
+                                                                        </span>
+                                                                        적립 항공사
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <select class="untouched prisine valid">
+                                                                            <option >선택하지 않음</option>
+                                                                            <option >대한항공</option>
+                                                                            <option >ITA 항공</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <div class="payment_divider">
+                                                                        <label for="txt_membership" class="label">
+                                                                            <span class="hidden">성인1&nbsp;</span>
+                                                                            회원번호
+                                                                        </label>
+                                                                        <button type="button" class="opener popover_trigger">
+                                                                            회원번호 유의사항 보기
+                                                                        </button>
+                                                                        <div class="toggleWrap"></div>
+                                                                    </div>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">
+                                                                            <span>항공사 회원번호를 입력하여 주십시오.</span>
+                                                                        </span>
+                                                                        <input type="text" class="upper" maxlength="20">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="buttons right">
+                                                                <button type="submit" class="button">확인</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <div>
+                                                        <div></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="folders ib last before_confirm">
+                                <div class="folders ib radius_top radius_bottom">
+                                    <div class="folders_heading" role="heading">
+                                        <button type="button" class="folders_expander">
+                                            <span class="folders_subject">
+                                                연락처 정보
+                                            </span>
+                                            <span class="folders_info">
+        
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="folders_expand">
+        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="folders ib last">
+                                <div class="folders active ib">
+                                    <div class="folders_heading" role="heading">
+                                        <button type="button" class="folders_expander">
+                                            <span class="folders_subject">
+                                                연락처 정보
+                                            </span>
+                                            <span class="folders_info">
+        
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="folders_expand">
+                                        <div class="folders_contents">
+                                            <div>
+                                                <div>
+                                                    <form class="untouched pristine valid">
+                                                        <div class="bundle medium">
+                                                            <div class="columns col3">
+                                                                <div class="hidden">
+                                                                    <input type="text" class="hidden">
+                                                                    <input type="password" class="hidden">
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="sel_device" class="label">
+                                                                        연락처
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <select class="untouched pristine valid">
+                                                                            <option value="0">선택</option>
+                                                                            <option value="1:landline">집</option>
+                                                                            <option value="2:mobile">휴대폰</option>
+                                                                            <option value="3:business">회사</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="nation_number" class="label">
+                                                                        국가번호
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms_option">
+                                                                        <button type="button" class="option ghost">국가번호</button>
+                                                                        <div class="forms">
+                                                                            <input type="tel" maxlength="4">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="phone_number" class="label">
+                                                                        전화번호
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">예. 01012345678</span>
+                                                                        <input type="tel" maxlength="15" >
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column half">
+                                                                    <label for="email" class="label">
+                                                                        이메일
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">예. orcaair@orcaair.com</span>
+                                                                        <input type="email">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column half">
+                                                                    <div class="payment_divider">
+                                                                        <label for="sel_language" class="label">
+                                                                            언어 선택
+                                                                            <span class="required">
+                                                                                &nbsp;필수입력
+                                                                            </span>
+                                                                        </label>
+                                                                        <button type="button" class="opener popover_trigger">
+                                                                            언어 선택 상세 보기
+                                                                        </button>
+                                                                        <div class="toggleWrap"></div>
+                                                                    </div>
+                                                                    <div class="forms">
+                                                                        <select>
+                                                                            <option value="0: ko">한국어</option>
+                                                                            <option value="1: en">영어</option>
+                                                                            <option value="2: ja">일본어</option>
+                                                                            <option value="3: ah">중국어</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column half">
+                                                                    <label for="numeric_id" class="label">
+                                                                        선호 예약 번호
+                                                                        <span>(8자리 숫자)</span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <input type="tel" maxlength="8">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column expand">
+                                                                    <div class="selection">
+                                                                        <input type="checkbox">
+                                                                        <label for="chk_receive">
+                                                                            [필수] 예약 여정의 정보를 이메일과 sms로 수신하는 것에 동의합니다.
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="columns_title block">
+                                                                    <h4 class="columns_heading">비회원 비밀번호 등록</h4>
+                                                                    <p class="caption">
+                                                                        <em class="remark negative">비밀번호는 홈페이지나 모바일에서 예약 변경 및 취소할 경우 필요합니다.</em>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="column half">
+                                                                    <label for="nonmember" class="label">
+                                                                        비밀번호&nbsp;
+                                                                        <span>(6~8자리 문자 또는 숫자 입력)</span>
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">예. KAL2020</span>
+                                                                        <input type="password" >
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column half">
+                                                                    <label for="nonmember_identifier" class="label">
+                                                                        비밀번호 확인&nbsp;
+                                                                        <span>(6~8자리 문자 또는 숫자 입력)</span>
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">예. kal2020</span>
+                                                                        <input type="password" maxlength="8">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="buttons right">
+                                                                <button type="submit" class="button">확인</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <div>
+                                                        <div></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <div class="additional_services">
+                                        <div class="additional_services_aligner ghost">
+                                            <div class="additional_services_service seat">
+                                                <a href="#" class="additional_services_link" role="button">
+                                                    좌석 배정&nbsp;
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="additional_services_aligner">
+                                            <div>
+                                                <div class="additional_services_service baggage">
+                                                    <a href="#" class="additional_services_link" role="button">
+                                                        초과 수하물
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="h2">확인 및 동의</h2>
+                            <div class="agree _payment">
+                                <div class="agree_list">
+                                    <div class="agree_item">
+                                        <div class="agree_key">
+                                            <div class="agree_selection">
+                                                <button type="button" class="option agree">
+                                                    동의
+                                                </button>
+                                                <span class="agree_title">
+                                                    <a href="#" class="link">
+                                                        운송약관
+                                                        <span class="hidden">&nbsp;새 창 열림</span>
+                                                    </a>
+                                                    , 운임 규정, 수하물 규정을 확인하였으며 이에 동의합니다.
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="agree_summary full">
+                                            올카항공 항공권을 구매하시는 것은 본 항공사와 운송계약 체결에 동의하는 것으로 운임규정은 항공권 변경, 취소등에
+                                            따른 수수료와 사전좌석배정, 좌석승급 등 구매하는 항공권 운임에 적용되는 세부 조건을 기재하고 있으며, 운송약관은
+                                            운송 계약 체결에 따른 계약조건을 명시합니다.
+                                            <br>
+                                            대한항공은 '항공교통이용자 보호기준'에 따라
+                                            <a href="#" class="link">
+                                                항공교통이용자 서비스 계획
+                                                <span class="hidden">&nbsp;새 창 열림</span>
+                                            </a>
+                                            을 게시합니다.
+                                        </div>
+                                        <div class="agree_value position">
+                                            <button class="detail" type="button">
+                                                보기
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="agree_item">
+                                        <div class="agree_key">
+                                            <div class="agree_selection">
+                                                <button type="button" class="option agree">
+                                                    동의
+                                                </button>
+                                                <span class="agree_title">[필수] 위험품 안내를 확인하였습니다.</span>
+                                            </div>
+                                        </div>
+                                        <div class="agree_summary full">
+                                            고객 안전을 위하여 항공기 내부로 반입이 금지된 폭발성, 인화성, 유독성 물질 및 무기로 사용될 수 있는 품목에 대한 안내 사항 입니다.
+                                        </div>
+                                        <div class="agree_value position">
+                                            <button class="detail" type="button">
+                                                보기
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_folders">
+                                <div>
+                                    <div class="folders">
+                                        <div class="folders_heading">
+                                            <button type="button" class="folders_expander">
+                                                <span class="folders_subject type1">수하물 정보</span>
+                                            </button>
+                                        </div>
+                                        <div class="folders_expand">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="folders">
+                                <div>
+                                    <div class="bundles bordered">
+                                        <div class="bundle small lined">
+                                            <h3 class="h3">출입국 규정 및 구비 서류 안내</h3>
+                                        </div>
+                                        <div class="bundle small lined">
+                                            <ul>
+                                                <li class="list disc">
+                                                    <button class="expander small">
+                                                        출입국 규정 조회
+                                                    </button>
+                                                    <div class="expand">
+                                                        <span>.</span>
+                                                        <a href="#" class="goNgBrowser">
+                                                            지도로 보는 출입국 규정
+                                                            <span class="hidden">&nbsp;새창열기</span>
+                                                        </a>
+                                                        에서 관련 출입국 주요 제한사항을 찹고하여 주시기 바랍니다.
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                    </div>
+                                                </li>
+                                                <li class="list">
+                                                    <button class="expander small">
+                                                        베트남 입국 안내(만 14세 미만 승객)
+                                                    </button>
+                                                    <div class="expand">
+                                                        <p>
+                                                            베트남 입국 규정상 입국일 기준 만 14세 미만 청소년이 부모 또는 보호자 미동반 입국 시 비동반 서비스를 신청하셔야 합니다.
+                                                        </p>
+                                                        <p>자세한 사항은 대한항공 서비스센터로 문의하시기 바랍니다.</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list disc">
+                                                    <button class="expander small">
+                                                        대한민국 무사증 입국 시 k-eta사전 신청 의무화 안내
+                                                    </button>
+                                                    <div class="expand">
+                                                        <p>
+                                                            대한민국에 비자없이 입국이 가능한 외국인은 출발 72시간 전까지
+                                                            <a href="#" class="goNgBrowser">
+                                                                www.k-eta.go.kr
+                                                                <span class="hidden">&nbsp;새창열기</span>
+                                                            </a>
+                                                            또는 모바일앱(k-eta)을 통해 k-eta를 신청 및 발급 받은 후 입국이 가능합니다.
+                                                        </p>
+                                                        <p>
+                                                            (일부 국가, 지역은 한시적으로 면제 시행 중으로 자세한 내용은 K-ETA 사이트에서 확인하여 주시기 바랍니다.)
+                                                        </p>
+                                                        <div>
+                                                            <br>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list">
+                                                    <button class="expander small">
+                                                        등록 안내
+                                                    </button>
+                                                    <div class="expand">
+                                                        <p>
+                                                            <span>
+                                                                대한민국 입국 시
+                                                                <a href="#">
+                                                                    Q-code(Quarantine Information Pre-Entry)
+                                                                    <span class="hidden">&nbsp;새창열기</span>
+                                                                </a>
+                                                                를 이용하여 입국 전 사전입력을 완료하여 주시기 바랍니다.
+                                                            </span>
+                                                        </p>
+                                                        <p>
+                                                            <span>
+                                                                <br>
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+
+                                </div>
+                            </div>
+                            <h2 class="h2">결제</h2>
+                            <div class="_folders">
+                                <div>
+                                    <div class="folders">
+                                        <div class="folders_heading">
+                                            <button type="button" class="folders_expander">
+                                                <span class="ib_title">
+                                                    <span class="ib_title_heading">쿠폰/할인권</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div class="folders_expand">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_folders">
+                                <div>
+                                    <div class="bundles bordered">
+                                        <div class="bundle small lined">
+                                            <h3 class="h3">결제 수단</h3>
+                                        </div>
+                                        <div class="lined">
+                                            <div class="payment_method">
+                                                <div class="payment_method_item active">
+                                                    <input type="radio" checked="checked">
+                                                    <label for="rad">
+                                                        <span class="payment_method_icon direct"></span>
+                                                        한국발행 신용/체크카드
+                                                    </label>
+                                                </div>
+                                                <div class="payment_method_item">
+                                                    <input type="radio" >
+                                                    <label for="rad_naverpay">
+                                                        <span class="payment_method_icon naverpay"></span>
+                                                        <span class="hidden">네이버페이</span>
+                                                    </label>
+                                                </div>
+                                                <div class="payment_method_item">
+                                                    <input type="radio" >
+                                                    <label for="rad_samsung">
+                                                        <span class="payment_method_icon samsungpay"></span>
+                                                        <span class="hidden">삼성페이</span>
+                                                    </label>
+                                                </div>
+                                                <div class="payment_method_item">
+                                                    <input type="radio" >
+                                                    <label for="rad_kakao">
+                                                        <span class="payment_method_icon kakaopay"></span>
+                                                        <span class="hidden">카카오페이</span>
+                                                    </label>
+                                                </div>
+                                                <div class="payment_method_item">
+                                                    <input type="radio">
+                                                    <label for="rad_payco">
+                                                        <span class="payment_method_icon payco"></span>
+                                                        <span class="hidden">페이코</span>
+                                                    </label>
+                                                </div>
+                                                <div class="payment_method_item">
+                                                    <input type="radio" >
+                                                    <label for="rad_toss">
+                                                        <span class="payment_method_icon toss"></span>
+                                                        <span class="hidden">토스페이</span>
+                                                    </label>
+                                                </div>
+                                                <div class="payment_method_item">
+                                                    <input type="radio" >
+                                                    <label for="rad_bankt">
+                                                        <span class="payment_method_icon trans"></span>
+                                                        실시간 계좌이체
+                                                    </label>
+                                                </div>
+                                                <div class="payment_method_item">
+                                                    <input type="radio">
+                                                    <label for="rad_cbsc">
+                                                        <span class="payment_method_icon debit"></span>
+                                                        한국 외 국가 신용/직불카드
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div>
+                                                    <div>
+                                                        <div class="bundle medium">
+                                                            <form action="#" class="">
+                                                                <div class="columns">
+                                                                    <div class="column">
+                                                                        <label for="sel_korcardcompany" class="label">
+                                                                            한국발행 신용/체크카드 종류
+                                                                            <span class="required">
+                                                                                &nbsp;필수입력
+                                                                            </span>
+                                                                        </label>
+                                                                        <div class="forms">
+                                                                            <select>
+                                                                                <option value>선택</option>
+                                                                                <option value="026">비씨카드</option>
+                                                                                <option value="026">비씨카드</option>
+                                                                                <option value="026">비씨카드</option>
+                                                                                <option value="026">비씨카드</option>
+                                                                                <option value="026">비씨카드</option>
+                                                                                <option value="026">비씨카드</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="column">
+                                                                        <div>
+                                                                            <label for="select_ebe" class="label booking_label">
+                                                                                결제 기간 선택
+                                                                            </label>
+                                                                            <div class="forms">
+                                                                                <select>
+                                                                                    <option value="0: 0">일시불</option>
+                                                                                    <option value="1: 2">2개월</option>
+                                                                                    <option value="2: 3">3개월</option>
+                                                                                    <option value="0: 0">4개월</option>
+                                                                                    <option value="0: 0">5개월</option>
+                                                                                </select>
+                                                                                <div>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div>
+                                                    <div>
+                                                        <form action="#">
+                                                            <div class="bundle medium">
+                                                                <div class="columns">
+                                                                    <div class="column">
+                                                                        <p class="label">
+                                                                            현금영수증 발급
+                                                                            <span class="required">
+                                                                                필수입력
+                                                                            </span>
+                                                                        </p>
+                                                                        <div class="selections col3" role="group">
+                                                                            <div class="selection">
+                                                                                <input type="radio" class="dirty">
+                                                                                <label for="radio_cash">
+                                                                                    소득공제용
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="selection">
+                                                                                <input type="radio" class="dirty">
+                                                                                <label for="radio_cash">
+                                                                                    지출증빙용
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="selection">
+                                                                                <input type="radio" class="dirty">
+                                                                                <label for="radio_cash">
+                                                                                    미발행
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="column">
+                                                                        <label for="sel_cash" class="label">
+                                                                            발급 유형
+                                                                            <span class="required">
+                                                                                필수입력
+                                                                            </span>
+                                                                        </label>
+                                                                        <div class="forms">
+                                                                            <select>
+                                                                                <option value>선택</option>
+                                                                                <option value="phone">휴대폰번호</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="column">
+                                                                        <label for="pwi_cash" class="label">
+                                                                            선택 발급 유형 번호 입력
+                                                                            <span class="required">
+                                                                                필수입력
+                                                                            </span>
+                                                                        </label>
+                                                                        <div class="forms">
+                                                                            <span class="placeholder">
+                                                                                숫자만 입력해 주세요.
+                                                                            </span>
+                                                                            <input type="tel">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="column">
+                                                                        <div>
+                                                                            <label for="select" class="label booking_label">
+                                                                                계좌이체 환불 계좌 지정
+                                                                            </label>
+                                                                            <div class="forms">
+                                                                                <select>
+                                                                                    <option value="0: Y">지불한 계좌로 환불 받겠습니다.</option>
+                                                                                    <option value="1: N">지불한 계좌가 아닌 항공권 명의인의 계좌로 환불 받겠습니다.</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div>
+                                                    <form>
+                                                        <div class="bundle medium">
+                                                            <div class="dispose huge">
+                                                                <p class="p">
+                                                                    모든 항목은 영문으로 입력하세요. 한국카드사의 자체 간편결제(앱카드 결제 등)는 krw로 결제 시에만 제공됩니다.
+                                                                </p>
+                                                            </div>
+                                                            <div class="columns">
+                                                                <div class="column">
+                                                                    <label for="sel_issuingcountrycode" class="label">
+                                                                        신용카드 발급 국가/지역 선택
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <select>
+                                                                            <option value>선택</option>
+                                                                            <option value="1: KR">KOREA</option>
+                                                                            <option value="1: KR">KOREA</option>
+                                                                            <option value="1: KR">KOREA</option>
+                                                                            <option value="1: KR">KOREA</option>
+                                                                            <option value="1: KR">KOREA</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="ipt_cardnumber" class="label">
+                                                                        신용카드 번호
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <input type="tel" maxlength="19">
+                                                                    </div>
+                                                                    <div class="hidden"></div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="ipt_expirationdate" class="label">
+                                                                        유효기간(MM.YY)
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">예) 12/23</span>
+                                                                        <input type="tel" maxlength="5">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <div class="payment_divider">
+                                                                        <label for="ipt_verificationcode" class="label">
+                                                                            Secure Code(CVV/CVC)
+                                                                            <span class="required">
+                                                                                필수입력
+                                                                            </span>
+                                                                        </label>
+                                                                        <button type="button" class="opener popover_trigger">
+                                                                            Secure Code 상세보기
+                                                                            
+                                                                        </button>
+                                                                        <div class="toggleWrap"></div>
+                                                                    </div>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">예) 123 또는 1234</span>
+                                                                        <input type="password" maxlength="3">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="ipt_cardholderlastname" class="label">
+                                                                        카드 성
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">예) KIM</span>
+                                                                        <input type="text">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="ipt_cardholderfirstname" class="label">
+                                                                        카드 이름
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">예) BOMI</span>
+                                                                        <input type="text">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="columns">
+                                                                <div class="columns_title">
+                                                                    <h4 class="columns_heading">청구지 정보 입력</h4>
+                                                                    <p class="p">모든 항목은 영문으로 입력하세요. 한국 카드사의 자체 간편 결제(앱카드 결제 등)는 KRW로 결제 시에만 제공됩니다.</p>
+                                                                </div>
+                                                                <div class="column expand half">
+                                                                    <label for="sel_billingcountrycode">
+                                                                        청구지 주소 국가/지역 선택
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <select>
+                                                                            <option value=>선택</option>
+                                                                            <option value="1: KR">KOREA</option>
+                                                                            <option value="1: KR">KOREA</option>
+                                                                            <option value="1: KR">KOREA</option>
+                                                                            <option value="1: KR">KOREA</option>
+                                                                            <option value="1: KR">KOREA</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="ipt_billingcity" class="label">
+                                                                        도시
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">예) Seoul</span>
+                                                                        <input type="text" maxlength="50">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="ipt_billingaddress" class="label">
+                                                                        주소
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">
+                                                                            예) 260, Haneul-gil, Gangseo-gu
+                                                                        </span>
+                                                                        <input type="text" maxlength="150">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="ipt_billingpostalcode" class="label">
+                                                                        우편번호
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder">
+                                                                            예) 07507
+                                                                        </span>
+                                                                        <input type="text">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="ipt_billingemail" class="label">
+                                                                        이메일
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder hidden">
+                                                                            예)orcaair@orcaair.com
+                                                                        </span>
+                                                                        <input type="email">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="column">
+                                                                    <label for="ipt_billingphone" class="label">
+                                                                        연락처 번호
+                                                                        <span class="required">
+                                                                            &nbsp;필수입력
+                                                                        </span>
+                                                                    </label>
+                                                                    <div class="forms">
+                                                                        <span class="placeholder hidden">
+                                                                            예) 01012345678
+                                                                        </span>
+                                                                        <input type="tel">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="security">
+                                                                <ul class="security_list">
+                                                                    <li class="security_item card2">
+                                                                        <a href="#" class="security_link">
+                                                                            <span class="hidden">Visa secure 새 창 열림</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="security_item card3">
+                                                                        <a href="#" class="security_link">
+                                                                            <span class="hidden">mastercaed ID 새 창 열림</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="security_item card4">
+                                                                        <a href="#" class="security_link">
+                                                                            <span class="hidden">American Express SafeKey 새 창 열림</span>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="security_item card5">
+                                                                        <a href="#" class="security_link">
+                                                                            <span class="hidden">JCB J/Secure 새 창 열림</span>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="bundle">
+                                                <div class="notice extend">
+                                                    <h4 class="notice_heading">
+                                                        <button type="button" class="notice_expander">
+                                                            유의사항
+                                                        </button>
+                                                    </h4>
+                                                    <div class="notice_expand">
+                                                        <ul class="list disc">
+                                                            <li class="list_item">
+                                                                구매 후 항공권의 결제 수단은 변경할 수 없습니다.
+                                                            </li>
+                                                            <li class="list_item">
+                                                                카드 발행국 이외 통화로 결제 되는 경우, 해외 사용 수수료/카드사 수수료 등이 추가 청구될 수 있습니다.
+                                                            </li>
+                                                            <li class="list_item">
+                                                                할부 결제는 5만원 이상인 경우에만 가능합니다.
+                                                            </li>
+                                                            <li class="list_item">
+                                                                한국발행카드 결제를 위해서는 각 카드사 인증프로그램에 가입하셔야 합니다.
+                                                            </li>
+                                                            <li class="list_item">
+                                                                isp 안전결제 프로그램이 정상적으로 설치되지 않는 경우, 브이피 고객센터로 문의하여 주시기 바랍니다.
+                                                            </li>
+                                                        </ul>
+                                                        <button type="button" class="link inner">
+                                                            신용카드 구매혜택
+                                                        </button>
+                                                        <a href="#" class="link inner">
+                                                            온라인 결제 안내
+                                                            <span class="hidden">&nbsp;새 창 열림</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <div>
+                            <div class="payment_aside active">
+                                <div class="payment_summary">
+                                    <div class="summary">
+                                        <h2 class="summary_title">
+                                            항공 운송료
+                                        </h2>
+                                        <ul class="summary_list">
+                                            <li class="summary_item">
+                                                <span class="summary_key">운임&nbsp;</span>
+                                                <span class="summary_value">395,000 원</span>
+                                            </li>
+                                            <li class="summary_item">
+                                                <span class="summary_key">유류할증료&nbsp;</span>
+                                                <span class="summary_value">84,000 원</span>
+                                            </li>
+                                            <li class="summary_item">
+                                                <span class="summary_key">세금, 수수료 및 기타 요금&nbsp;</span>
+                                                <span class="summary_value">57,300 원</span>
+                                            </li>
+                                        </ul>
+                                        <div class="summary_info">
+                                            <strong class="summary_total">총액</strong>
+                                            <button type="button" class="summary_fare">
+                                                <span class="summary_amount">
+                                                    <strong>536,300</strong>
+                                                    원
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom_fixed_area payment_widget">
+                    <div class="payment_widget_aligner">
+                        <h2 class="payment_widget_key">최종 결제 금액</h2>
+                        <div class="payment_widget_fares">
+                            <span class="payment_widget_fare">
+                                <em class="payment_widget_fare_num">536,300</em>
+                                원
+                            </span>
+                        </div>
+                        <button type="button" class="payment_widget_confirm">
+                            결제하기
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+
+                </div>             
+            </div>
+        </div>   
+    </div>
+    <div style="display: none;">
+        <div>
+            <div>
+                <div>
+                    <div class="dialog full active" role="dialog">
+                        <div class="dialog_contents">
+                            <h2 class="h2">여정 정보</h2>
+                            <div>
+                                <div></div>
+                            </div>
+                            <div class="flight_info">
+                                <div class="flight_info_list">
+                                    <div class="flight_info_item">
+                                        <span class="hidden">출발지&nbsp;</span>
+                                        <span class="flight_info_code">ICN&nbsp;</span>
+                                        <span class="flight_info_airport">서울/인천</span>
+                                    </div>
+                                    <div class="flight_info_item">
+                                        <span class="hidden">&nbsp;도착지&nbsp;</span>
+                                        <span class="flight_info_code">DAD&nbsp;</span>
+                                        <span class="flight_info_airport">다낭</span>
+                                    </div>
+                                </div>
+                                <p class="flight_info_duration">총 4시간 50분 여정</p>
+                            </div>
+                            <div class="flight_plan">
+                                <div class="flight_plan_item">
+                                    <div class="flight_plan_flow">
+                                        <div class="flight_plan_primary">
+                                            <h4 class="flight_plan_number">
+                                                <span class="hidden">항공편명&nbsp;</span>
+                                                KE461
+                                            </h4>
+                                            <span class="hidden">&nbsp;항공기종&nbsp;</span>
+                                            <a href="#" class="flight_plan_aircraft">
+                                                B787-9
+                                                <span class="hidden">&nbsp;새 창 열림</span>
+                                            </a>
+                                        </div>
+                                        <div class="flight_plan_facility">
+                                            <h4 class="hidden">기내 어메니티</h4>
+                                            <ul class="flight_plan_amenities">
+                                                <li class="star_inserted">
+                                                    <span role="button" class="tooltip">
+                                                        <span class="flight_plan_amenity seat"></span>
+                                                        <span class="tooltip_desc">
+                                                            <span class="tooltip_text">
+                                                                프레스티지석 : 프레스티지 스위트
+                                                                <br>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                   <span role="button" class="tooltip right">
+                                                        <span class="flight_plan_amenity isps"></span>
+                                                        <span class="tooltip_desc">
+                                                            <span class="tooltip_text">
+                                                                기내 전원 공급 장치
+                                                            </span>
+                                                        </span>
+                                                   </span> 
+                                                </li>
+                                                <li>
+                                                    <span role="button" class="tooltip right">
+                                                        <span class="flight_plan_amenity avod"></span>
+                                                        <span class="tooltip_desc">
+                                                            <span class="tooltip_text">
+                                                                기내 엔터테인먼트
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div>
+
+                                    </div>
+                                    <div>
+                                        <div class="flight_plan_info">
+                                            <div class="flight_plan_from_info">
+                                                <div class="flight_plan_layover">
+                                                    <span class="hidden">출발지&nbsp;</span>
+                                                    <span class="flight_plan_airport">
+                                                        ICN 서울/인천
+                                                    </span>
+                                                    <span class="hidden">&nbsp;출발시각&nbsp;</span>
+                                                    <span class="flight_plan_time">2023년 06월 06일 (화) 18:35</span>
+                                                    <span class="flight_plan_terminal">
+                                                        터미널 2
+                                                    </span>
+                                                </div>
+                                                <div class="flight_plan_duration">4시간 50분</div>
+                                            </div>
+                                            <div class="flight_plan_layover">
+                                                <span class="hidden">도착지</span>
+                                                <span class="flight_plan_airport">
+                                                    DAD 다낭
+                                                </span>
+                                                <span class="hidden">&nbsp;도착시각&nbsp;</span>
+                                                <span class="flight_plan_time">2023년 06월 06일 (화) 21:25</span>
+                                                <span class="flight_plan_terminal">
+                                                    터미널 2
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="dialog_close">닫기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

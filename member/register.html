@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4d13f04a7c.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>회원가입</title>
+    
+    <style>
+         /*-- 공통--*/
+         * {
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul, li {
+            list-style: none;   
+        }
+
+       
+        .container {
+            width: 1180px;
+            margin: 0px auto 100px;
+        }
+
+
+        legend , .hidden, caption {
+            position: absolute;
+            left: 0;
+            top: 0;
+            overflow: hidden;
+            width: 0 !important;
+            height: 0 !important;
+            font-size: 0 !important;
+            line-height: 0 !important;
+        }
+
+        fieldset {
+            border: 0;
+        }
+
+
+        .indicator_wrap {
+            width: 80px;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .indicator_wrap > ul {
+            position: relative;
+        }
+        
+        .indicator_wrap > ul:after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+
+
+        .indicator_wrap > ul > li:first-child {
+            margin-left: 0;
+        }
+
+        .indicator_wrap > ul > li.on {
+            background-position: 0 0;
+        }
+
+
+        .indicator_wrap > ul > li {
+            float: left;
+            width: 12px;
+            height: 12px;
+            background: url(https://flyasiana.com/C/pc/image/common/ico_indicator.png) no-repeat 100% 0;
+            margin-left: 5px;
+        }
+
+
+        .container .mem_wrap h3.mem_tit {
+            margin: 40px 0 15px;
+        }
+
+
+        .container h3 {
+            font-size: 45px;
+            color: black;
+            text-align: center;
+            font-weight: normal;
+            margin: 60px 0 50px 0;
+            line-height: 1;
+        }
+
+        .text_type10 {
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        .title_wrap_type {
+            margin: 50px 0 15px;
+        }
+
+        .title_wrap_type::after {
+            display: block;
+            clear: both;
+            content:'';
+        }
+
+        .f1 {
+            float: left;
+        }
+
+        .title_wrap_type h4 {
+            margin: 0 !important;
+        }
+
+        .container h4 {
+            font-size: 28px;
+            color: black;
+            line-height: 1;
+        }
+
+        .table_form {
+            border-top: 1px solid #666666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 0;
+        }
+        
+        .table_form th {
+            font-size: 18px;
+            font-weight: normal;
+            padding: 25px 25px;
+            border-bottom: 1px solid #ddd;
+            background-color: #9db6e9;
+            text-align: center;
+        }
+
+        th, td {
+            word-break: keep-all;
+            word-wrap: break-word;
+        }
+
+        .table_form tbody tr th label {
+            color: rgb(65, 58, 58);
+        }
+
+        .table_form td {
+            padding: 15px 25px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
+            height: 44px;
+            padding: 0 15px;
+            margin-right: 10px;
+            border: 1px solid #f3f3f3;
+            border-bottom: 1px solid #ddd;
+            color: black;
+            background-color: #f3f3f3;
+            font-size: 16px;
+            line-height: 40px;
+        }
+
+        .txt_error_msg {
+            margin: 9px 0 9px 15px;
+            color: #d60815;
+        }
+
+        select {
+            height: 46px;
+            padding: 0 45px 0 15px;
+            margin-right: 10px;
+            border: 1px solid #f3f3f3;
+            border-bottom: 1px solid #ddd;
+            background: #f3f3f3 url(https://flyasiana.com/C/pc/image/common/bg_select_arrow.png) no-repeat right 13px top 50%;
+            background-size: 12px 8px;
+            color: black;
+            vertical-align: middle;
+            appearance: none;
+        }
+
+        button.white {
+            border: 1px solid #cccccc;
+            background-color:  white;
+            color: balck;
+        }
+
+        .btn_S {
+            padding: 9px 20px;
+            font-size: 14px;
+            min-height: 40px;
+            line-height: 16px;
+        }
+        .f14 {
+            font-size: 14px !important;
+        }
+
+        .mar_to {
+            margin-top: 10px !important;
+        }
+
+        .list_type > li:first-child, .list_type.brown li:first-child {
+            margin-top: 0;
+        }
+
+        .list_type > li:last-child {
+            margin-bottom: 0;
+        }
+
+        .list_type.f14 > li {
+            font-size: 14px;
+        }
+
+        .list_type > li {
+            padding-left: 13px;
+            text-indent: -10px;
+            line-height: 1.5;
+            font-weight: normal;
+            color: #555;
+        }
+
+        .list_type > li::before {
+            display: inline-block;
+            content: '';
+            width: 2px;
+            height: 2px;
+            margin: -4px 10px 0 0;
+            background:#555;
+            vertical-align: middle;
+        }
+
+        .tooltip_wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+
+        /**도움말**/
+
+        .tooltip_wrap .layer_tooltip .inner {
+            padding: 40px;
+        }
+
+        .pwd_rule li {
+            position: relative;
+            font-size: 13px;
+            color: #737373;
+            padding-left: 17px;
+            line-height: 26px;
+        }
+
+        .pwd_rule li span.unable {
+            background: url(https://flyasiana.com/C/pc/image/sub/icon_tooltip_unable.png) no-repeat;
+        }
+
+        .pwd_rule li span.able {
+            background: url(https://flyasiana.com/C/pc/image/sub/icon_tooltip_able.png) no-repeat;
+        }
+
+        .pwd_rule li span {
+            position: absolute;
+            top: 8px;
+            left: 0;
+            width: 11px;
+            height: 11px;
+            text-indent: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .tooltip_wrap .layer_tooltip .tooltip_close {
+            top: 40px;
+            right: 40px;
+            width: 22px;
+            height: 22px;
+            background: url(https://flyasiana.com/C/pc/image/common/btn_close_gray.png);
+        }
+
+        .tooltip_wrap .tooltip_close {
+            position: absolute;
+            display: inline-block;
+        }
+
+        .tooltip_wrap .layer_tooltip {
+            position: absolute;
+            display: none;
+            top: -36px;
+            left: 20px;
+            margin-left: 20px;
+            min-width: 200px;
+            min-height: 50px;
+            border: 1px solid #ccc;
+            z-index: 201;
+            text-align: left;
+            background: white;
+            color: black;
+        }
+
+        .tooltip_wrap .layer_tooltip::before {
+            position: absolute;
+            display: inline-block;
+            top: 45px;
+            left: -10px;
+            width: 10px;
+            height: 15px;
+            background: url(https://flyasiana.com/C/pc/image/sub/tootip_left.png) ;
+            content: '';
+        }
+
+        /**도움말**/
+
+        
+        .btn_info {
+            width: 20px;
+            height: 20px;
+            background: url(https://flyasiana.com/C/pc/image/common/icon_info.png) no-repeat 0 0;
+            vertical-align: middle;
+            text-indent: -9999px;
+            font-size: 0;
+
+            display: inline-block;
+        }
+
+        .btn_info:hover {
+            background-position: 0 100%;
+        }
+
+        .btn_popup {
+            padding: 7px 15px;
+            min-height: 34px;
+            line-height: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 13px;
+            color: black;
+            background:white;
+        }
+
+        .register_btn_wrap {
+            padding-top: 50px;
+            text-align: center;
+               
+        }
+
+        button.white:hover {
+            border: 1px solid black;
+        }
+
+        button.white {
+            background-color: white;
+            color: black;
+        }
+
+        .btn_L {
+            min-width: 150px;
+            padding: 13px 40px 14px;
+            font-size: 18px;
+            min-height: 56px;
+            line-height: 21px;
+        }
+
+        button.red {
+            border: 1px solid #d60815;
+            background-color: #d60815;
+            color: white;
+        }
+        
+        .dim_layer {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,.7);
+            z-index: 9000;
+        }
+
+
+
+        .layer_pop {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            min-height: 200px;
+            background: white;
+            z-index: 9000;
+        }
+
+        .layer_pop .pop_cont {
+            position: relative;
+            padding: 40px;
+        }
+
+        .layer_pop .pop_cont .pop_tit.st1 {
+            word-break: keep-all;
+            padding-right: 40px;
+            font-size: 21px;
+            line-height: 30px;
+        }
+
+        .layer_pop .pop_cont .form_area2 {
+            margin: 30px 0 20px 0;
+        }
+
+        .btn_minwidth {
+            min-width: 160px;
+            height: 46px;
+            padding: 0;
+            line-height: 30px;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        .btn_M {
+            padding: 11px 30px;
+            font-size: 15px;
+            min-height: 46px;
+            line-height: 17px;
+        }
+
+        .col_brown {
+            color: #6b2900 !important;
+        }
+
+        .btn_wrap_cetype {
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        .layer_pop .btn_wrap_cetype .btn_M {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .btn_wrap_cetype button {
+            margin: 0 5px;
+        }
+
+        button:disabled {
+            opacity: 0.4;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        button.red {
+            border: 1px solid #d60815;
+            background-color: #d60815;
+            color: white;
+        }
+
+        button.red:hover {
+            border: 1px solid #d3000b;
+            background-color: #d3000b;
+          
+        }
+
+
+        .dim_close {
+            position: absolute;
+            display: inline-block;
+            top: 40px;
+            right: 40px;
+            width: 22px;
+            height: 22px;
+            background: url(https://flyasiana.com/C/pc/image/common/btn_close_gray.png);
+        }
+
+    </style>
+
+    <script>
+
+    
+$(function() {
+                //버튼 클릭 중복 방지 off추가
+        $(document).one("click","#select_residentCountry", function(){
+                           
+            var countryAb = ['GH','GA','GY','GM','GP','GT','GU','GD','GR','GL','GN','GW','NA','NR','NG','NI','AQ','ZA','NL','AN','NP','NO','NF','NZ','NC','NU','NE','TW','DK','DM','DO','DE','TL','LA','LR','LV'
+                                ,'RU','LB','LS','RE','RO','LU','RW','LY','LT','LI','MG','MQ','MH','YT','MQ','MK','MW','MY','ML','MX'
+                                ,'MC','MA','MU','MR','MZ','MS','MD','MV','MT','MN','US','UM','VI','MM','FM','VU','BH','BB','VA','BS','BD','BM','BJ','VE','VN','BE','BY','BZ','BA','BW','BO','BI','BF','BV','BT','MP','KP','BG','BR','BN','WS'
+                                ,'SA','GS','CY','SM','ST','PM','EH','SN','RS','SC','LC','VC','KN','SH','SO','SB','SD','SR','LK','SJ','SZ','SE','CH','ES','SK','SI','SY','SL','SG','AE','AW','AM','AR','AS','IS','HT'
+                                ,'IE','AZ','AF','AD','AI','AG','AL','DZ','AO','ER','EE','EC','ET','SV','GB','IO','VG','YE','OM','AT','HN','WF','JO','UG','UY','UZ','UA','IQ','IR','IL','EG','IT','IN','ID','JP','JM','ZM','GQ','GE','CF','CH','DJ','GI','ZW','TD','CZ'
+                                ,'CL','CM','KZ','QA','CV','KH','CA','KE','KY','KM','CR','CC','CI','CO','CG','CD','CU','KW','CK','HR','CX','KG','KI','TJ','TZ','TH','TR','TC','TG','TK','TO','TM'
+                                ,'TV','TN','TT','PA','PY','FO','PK','PF','PW','PS','PE','PT','FK','PL','PR','FR','GF','TF','PF','FJ','FI','PH','PN','HM','HU','AU','HK'
+                                ];
+            var country = ['가나','가봉','가이아나','감비아','과들루프','과테말라','괌','그레나다','그리스','그린랜드','기니','기니 비사우','나미비아','나우루','나이지리아','나카라과','남극대륙','남아프리카공화국'
+                                ,'네덜란드','네덜란드령 안틸레스','네팔','노르웨이','노르퍽','뉴질랜드','뉴칼레도니아','니우에섬','니제르','대만','덴마크','도미니카','도미니카 공화국','독일','동티모르','라오스','라이베리아','라트비아','러시아','레바논','레소토','레위니옹','루마니아','룩셈부르크'
+                                ,'르완다','리비아','리투아니아','리히텐슈타인','마다가스카르','마르티니크','마셜제도','마요트','마카오','마케도이나','말라위','말레이시아','말리','멕시코','모나코','모로코','모리셔스','모리타니아','모잠비크','몬테세라트','몰도바','몰디브','몰타','몽골'
+                                ,'미국','미국령 군소 제도','미국령버진군도','미얀마','미크로네시아 연방','바누아투','바레인','바베이도즈','바티칸시티','바하마','방글라데시','버뮤다 제도','베냉','베네수엘라','베트남','벨기에','벨라루스','벨리즈','보스니아 헤르체고비나','보츠나와','볼리비아','부룬디'
+                                ,'부르키나 파소','부베 섬','부탄','묵마리아나 제도','북한','불가리아','브라질','브루나이','사모아','사우디아라비아','사우스조지아&사우스샌드위치섬','사이프러스','산마리노','상투메 프린시페','생피에르 미클롱','서사하라','세네갈','세르비아','세이셸','세인트루이사'
+                                ,'세인트빈센트 그레나딘','세인트키츠 네비스','세인트헬레나','소말리아','솔로몬제도','수단','수리남','스리랑카','스발바르 얀마옌 제도','스와질란드','스웨덴','스위스','스페인','슬로바키아','슬로베니아','시리아','시에라리온','싱가포르','아랍에미리트','아루바','아르메니아','아르헨티나','아메리칸 사모아','아이슬란드','아이티'
+                                ,'아일랜드','아제르바이잔','아프가니스탄','안도라','안퀄라','안티가 바부다','알바니아','알제리','앙골라','에리트레아','에스토니아','에콰도르','에티오피아','엘살바도르','영국','영국령 인도양 지역','영국령버진군도','예멘','오만','오스트리아','온두라스','왈리스 퓌튀나','요르단','우간다','우르과이','우즈베키스탄','우크라이나','이라크','이란','이스라엘','이집트','이탈리아','인도','인도네시아','일본','자마이카','잠비아','적도기니','조지아','중국','중앙아프리카','지부티','지브롤터','짐바브웨'
+                                ,'차드','체코','칠레','카메룬','카자흐스탄','카타르','카푸버데','캄보디아','캐나다','케냐','케이맨','코모로','코스타리카','코코스제도','코트 디브아르','콜롬비아','콩고','콩고콩고민주공화국','쿠바','쿠웨이트','쿡제도','크로아티아','크리스마스섬','키르기스탄','키리바시','타지키스탄 공화국','탄자니아','태국','터키','턱스케이코스 제도','토고','토켈라우','통가','투르크메니스탄','투발루','튀니지','트리니다드 토바고','파나마','파라과이','파뢰제도','파키스탄','파푸아 뉴기니','팔라우','팔레스타인 영토','페루','포르투갈','포클랜드제도','폴란드','푸에르토리코','프랑스','프랑스령 기아나','프랑스령 남방 및 남극','프랑스령 폴리네시아','피지','핀란드','필리핀'
+                                ,'핏케언 제도','허드 맥도널드 제도','헝가리','호주','홍콩'    
+                                ];
+                       
+                            
+                    for(i=0 , j = 0; i < countryAb.length, j < country.length; i++, j++) {
+                 
+                        $("#select_residentCountry").append("<option value='"+ countryAb[i] +"'>" + country[j] + "</option>");
+                         
+                    }
+                        
+                    $(function() {
+          
+                        $("#select_residentCountry").on("change", function(){            
+        
+                            $("#error_residentCountry").show();
+
+    
+                        })
+                    })              
+            
+        })
+
+    })
+    
+    function select_country() {
+        
+        var selectCountry = document.getElementById("select_residentCountry");
+                    value = selectCountry.options[selectCountry.selectedIndex].value;
+                    text  =  selectCountry.options[selectCountry.selectedIndex].text;
+
+                    $(document).off("click","#btn_changeResidentCountry").on("click","#btn_changeResidentCountry", function(){
+                            
+                        $("#error_residentCountry").hide();
+
+                            alert('거주지역이 ' + text + ' (으)로 변경됐습니다.');
+                        
+                        })
+
+    }
+
+    function help() {
+        $(".layer_tooltip").show();
+    }
+
+    function help_close() {
+        $(".layer_tooltip").hide();
+    }
+
+    function idCheck_open() {
+        $(".layer_wrap").show();
+    }
+
+    function idCheck_close() {
+        $(".layer_wrap").hide();
+        
+    } 
+        
+    </script>
+
+
+
+</head>
+<body>
+    <div id ="container" class="container">
+        <div class="mem_wrap">
+            <div class="indicator_wrap">
+                <ul>
+                    <li>
+                        <span class="hidden">1. 회원 약관동의(현재 단계)</span>
+                    </li>
+                    <li>
+                        <span class="hidden">2. 본인인증</span>
+                    </li>
+                    <li >
+                        <span class="hidden">3. 기존 회원여부 확인</span>
+                    </li>
+                    <li  class="on">
+                        <span class="hidden">4. 회원 정보 입력</span>
+                    </li>
+                    <li>
+                        <span class="hidden">5. 가입완료</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3 class="mem_tit">회원정보 입력</h3>
+            <p class="text_type10">회원님의 개인정보를 입력해주시기 바랍니다.</p>
+            <div class="title_wrap_type">
+                <div class="f1">
+                    <h4 class="f1">회원정보 입력</h4>
+                </div>
+            </div>
+            <table class="table_form">
+                <caption>
+                    <strong>회원정보 입력 표로 상세한 회원 정보를 입력할 수 있습니다.</strong>
+                    <p>
+                        한글명, 영문명, 성별, 거주지역, 아이디, 비빌번호, 비밀번호 확인, 휴대전화, 이메일로 구성된 표입니다.
+                    </p>
+                </caption>    
+                <colgroup>
+                    <col style="width:210px">
+                    <col style="width:auto";>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <label for="input_koreanLastName">한글명</label>
+                        </th>
+                        <td>
+                           <input type="text" id="input_koreanLastName" name="koreanLastName" placeholder="한글 성 입력(예 : 김)" title="한글 성 입력(예 : 김)" style="width:314px;"> 
+                           <input type="text" id="input_koreanFirstName" name="koreanFirstName" placeholder="한글 이름 입력(예 : 보미)" title="한글 이름 입력(예 : 보미)" style="width:314px;">
+                           <p class="txt_error_msg" id="error_koreanName" style="display:none;"></p> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="input_englishLastName">영문명</label>
+                        </th>
+                        <td>
+                           <input type="text" id="input_englishLastName" name="englishLastName" placeholder="영문 성 입력(예 : kim)" title="한글 성 입력(예 : 김)" maxlength="40" style="width:314px;"> 
+                           <input type="text" id="input_englishFirstName" name="englishFirstName" placeholder="영문 이름 입력(예 : bomi)" title="영문 이름 입력(예 : bomi)" maxlength="40" style="width:314px;">
+                           <p class="txt_error_msg" id="error_koreanName" style="display:none;"></p> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="input_koreanLastName">성별</label>
+                        </th>
+                        <td>
+                            <input type="radio" name="gender" id="gender_man" value="M" checked >
+                            <label for="gender_man">남</label>
+                            <input type="radio" name="gender" id="gender_woman" value="F" >
+                            <label for="gender_woman">여</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="select_residentCountry">거주지역</label>
+                        </th>
+                        <td>
+                            <select id="select_residentCountry" style="width:420px;" onchange="select_country();" >
+                                <option value="KR">대한민국</option>
+                            </select>
+                            <button type="button" class="btn_S white" id="btn_changeResidentCountry" >변경</button>
+                            <p class="txt_error_msg" id="error_residentCountry" style="display:none;">
+                                거주지역이 변경됐습니다. 변경 버튼을 눌러주세요.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="input_id">아이디</label>
+                        </th>
+                        <td>
+                            <input type="text" id="input_id" name="input_id" placeholder="6~15자리 영문+숫자" title="6~15자리 영문+숫자" style="width:300px;">
+                            <button type="button" class="btn_S white" id="btn_idCheck" onclick="idCheck_open()">중복확인</button>
+                            <ul class="list_type1 f14 mar_to">
+                                <li>
+                                    6~15자리 영문(대소문자 구별), 숫자 조합 입력 가능
+                                    <br>
+                                    (단 한글, 공백, 특수문자 입력 불가)
+                                </li>
+                            </ul>
+                            <p class="txt_error_msg" id="error_id" style="display:none;"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="input_pw">비밀번호</label>
+                        </th>
+                        <td>
+                           <input type="password" id="input_pw" autocomplete="off" name="input_pw" placeholder="영문+숫자+특수문자 8~20자리" title="영문+숫자+특수문자 8~20자리" style="width:300px;"> 
+                            <div class="tooltip_wrap">
+                                <a href="javascript:help();" class="btn_info">도움말</a>
+                                <div class="layer_tooltip" style="width: 348px;" >
+                                    <div class="inner">
+                                        <ul class="pwd_rule">
+                                            <li>
+                                                8자 이상
+                                                <span class="unable">불가</span>
+                                            </li>
+                                            <li>
+                                                영문 대/소문자
+                                                <span class="able">가능</span>
+                                            </li>
+                                            <li>
+                                                숫자
+                                                <span class="unable">불가</span>
+                                            </li>
+                                            <li>
+                                                특수문자
+                                                <span class="unable">불가</span>
+                                            </li>
+                                            <li>
+                                                한글, 공백 입력 불가
+                                                <span class="able">가능</span>
+                                            </li>
+                                            <li>
+                                                아이디, 회원번호 불가
+                                                <span class="able">가능</span>
+                                            </li>
+                                            <li>
+                                                생년월일, 휴대전화 번호 불가
+                                                <span class="able">가능</span>
+                                            </li>
+                                            <li>
+                                                이메일주소 불가
+                                                <span class="able">가능</span>
+                                            </li>
+                                            <li>
+                                                20자 이내
+                                                <span class="able">가능</span>
+                                            </li>
+                                            <li>
+                                                보안정책상 사용 불가
+                                                <span class="able">가능</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a href="javascript:help_close();" class="tooltip_close">
+                                        <span class="hidden">닫기</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="txt_error_msg" id="error_pw" style="display: none;"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                       <th scope="row">
+                            <label for="input_pwConfirm">비밀번호 확인</label>
+                       </th> 
+                       <td>
+                            <input type="password" id="input_pwConfirm" autocomplete="off" placeholder="영문+숫자+특수문자 8~20자리" title="영문+숫자+특수문자 8~20자리" style="width:300px">
+                            <p class="txt_error_msg" id="error_pwConfirm" style="display:none;"></p>
+                       </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label>휴대전화</label>
+                        </th>
+                        <td id="korea_phone">
+                            <select id="select_koreaPhone" style="width:120px;" title="휴대전화 번호 앞자리" disabled>
+                                <option value="">선택</option>
+                                <option value="">010</option>
+                                <option value="">011</option>
+                                <option value="">016</option>
+                                <option value="">017</option>
+                                <option value="">018</option>
+                                <option value="">019</option>
+                            </select>
+                            <input type="text" id="input_koreaPhoneMiddle" placeholder="중간번호" title="휴대전화 번호 가운데 자리" maxlength="4" style="width:150px;" readonly>
+                            -
+                            <input type="text" id="input_koreaPhoneLast" placeholder="끝 번호" title="휴대전화번호 끝자리" maxlength="4" style="width:150px" readonly>
+                            <p class="txt_error_msg" id="error_koreaPhone" style="display:none;"></p>
+                        </td>
+                        <td id="foreign_phone" style="display: none;">
+                            <input type="hidden" id="input_foreignPhoneNationCode" value="82">
+                            <input type="text" id="input_foreignPhoneFirst" placeholder="앞 번호" title="휴대전화 번호 앞자리" style="width:150px" disabled>
+                            -
+                            <input type="text" id="input_foreignPhoneMiddle" placeholder="중간번호" title="휴대전화 번호 가운데 자리" style="width:150px" readonly>
+                            -
+                            <input type="text" id="input_foreignPhoneLast" placeholder="끝 번호" title="휴대전화번호 끝자리" style="width:150px;" readonly>
+                            <p class="txt_error_msg" id="error_foreignPhone" style="display:none;"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                       <th scope="row">
+                            <label for="input_emailId">이메일</label>
+                       </th>
+                       <td>
+                            <input type="text" id="input_emailId" placeholder="이메일 입력" title="이메일 아이디 입력" style="width:198px;">
+                            @ &nbsp;
+                            <select id="select_emailDomain" title="이메일 도메인 선택" style="width:180px">
+                                <option value="">직접입력</option>
+                                <option value="">naver.com</option>
+                                <option value="">yahoo.co.kr</option>
+                                <option value="">hotmail.com</option>
+                                <option value="">hanmail.net</option>
+                                <option value="">nate.com</option>
+                                <option value="">gmail.com</option>                            
+                            </select>
+                            <input type="text" id="input_emailDomain" placeholder="직접입력" title="직접입력" style="width:300px; display: none;">
+                            <p class="txt_error_msg" id="error_emailId" style="display:none;"></p>
+                            <p class="txt_error_msg" id="error_emailDomain" style="display:none;"></p>
+                       </td> 
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label>
+                                유선전화
+                                <br>
+                                (선택)
+                            </label>
+                        </th>
+                        <td id="korea_homePhone">
+                            <select id="select_koreaHomePhone" title="유선전화 국제번호" style="width:120px">
+                                <option value="">02</option>
+                                <option value="">031</option>
+                                <option value="">032</option>
+                                <option value="">041</option>
+                            </select>
+                            <input type="text" id="input_koreaHomePhoneMiddle" placeholder="중간번호" title="유선전화 번호 가운데 자리" style="width:150px;">
+                            -
+                            <input type="text" id="input_koreaHomePhoneLast" placeholder="끝 번호" title="유선전화번호 끝자리" style="width:150px;">
+                            <p class="txt_error_msg" id="error_koreaHomePhone" style="display:none;"></p>
+                        </td>
+                        <td id="foreign_homephone" style="display: none;">
+                            <input type="hidden" id="input_foreignHomePhoneNationCode" value="82">
+                            <input type="text" id="input_foreignHomePhoneFirst" placeholder="앞 번호" title="유선전화버호 앞자리" style="width:150px;">
+                            -
+                            <input type="text" id="input_foreignHomePhoneMiddle" placeholder="중간번호" title="유선전화번호 가운데 자리" style="width:150px;">
+                            -
+                            <input type="text" id="input_foreignHomePhoneLast" placeholder="끝 번호" title="유선전화번호 끝 자리" style="width:150px;">
+                            <p class="txt_error_msg" id="error_foreignHomePhone" style="display:none;"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="input_defaultAddress">
+                                주소
+                                <br>
+                                (선택)
+                            </label>
+                        </th>
+                        <td id="korea_address">
+                            <p>
+                                <input type="text" id="input_zipCode" placeholder="우편번호" title="우펴번호" style="width: 105px;" readonly>
+                                <button type="button" class="btn_popup" id="btn_zipCode">
+                                    우편번호 검색
+                                </button>
+                            </p>
+                            <p class="mar_to">
+                                <input type="text" id="input_defaultAddress" placeholder="기본 주소" title="기본 주소" style="width:400px;" readonly>
+                                <input type="text" id="input_detailAddress" placeholder="상세 주소" title="상세 주소" style="width:400px;">
+                            </p>
+                            <ul class="list_type f14 mar_to">
+                                <li>
+                                    제공해주신 주소는 이벤트 또는 우수회원 승급 서비스 제공을 위해 이용됩니다.
+                                </li>
+                            </ul>
+                            <p class="txt_error_msg" id="error_koreaAddress" style="display:none;"></p>
+                        </td>
+                        <td id="usa_address" style="display: none;">
+                            <p>
+                                <input type="text" id="input_usDefaultAddress" placeholder="기본 주소" title="기본 주소" style="width:400px;">
+                                <input type="text" id="input_usDetailAddress" placeholder="상세 주소" title="상세 주소" style="width:400px;">
+                            </p>
+                            <P class="mar_to">
+                                <input type="text" id="input_usCity" placeholder="도시(city)" title="도시(city)" style="width:250px;">
+                                <input type="text" id="input_usState" placeholder="주(state)" title="주(state)" style="width:250px;">
+                                <input type="text" id="input_usZipCode" placeholder="우편번호(zio code)" title="우편번호(zip code)" style="width:250px;">
+                            </P>
+                            <ul class="list_type f14 mar_to" >
+                                <li>제공해주신 주소는 이벤트 또는 우수회원 승급 서비스 제공을 위해 이용됩니다.</li>
+                            </ul>
+                            <p class="txt_error_msg" id="error_usAddress" style="display:none;"></p>
+                        </td>
+                        <td id="foreign_address" style="display: none;">
+                            <p>
+                                <input type="text" id="input_abroadDefaultAddress" placeholder="기본 주소" title="기본 주소" style="width:400px;">
+                                <input type="text" id="input_abroadDetailAddress" placeholder="상세 주소" title="상세 주소" style="width:400px;">
+                            </p>
+                            <p class="mar_to">
+                                <input type="text" id="input_abroadCity" placeholder="도시(city)" title="도시(city)" style="width:250px;">
+                                <input type="text" id="input_abroadZipCode" placeholder="우편번호(zip code)" title="우편번호(zip code)" style="width:250px;">
+                            </p>
+                            <ul class="list_type f14 mar_to">
+                                <li>제공해주신 주소는 이벤트 또는 우수회원 승급 서비스 제공을 위해 이용됩니다.</li>
+                            </ul>
+                            <p class="txt_error_msg" id="error_abroadAddress" style="display:none;"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                       <th scope="row">
+                            뉴스레터 및 상품정보,
+                            <br>
+                            이벤트 등 수신
+                            <br>
+                            (선택)
+                       </th> 
+                       <td>
+                            <input type="checkbox" id="check_receiveEmail">
+                            <label for="check_receiveEmail">이메일</label>
+                            <input type="checkbox" id="check_receiveSms">
+                            <label for="check_receiveSms">SMS</label>
+                            <ul class="list_type f14 mar_to">
+                                <li>
+                                    수신에 동의하시면 올카항공의 뉴스레터 및 상품정보, 이벤트 등의 안내를 받아보실 수 있습니다.
+                                </li>
+                                <li>
+                                    회원정보, 예약 및 항공기 운항정보, 서비스 주요정책 관련내용은 수신동의 여부와 관계 없이 발송됩니다.
+                                </li>
+                            </ul>
+                       </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="register_btn_wrap">
+                <button type="button" class="btn_L white" id="btn_cancel">취소</button>
+                <button type="button" class="btn_L red" id="btn_confirm">확인</button>
+            </div>
+        </div>
+
+        <div class="layer_wrap" id="idCheck" style="display: none;">
+            <div class="dim_layer"></div>
+            <div class="layer_pop" style="width:500px; top: 850px" tabindex="0">
+                <div class="pop_cont">
+                    <p class="pop_tit st1">
+                        다른 아이디를 사용하시려면 입력 후
+                        <br>
+                        <span class="cal_red">중복확인</span>
+                        을 클릭해주시기 바랍니다.
+                    </p>
+                    <div class="form_area2">
+                        <input type="text" id="input_laterInputId" placeholder="아이디 입력" title="아이디 입력" style="width:210px;">
+                        <button type="button" class="btn_M white btn_minwidth" id="btn_layerIdCheck" >중복확인</button>
+                    </div>
+                    <p id="p_idRule" style="display:none">
+                        아이디는
+                        <span class="col_brown">6~15자리 영문(대소문자 구별), 숫자 조합 입력 가능( 단 한글, 공백, 특수문자 입력 불가)</span>
+                        입니다.
+                    </p>
+                    <p id="p_info" style="display:none">
+                        <span class="col_brown">kkk</span>는 사용하실 수 있습니다.
+                    </p>
+                </div>
+                <div class="btn_wrap_cetype">
+                    <button type="button" class="btn_M red" id="btn_layerIdUse" disabled>사용하기</button>
+                </div>
+                <a href="javascript:idCheck_close();" class="dim_close" id="btn_layerClose">
+                    <span class="hidden">닫기</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

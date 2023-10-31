@@ -6,6 +6,69 @@
 
   
 <div layout:fragment="content">    
+	
+	<script th:inline="javascript">
+	
+		$(function(){			
+			$('.agree_all').click(function(){
+
+						if($('.agree_all').is(":checked")) $("input[name=agree]").prop("checked", true);
+				else $("input[name=agree]").prop("checked", false);
+		
+				
+		
+			})
+			
+			
+			$("input[name=agree]").click(function() {
+				var total = $("input[name=agree]").length;
+				var checked = $("input[name=agree]:checked").length;
+				
+				if(total != checked) $('.agree_all').prop("checked", false);
+				else $('.agree_all').prop("checked", true); 
+			});
+
+				$('.confirm').click(function(){
+
+					
+
+					if($('.agree1').is(':checked') == false){
+						alert('동의 하셔야 합니다1.');
+						return false;
+					}else if($('.agree2').is(':checked') == false){
+						alert('동의 하셔야 합니다2.');
+						return false;
+					}else if($('.agree3').is(':checked') == false){
+						alert('동의 하셔야 합니다3.');
+												
+						return true;									
+					
+					}else {
+						
+					}
+					
+					
+				var type = [[${type}]];	
+					
+				if(type == 'normal'){
+					location.href='/OrcaARS/member/term';
+					
+				}else{
+					location.href='/OrcaARS/member/register';
+				
+				}
+
+			
+
+		
+			})
+			
+
+		})
+
+
+	</script>
+			
     <div  id="whole">
         <div class="container">
             <div class="contents" role="main">
@@ -50,7 +113,7 @@
                     <legend class="hidden">약관 목록</legend>
                     <div class="data_all">
                         <div class="selection">
-                            <input type="checkbox" >
+                            <input type="checkbox" name="agree_all" class="agree_all" >
                             <label for="checkbox_all" class="bold">
                                 필수 및 선택 약관에 모두 동의합니다.
                             </label>
@@ -60,14 +123,15 @@
                         <li class="data_item">
                             <div class="data_key">
                                 <div class="selection has_detail">
-                                    <input type="checkbox">
+                                    <input type="checkbox" name="agree" class="agree1">
                                     <label for="checkbox1">
-                                     
+                                    
                                     </label>
                                 </div>
                             </div>
                             <div class="data_value">
 								
+								 [[${termsVo.terms}]]
 								
                                 <button type="button" class="detail">보기</button>
                             </div>
@@ -75,59 +139,68 @@
                         <li class="data_item">
                             <div class="data_key">
                                 <div class="selection">
-                                    <input type="checkbox">
+                                    <input type="checkbox" name="agree" class="agree2">
                                     <label for="chechkbox2">
                                        
                                     </label>
                                 </div>
                             </div>
                             <div class="data_value">
+								
+								
+								 [[${termsVo.privacy}]]
                                 <button type="button" class="detail">보기</button>
                             </div>
                         </li>
                         <li class="data_item">
                             <div class="data_key">
                                 <div class="selection">
-                                    <input type="checkbox">
+                                    <input type="checkbox" name="agree" class="agree3">
                                     <label for="checkbox3">
                                         
                                     </label>
                                 </div>
                             </div>
                             <div class="data_value">
+								 [[${termsVo.location}]]
                                 <button type="button" class="detail">보기</button>
                             </div>
                         </li>
                         <li class="data_item">
                             <div class="data_key">
                                 <div class="selection">
-                                    <input type="checkbox">
+                                    <input type="checkbox" name="agree">
                                     <label for="checkbox4">
                                         
                                     </label>
                                 </div>
                             </div>
                             <div class="data_value">
+								
+								 [[${termsVo.thirdparty}]]
                                 <button type="button" class="detail">보기</button>
                             </div>
                         </li>
                         <li class="data_item">
                             <div class="data_key">
                                 <div class="selection">
-                                    <input type="checkbox">
+                                    <input type="checkbox" name="agree">
                                     <label for="chechkbox5">
                                       
                                     </label>
                                 </div>
                             </div>
                             <div class="data_value">
+								
+								 [[${termsVo.marketing}]]
+								 
                                 <button type="button" class="detail">보기</button>
                             </div>
                             <div class="data_details">
                                 <ul>
                                     <li class="data_detail">
                                         <div class="selection">
-                                            <input type="checkbox">
+                                            <input type="checkbox" >
                                             <label for="chechkbox6">
                                                 뉴스레터 (회원 소식지 등)
                                             </label>
@@ -166,7 +239,7 @@
                 </fieldset>
                 <div class="confirms half">
                     <button type="button" class="confirm ghost">취소</button>
-                    <button type="button" th:onclick="|location.href='@{/member/register}'|" class="confirm">확인</button>
+                    <button type="button" class="confirm" >확인</button>
                 </div>
             </div>
         </div>

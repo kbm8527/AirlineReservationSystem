@@ -1,8 +1,8 @@
 $(function() {
                 //버튼 클릭 중복 방지 off추가
-        $(document).one("click","#select_residentCountry", function(){
+        $(document).one("click","#country", function(){
                            
-            var countryAb = ['GH','GA','GY','GM','GP','GT','GU','GD','GR','GL','GN','GW','NA','NR','NG','NI','AQ','ZA','NL','AN','NP','NO','NF','NZ','NC','NU','NE','TW','DK','DM','DO','DE','TL','LA','LR','LV'
+            var countryAb = ['KR','GH','GA','GY','GM','GP','GT','GU','GD','GR','GL','GN','GW','NA','NR','NG','NI','AQ','ZA','NL','AN','NP','NO','NF','NZ','NC','NU','NE','TW','DK','DM','DO','DE','TL','LA','LR','LV'
                                 ,'RU','LB','LS','RE','RO','LU','RW','LY','LT','LI','MG','MQ','MH','YT','MQ','MK','MW','MY','ML','MX'
                                 ,'MC','MA','MU','MR','MZ','MS','MD','MV','MT','MN','US','UM','VI','MM','FM','VU','BH','BB','VA','BS','BD','BM','BJ','VE','VN','BE','BY','BZ','BA','BW','BO','BI','BF','BV','BT','MP','KP','BG','BR','BN','WS'
                                 ,'SA','GS','CY','SM','ST','PM','EH','SN','RS','SC','LC','VC','KN','SH','SO','SB','SD','SR','LK','SJ','SZ','SE','CH','ES','SK','SI','SY','SL','SG','AE','AW','AM','AR','AS','IS','HT'
@@ -10,7 +10,7 @@ $(function() {
                                 ,'CL','CM','KZ','QA','CV','KH','CA','KE','KY','KM','CR','CC','CI','CO','CG','CD','CU','KW','CK','HR','CX','KG','KI','TJ','TZ','TH','TR','TC','TG','TK','TO','TM'
                                 ,'TV','TN','TT','PA','PY','FO','PK','PF','PW','PS','PE','PT','FK','PL','PR','FR','GF','TF','PF','FJ','FI','PH','PN','HM','HU','AU','HK'
                                 ];
-            var country = ['가나','가봉','가이아나','감비아','과들루프','과테말라','괌','그레나다','그리스','그린랜드','기니','기니 비사우','나미비아','나우루','나이지리아','나카라과','남극대륙','남아프리카공화국'
+            var country = ['대한민국','가나','가봉','가이아나','감비아','과들루프','과테말라','괌','그레나다','그리스','그린랜드','기니','기니 비사우','나미비아','나우루','나이지리아','나카라과','남극대륙','남아프리카공화국'
                                 ,'네덜란드','네덜란드령 안틸레스','네팔','노르웨이','노르퍽','뉴질랜드','뉴칼레도니아','니우에섬','니제르','대만','덴마크','도미니카','도미니카 공화국','독일','동티모르','라오스','라이베리아','라트비아','러시아','레바논','레소토','레위니옹','루마니아','룩셈부르크'
                                 ,'르완다','리비아','리투아니아','리히텐슈타인','마다가스카르','마르티니크','마셜제도','마요트','마카오','마케도이나','말라위','말레이시아','말리','멕시코','모나코','모로코','모리셔스','모리타니아','모잠비크','몬테세라트','몰도바','몰디브','몰타','몽골'
                                 ,'미국','미국령 군소 제도','미국령버진군도','미얀마','미크로네시아 연방','바누아투','바레인','바베이도즈','바티칸시티','바하마','방글라데시','버뮤다 제도','베냉','베네수엘라','베트남','벨기에','벨라루스','벨리즈','보스니아 헤르체고비나','보츠나와','볼리비아','부룬디'
@@ -24,13 +24,13 @@ $(function() {
                             
                     for(i=0 , j = 0; i < countryAb.length, j < country.length; i++, j++) {
                  
-                        $("#select_residentCountry").append("<option value='"+ countryAb[i] +"'>" + country[j] + "</option>");
+                        $("#country").append("<option value='"+ countryAb[i] +"'>" + country[j] + "</option>");
                          
                     }
                         
                     $(function() {
           
-                        $("#select_residentCountry").on("change", function(){            
+                        $("#country").on("change", function(){            
         
                             $("#error_residentCountry").show();
 
@@ -44,7 +44,7 @@ $(function() {
     
     function select_country() {
         
-        var selectCountry = document.getElementById("select_residentCountry");
+        var selectCountry = document.getElementById("country");
                     value = selectCountry.options[selectCountry.selectedIndex].value;
                     text  =  selectCountry.options[selectCountry.selectedIndex].text;
 
@@ -68,7 +68,82 @@ $(function() {
 
     function idCheck_open() {
         $(".layer_wrap").show();
+        
+        var uid = document.getElementById("uid");
+        
+        var uid = uid.value;
+				
+				$("#inputId").val(uid);		
+ 
+        
     }
+    
+
+   function idCheck() {
+	   
+	   
+	   
+	   	//var uid =$("#inputId").val();
+			    //var json = {"uid": uid};
+				
+				$.ajax({
+				
+					type:'GET',
+					url:"/OrcaARS/member/register/idCheck",
+					data: {"uid" : $("#inputId").val()},
+					dataType : "json",
+					success:function(result){
+					
+					var idRule = document.getElementById("p_idRule");
+					var idInfo = document.getElementById("p_info");
+					const idUse = document.getElementById("idUse");	
+						
+						if(result >= 1 ){ //중복 아이디가 있으면
+								
+								idRule.style.display = "block";
+								idInfo.style.display = "none";
+							
+								idUse.disabled = true;
+							
+						}else { // 중복 아이디가 없으면
+							
+						
+								idInfo.style.display = "block";
+								idRule.style.display = "none";
+						
+							
+							   
+								var inputId = document.getElementById("inputId");
+        						var inputId = inputId.value;
+        							$("#checkUid").val(inputId);
+        						
+								idUse.disabled = false;
+							
+						}
+						
+					}
+					
+					
+					})
+			  
+	   
+   	}
+  	
+  	function idUse() {
+		  
+		var inputId = document.getElementById("inputId");    
+        var inputId = inputId.value;
+		
+		
+		$("#uid").val(inputId);		
+ 
+        
+        $(".layer_wrap").hide();
+		  
+		  
+	  }		
+	   
+    
 
     function idCheck_close() {
         $(".layer_wrap").hide();

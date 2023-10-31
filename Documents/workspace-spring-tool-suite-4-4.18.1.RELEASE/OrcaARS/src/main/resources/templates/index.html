@@ -74,13 +74,13 @@
                                 <div class="quickbookings_type" aria-level="여정 타입">
                                     <div class="quickbookings_type_item">
                                         <div class="selection">
-                                            <input type="radio" name="tripType" class="untouched pristine" checked>
+                                            <input type="radio" name="tripType" class="untouched pristine tripType" checked>
                                             <label for="roungdTrip" class="label">왕복</label>
                                         </div>
                                     </div>
                                     <div class="quickbookings_type_item">
                                         <div class="selection">
-                                            <input type="radio" name="tripType" class="untouched pristine">
+                                            <input type="radio" name="tripType" class="untouched pristine tripType">
                                             <label for="onewayTrip" class="label">편도</label>
                                         </div>
                                     </div>
@@ -345,7 +345,7 @@
                                         <div class="quickstatus_type" role="group">
                                             <div class="quickstatus_type_item">
                                                 <div class="selection">
-                                                    <input type="radio" checked="checked">
+                                                    <input type="radio" name="trip1" checked="checked">
                                                     <label for="radio" class="label">
                                                         출/도착지
                                                     </label>
@@ -353,7 +353,7 @@
                                             </div>
                                             <div class="quickstatus_type_item">
                                                 <div class="selection">
-                                                    <input type="radio">
+                                                    <input type="radio" name="trip1">
                                                     <label for="radio" class="label">편명</label>
                                                 </div>
                                             </div>
@@ -2263,7 +2263,11 @@
                     </div>
                 </div>
             
-            </div>   
+            </div> 
+            
+            
+            
+              
             <div class="departure_city" >
                 <div>
                     <div class="star_inserted">

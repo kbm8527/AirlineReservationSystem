@@ -406,16 +406,21 @@
             text-indent: 0;
             line-height: 1.5;
         }
-        .selection [type=radio] {
+        
+        /*
+         .selection [type=radio] {
             position: absolute;
             opacity: 0;
             left: 0;
             border: 0;
         }
+        
+        */
+       
 
         .quickbookings_type_item [type=radio] {
             top: 0;
-            width: 100%;
+        
             height: calc(100% - .5rem);
         }
 
@@ -1908,14 +1913,14 @@
         }
 
         .quickstatus_type_item [type=radio] {
-            width: 100%;
+          
             top: 0;
             height: calc(100% - .5rem);
         }
         
-        .selection [type=radio] {
-            position: absolute;
-            opacity: 0;
+        .tripType {
+         	
+            opacity: 1;
             left: 0;
             border: 0;
         }

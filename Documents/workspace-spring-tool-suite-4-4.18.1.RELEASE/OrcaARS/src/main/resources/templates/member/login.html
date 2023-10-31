@@ -5,10 +5,38 @@
 
     <div layout:fragment="content" id="whole">    
       
+      
+      
+      <script th:inline="javascript">
+      
+    
+   
+      
+        	var success = [[${success}]]
+      	if(success == 'fail') {
+			  alert('로그인에 실패했습니다. 아이디, 비밀번호를 다시 확인하십시오.');
+		  }else {
+			  alert('로그인에 성공했습니다.');
+		  }   
+      
+      
+      
+      
+      
+      </script>
+      
+      
+      
+      
+      
+      
+      
+      
+      
             <div class="l_container">    
                     <h3>로그인</h3>
                     <!--로그인 폼 시작-->
-                    <form action="#">
+                    <form th:action="@{/member/login}" method="post">
                         <fieldset>
                             <legend>로그인 및 비로그인 예약조회 폼</legend>
                             <div class="login_wrap">
@@ -40,8 +68,8 @@
                                         <div class="tab_cont">
                                             <div >
                                                 <div class="input_wrap ">
-                                                    <input type="text" placeholder="아이디 입력" title="아이디 입력" style="width: 468px;">
-                                                    <input type="password" placeholder="비밀번호 입력" title="비밀번호 입력" style="width: 468px;">
+                                                    <input type="text" placeholder="아이디 입력" name="uid" title="아이디 입력" style="width: 468px;">
+                                                    <input type="password" placeholder="비밀번호 입력" name="pass"  title="비밀번호 입력" style="width: 468px;">
                                                 </div>
                                                 <div class="saveid">
                                                     <input type="checkbox" id="saveID">
@@ -63,7 +91,7 @@
                                         </div>
 
                                         <div class="loginbtn_wrap">
-                                            <button type="button" id="loginBtn" class="lbtn red">로그인</button>
+                                            <button type="submit" id="loginBtn" class="lbtn red">로그인</button>
                                         </div>
                                         <div class="login_fail" style="display: none;">
                                             <p class="text_type">
@@ -105,7 +133,7 @@
                                             </div>
                                             <div class="right">
                                                 <div class="register_btn">
-                                                    <button type="button" id="Register" class="rbtn gray">회원가입</button>
+                                                    <button type="button" id="Register" class="rbtn gray" th:onclick="|location.href='@{/member/term}'|">회원가입</button>
                                                 </div>                                       
                                             </div>
                                         </div>
@@ -232,8 +260,8 @@
                                                 </div>
                                         <div class="itinerary_select depart_spot">
                                             <input type="hidden" id="departureArea">
-                                            <input type="hidden" id="departureArea">
-                                            <input type="hidden" id="departureArea">
+                                            <input type="hidden" id="departureArea1">
+                                            <input type="hidden" id="departureArea2">
                                             <label for="departuareAirport" name="departuareAirport" class="spot">출발지 선택</label>
                                             <input type="text" id="departureAirport" name="departureAirport" class="spotentry" title="출발지 입력">
                                             <input type="hidden" name="default">
@@ -258,8 +286,8 @@
                                         </div>
                                         <div class="itinerary_select destination_spot">
                                             <input type="hidden" id="arrivalArea">
-                                            <input type="hidden" id="arrivalArea">
-                                            <input type="hidden" id="arrivalArea">
+                                            <input type="hidden" id="arrivalArea1">
+                                            <input type="hidden" id="arrivalArea2">
                                             <label for="arrivalAirport" name="arrivaleAirport" class="spot">도착지 선택</label>
                                             <input type="text" id="arrivalAirport" name="arrivelAirport" class="spotentry" title="도착지 입력">
                                             <input type="hidden" name="default">

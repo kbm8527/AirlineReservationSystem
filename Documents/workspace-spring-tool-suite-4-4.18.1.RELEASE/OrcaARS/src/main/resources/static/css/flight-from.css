@@ -681,7 +681,7 @@
             position: relative;
         }
 
-        .selection [type=checkbox], .selection [type=radio] {
+        .selection [type=checkbox]  {
             position: absolute;
             width: 20px;
             height: 20px;
@@ -709,7 +709,10 @@
             background: url(https://www.koreanair.com/ico-radio.svg) 50% 50% no-repeat white;
         }
 
-        .selection [type=radio]~label:before {
+
+		/*  
+		
+		  .selection [type=radio]~label:before {
             position: absolute;
             width: 18px;
             height: 18px;
@@ -746,6 +749,13 @@
             border: 1px solid #00356c;
             content: "";
         }
+		
+		
+		
+		*/
+
+      
+        
         .selection [type=checkbox]:checked~label:before {
             background: url(https://www.koreanair.com/ico-checkbox.svg) 50% 50% no-repeat #00256c;
         }

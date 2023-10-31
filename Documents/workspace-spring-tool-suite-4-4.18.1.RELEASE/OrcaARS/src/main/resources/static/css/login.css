@@ -328,7 +328,7 @@
         }
     
         .google_btn {
-            background: url(/img/google.png) no-repeat;
+            background: url(../img/google.png) no-repeat;
             background-size:27px 27px;
             background-position: 18px 18px;
         

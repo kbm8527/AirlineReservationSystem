@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import kr.co.OrcaARS.vo.TermsVo;
 
 @Repository
-public interface TermsRepo extends JpaRepository<TermsVo, Integer> {
+public interface TermsRepo extends JpaRepository<TermsVo, Integer>  {
 
 	
 }

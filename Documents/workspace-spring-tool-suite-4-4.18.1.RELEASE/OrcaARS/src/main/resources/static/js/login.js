@@ -1,108 +1,9 @@
-      //탭 메뉴 기능(아이디, 회원번호)
-   
-       $(function($) {
-          
-        $(".tab_cont > div").last().hide();
-            var radioCont = $(".tab_cont > div");
-          $("input[type='radio']").click(function(){
-            radioCont.hide();
 
-            radioCont.eq($("input[type='radio']").index(this)).show();
-          })
-      })
-
-    
-    
-        //탭 메뉴 기능(로그인, 비로그인)
-        $(function($) {
-          
-            $(".tab_head li").click(function(){
-                var idx2 = $(this).index();
-                $(".tab_head li").removeClass("on");
-                $(".tab_head li").eq(idx2).addClass("on");
-                $(".tab_content > div").hide();
-                $(".tab_content > div").eq(idx2).show();
-            
-            })
-        })
-
-       
-  
-         //가는 날 선택 달력 구현      
-
-        document.addEventListener("DOMContentLoaded", function() {
-        buildCalendar();
-        sel_year();
-        });
-
-        var today = new Date(); // 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
-        var date = new Date();  // 전역 변수, today의 Date를 세어주는 역할
-
-        // 이전달 버튼 클릭
-        function datepicker_prev() {
-            this.today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
-            buildCalendar();    // 전월 캘린더 출력 요청
-        }
-
-        // 다음달 버튼 클릭
-        function datepicker_next() {
-            this.today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
-            buildCalendar();    // 명월 캘린더 출력 요청
-
-        }
-
-        // 달력 select 년,월 출력
-        function sel_year() {
-            var now = new Date();
-            var now_year = now.getFullYear();
-            var now_month = now.getMonth() + 1;
-            
-            for(var i = now_year; i <= 2024; i++)  {
-
-                for(var j = now_month; j <= 12; j++ ) {
-                          
-                        $("#sel_yearmonth").append("<option value='"+ i +"'>" + i +"." + j + " </option>");
-
-                }     
-                
-                if(i = 2024) {
-                    
-                    for(j = 1; j < 6; j++) {
-                        $("#sel_yearmonth").append("<option value='"+ i +"'>" + i +"." + j + " </option>");
-
-                    }
-                    
-                }
-                
-            }
-
-           
-        }
-
-        function refresh() {
-            
-            $(".datepicker_cal > tbody > th > td ").load(window.location.href + ".datepicker_cal > tbody > th > td ");
-            
-            buildCalendar();
-            
-            today = new Date(today.getFullYear(), today.getMonth() , today.getDate());
-            
-            today.setMonth(4); 
-
-        
-        }
-
-        function open_cal() {
-            $(".calendar_layer").show();
-            
-        }
-       
-        function close_cal() {
-            $(".calendar_layer").hide();
-        }
- 
-
-
+      	window.onload = function() {
+			  
+			  buildCalendar();
+			  
+			  
     /**
      *  캘린더 오픈
      *  날짜 값을 받아 캘린더 폼을 생성하고, 날짜값을 채워넣는다.
@@ -237,6 +138,147 @@
 
         }
     }
+			  
+			  
+			  
+			  
+			  
+		  }
+      
+          
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      //탭 메뉴 기능(아이디, 회원번호)
+   
+       $(function($) {
+          
+        $(".tab_cont > div").last().hide();
+            var radioCont = $(".tab_cont > div");
+          $("input[type='radio']").click(function(){
+            radioCont.hide();
+
+            radioCont.eq($("input[type='radio']").index(this)).show();
+          })
+      })
+
+    
+    
+        //탭 메뉴 기능(로그인, 비로그인)
+        $(function($) {
+          
+            $(".tab_head li").click(function(){
+                var idx2 = $(this).index();
+                $(".tab_head li").removeClass("on");
+                $(".tab_head li").eq(idx2).addClass("on");
+                $(".tab_content > div").hide();
+                $(".tab_content > div").eq(idx2).show();
+            
+            })
+        })
+
+       
+  
+         //가는 날 선택 달력 구현      
+
+        document.addEventListener("DOMContentLoaded", function() {
+        
+        
+        sel_year();
+       
+        
+        
+        
+           
+        
+        
+        
+        
+        
+  
+        
+        
+        });
+
+        var today = new Date(); // 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
+        var date = new Date();  // 전역 변수, today의 Date를 세어주는 역할
+
+        // 이전달 버튼 클릭
+        function datepicker_prev() {
+            this.today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+            buildCalendar();    // 전월 캘린더 출력 요청
+        }
+
+        // 다음달 버튼 클릭
+        function datepicker_next() {
+            this.today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+            buildCalendar();    // 명월 캘린더 출력 요청
+
+        }
+
+        // 달력 select 년,월 출력
+        function sel_year() {
+            var now = new Date();
+            var now_year = now.getFullYear();
+            var now_month = now.getMonth() + 1;
+            
+            for(var i = now_year; i <= 2024; i++)  {
+
+                for(var j = now_month; j <= 12; j++ ) {
+                          
+                        $("#sel_yearmonth").append("<option value='"+ i +"'>" + i +"." + j + " </option>");
+
+                }     
+                
+                if(i = 2024) {
+                    
+                    for(j = 1; j < 6; j++) {
+                        $("#sel_yearmonth").append("<option value='"+ i +"'>" + i +"." + j + " </option>");
+
+                    }
+                    
+                }
+                
+            }
+
+           
+        }
+
+        function refresh() {
+            
+            $(".datepicker_cal > tbody > th > td ").load(window.location.href + ".datepicker_cal > tbody > th > td ");
+            
+            buildCalendar();
+            
+            today = new Date(today.getFullYear(), today.getMonth() , today.getDate());
+            
+            today.setMonth(4); 
+
+        
+        }
+
+        function open_cal() {
+            $(".calendar_layer").show();
+            
+        }
+       
+        function close_cal() {
+            $(".calendar_layer").hide();
+        }
+ 
+
+
 
         /**
          * 날짜 선택
